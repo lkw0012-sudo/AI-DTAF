@@ -7,5 +7,5 @@ After installing Ollama, go to your command terminal (Windows Key + R, type cmd,
 
 ollama pull qwen2.5:7b  
 
-Afterwards, open the "DTCCycle" folder and run the python file (DO NOT REMOVE FROM FOLDER)  .
+Afterwards, download and open the "DTCCycle" folder and run the python file (DO NOT REMOVE FROM FOLDER)  .
 From there, paste in the responses found in "PROMPT ANSWERS" when asked by the code.
