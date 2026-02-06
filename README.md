@@ -9,7 +9,7 @@ Changed the internals of the cycler, any new prompts can now be inserted into th
 
 The biggest thing is I have completely removed the step4 prompt from the cycler, the LLM does not do good with it and we ultimately do not need it. Instead we have a script that generates the html file as opposed to having AI do it.
 
-
+I have also added a .zip file for ease of download.
 
 1/29/2026: Added "DTCCycle" folder. To use the folder follow the instructions below:  
 
