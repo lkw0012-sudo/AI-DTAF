@@ -1026,7 +1026,7 @@ def main():
     )
 
     # -----------------------------
-    # DTAF add-on (readiness questions) AFTER Step 4
+    # Capability Feasibility Checklist Context
     # -----------------------------
     if not args.skip_dtaf:
         try:
