@@ -428,7 +428,6 @@ def run_step(
     retries: int,
 ) -> str:
     messages.append({"role": "user", "content": user_prompt})
-    print(f"[debug] Sending request, prompt length={len(user_prompt)} chars...")  # ADD THIS
     out = chat_completions(
         base_url=base_url,
         model=model,
@@ -438,7 +437,6 @@ def run_step(
         timeout=timeout,
         retries=retries,
     )
-    print(f"[debug] Response length={len(out)} chars")
     messages.append({"role": "assistant", "content": out})
     return out
 
@@ -489,7 +487,7 @@ def build_step_simple(loaded: Dict[str, str], key: str) -> str:
         return loaded[key] + "\n\n" + OUTPUT_FORMATTING + ARTIFACTS_HINT
 
 # -----------------------------
-# DTAF Add-on (after Step 4): deterministic readiness screen
+# Post DTC Step4: Deterministic readiness screen
 # -----------------------------
 
 DTAF_FILES = {
@@ -502,7 +500,7 @@ DTAF_FILES = {
 }
 
 # -----------------------------
-# DTAF Add-on (post Step 4): readiness questions + prune
+# DTAF Readiness questions + prune
 # -----------------------------
 
 CAP_NAME = {cap_id: name for _, _, cap_id, name in CAPS}
@@ -793,7 +791,7 @@ def run_dtaf_addon_after_step4(
     results: List[Dict[str, Any]] = []
 
     print("\n==============================")
-    print("DTAF Add-on (post Step 4)")
+    print("Capability Feasibility Checklist")
     print("==============================")
     print(f"Screening Essential capabilities: {len(selected)}")
     print(f"Ranking all {len(selected)} Essential capabilities by readiness.\n")
