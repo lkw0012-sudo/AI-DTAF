@@ -1,0 +1,10 @@
+{"step": "0", "time_utc": "2026-04-28T06:32:40.423427Z", "output_path": "step0_use_case_suitability.md"}
+{"step": "1", "time_utc": "2026-04-28T06:32:59.719021Z", "output_path": "step1_business_requirements.md"}
+{"step": "2", "time_utc": "2026-04-28T06:33:20.156518Z", "output_path": "step2_capability_selector.md"}
+{"step": "3_part1", "time_utc": "2026-04-28T06:33:39.617669Z", "output_path": "step3_part1.md"}
+{"step": "3_part2", "time_utc": "2026-04-28T06:34:03.608507Z", "output_path": "step3_part2.md"}
+{"step": "4_deterministic", "time_utc": "2026-04-28T06:34:03.626922Z", "output_path": "step4_cpt_table.html"}
+{"step": "DTAF_addon_post_step4", "time_utc": "2026-04-28T06:34:31.075912Z", "output_path": "summary.md"}
+{"step": "4R_assessment_addon", "time_utc": "2026-04-28T06:35:06.519646Z", "output_path": "4r_assessment_summary.md"}
+{"step": "4S_assessment_addon", "time_utc": "2026-04-28T06:35:26.947740Z", "output_path": "4s_assessment_summary.md"}
+{"step": "DTV_assessment_addon", "time_utc": "2026-04-28T06:35:48.926169Z", "output_path": "dtv_assessment_summary.md"}

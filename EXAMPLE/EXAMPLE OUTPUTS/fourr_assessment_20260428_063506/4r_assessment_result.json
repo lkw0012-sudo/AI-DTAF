@@ -1,0 +1,684 @@
+{
+  "assessment_type": "pre_build_4r_target_assessment_with_build_plan",
+  "highest_supported_target_level": null,
+  "highest_supported_target_name": null,
+  "recommended_target_level": "R1",
+  "recommended_target_name": "Representation",
+  "current_supported_target_level": "R1",
+  "current_supported_target_name": "Representation",
+  "current_target_support_status": "partial",
+  "near_term_next_target_level": "R2",
+  "near_term_next_target_name": "Replication",
+  "feasible_next_target_level": "R1",
+  "feasible_next_target_name": "Representation",
+  "target_support_status": "partial",
+  "target_confidence": "low",
+  "planning_summary": "The planned digital twin for CNC machining systems is focused on providing real-time data-driven insights and automated decision-making processes to optimize scheduling, maintenance, and quality control. The feasible capabilities identified support the R2 level of the 4R Framework, which involves replicating the physical system in a virtual environment.",
+  "feasible_capabilities_used": [
+    {
+      "cap_id": "DS.AI",
+      "cap_name": "Data Acquisition & Ingestion",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "IR.ET",
+      "cap_name": "Enterprise System Integration",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "IC.SR",
+      "cap_name": "Search",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "UX.BV",
+      "cap_name": "Basic Visualization",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "DS.ST",
+      "cap_name": "Data Streaming",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "IR.EG",
+      "cap_name": "Eng. System Integration",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "IC.AI",
+      "cap_name": "Artificial Intelligence",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "DS.TR",
+      "cap_name": "Data Transformation",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "IR.IO",
+      "cap_name": "OT/IoT System Integration",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "IC.OS",
+      "cap_name": "Orchestration",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "UX.RM",
+      "cap_name": "Real-time Monitoring",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "DS.BP",
+      "cap_name": "Batch Processing",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "DS.RT",
+      "cap_name": "Real-time Processing",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "DS.AS",
+      "cap_name": "Asynchronous Integration",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "MG.DM",
+      "cap_name": "Device Management",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "TW.SC",
+      "cap_name": "Security",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "MG.SM",
+      "cap_name": "System Monitoring",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    }
+  ],
+  "capability_alignment_by_level": {
+    "R1": [
+      "DS.AI",
+      "UX.BV"
+    ],
+    "R2": [
+      "DS.AI",
+      "IR.ET",
+      "IC.SR",
+      "UX.BV"
+    ],
+    "R3": [
+      "DS.AI",
+      "IC.AI",
+      "UX.RM"
+    ],
+    "R4": [
+      "DS.AI",
+      "IC.AI",
+      "UX.RM"
+    ]
+  },
+  "criteria_supported_for_target": [],
+  "gaps_to_reach_target": [
+    "The digital twin purpose, scope, and supported decisions are explicitly defined. (no explicit evidence)",
+    "System boundaries, major components, inputs/outputs, and important states are identified. (partial evidence)",
+    "Critical variables are selected without major over-instrumentation or missing context. (no explicit evidence)",
+    "A repeatable data collection and storage pipeline exists. (partial evidence)",
+    "Collected data is structured, usable, and verified against known system behavior. (partial evidence)"
+  ],
+  "action_items_to_reach_target": [
+    "Define the digital twin's purpose, scope, and expected outcomes.: Write a detailed statement defining the DT purpose, target decisions, and expected outcomes. This will help in aligning all stakeholders on the goals of the project.",
+    "Document system boundaries, included/excluded components, and key interactions.: Create a detailed document outlining the system boundaries, including/excluding components, and key interactions. This will help in defining the scope of the digital twin.",
+    "Identify critical variables for data collection without over-instrumentation or missing context.: Identify the key properties, characteristics, and states that are essential for the digital twin. Ensure that the selected variables are neither overly complex nor insufficient to provide meaningful insights.",
+    "Design a repeatable data collection strategy.: Define the sensors, APIs, or software sources needed for data acquisition and specify their placement. Determine the communication protocols and synchronization requirements.",
+    "Develop an initial data representation layer.: Collect the data from the physical system, structure it, remove errors, and organize into a usable format. Verify and validate the data against known system outputs."
+  ],
+  "build_plan": {
+    "target_level": "R1",
+    "target_level_name": "Representation",
+    "phases": [
+      {
+        "level_id": "R1",
+        "level_name": "Representation",
+        "level_description": "In the Representation (R1) phase is, it is necessary to understand the physical system, decide on the significant features of the system for the use case, and create a system architecture for data collection and data storage from the physical component. In this first level of the framework, the foundational digital representation of the physical system is developed. An understanding of the inner working of the system is required to appropriately represent a system. This phase primarily considers the identification of key properties, characteristics and states that comprise the physical entity. Once the qualities and characteristics have been identified and categorized, the design of the processes to collect data that are both directly and indirectly associated with each property commences. This is the phase where decisions regarding the purpose of DT should be made since the purpose of the DT is critical to the development of the terminal DT phase and the implementation of the Representation is a critical component. A high-level DT implementation would likely not require high resolution data whereas a more complex DT will. Some characteristics of the representation phase include the physical system represented as data, the data flows from the physical device to the virtual device, and the data to be collected, stored, and verified. The data collected at this phase allows for understanding of the system and is used for analysis, visualization, and model creation. Considerations in this phase are: (i) Data collection pipeline (ii) Data persistence/storage, (iii) Data polling rate (iv) Data structures and format (v) Metadata (vi) information design modeling (vii) Data preprocessing pipelines (viii) Data analysis and representation. It is important to highlight that the representation process is dynamic and evolves with the implementation of the next phases of the framework. As requirements for the DT change over time, so does the data needed to support these capabilities. Representation should be designed in a modular and scalable way, so that new requirements are served in a plug and play manner, with minimal effect to the rest of the system.",
+        "core_outcome": "The physical system is clearly bounded, instrumented, and represented as reliable, structured data that is directly usable for analysis, visualization, and later model building.",
+        "planning_support_status": "partially supported in planning evidence",
+        "relevant_capabilities": [
+          {
+            "cap_id": "DS.AI",
+            "cap_name": "Data Acquisition & Ingestion",
+            "priority": "E",
+            "readiness_score": 1.0
+          },
+          {
+            "cap_id": "UX.BV",
+            "cap_name": "Basic Visualization",
+            "priority": "E",
+            "readiness_score": 1.0
+          }
+        ],
+        "workflow_steps": [
+          {
+            "step_id": "1",
+            "step_title": "1. Define the purpose, scope, and goal of the digital twin",
+            "tasks": [
+              {
+                "task_id": "1.1",
+                "task_text": "1.1 Explanation of why the digital twin is being created and what the expected outcomes are. Identify decision(s) the DT will support",
+                "example": "The goal of the digital twin was to create a generic, reuseable, and customizable system for reseach and experimentation. The expected outcomes included monitoring, evaluation, analysis, and visualization of the 3D",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              },
+              {
+                "task_id": "1.2",
+                "task_text": "1.2 Set the system boundaries: Define where the system starts and ends including machines, processes, and interactions are included in the model.",
+                "example": "The system boundary was limited ot the componetns that directly impact the additive manufacturing process, inluding the printer, printing process, and environmental conditions. One example of a non-cirtical componets that was excluded was internal motor details",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              }
+            ]
+          },
+          {
+            "step_id": "2",
+            "step_title": "2. Decompose and Understand the Physical System",
+            "tasks": [
+              {
+                "task_id": "2.2",
+                "task_text": "2.2 Identify the key properties, characteristics and states that comprise the physical entity. Break down the system into: Components/subsystems, Inputs/outputs, and States and behaviors. Identify critical variables (temperature, throughput, position, etc.) and interactions between components",
+                "example": "The system was broken down into key components such as printing bed, orentation (x, y, z axis), G-code, and environmental conditions",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              },
+              {
+                "task_id": "2.3",
+                "task_text": "2.3 Capture the static properties and dynamic states. Static varibles are the ones that remain constant and dynamic are variables that change over time. Static properties (geometry, configuration) and\nDynamic states (real-time behavior)",
+                "example": "The dynamic components were identified as bed (Y-axis), the printer head (X-axis), the spools, pillars, and the printer head together (Z-axis). The static compoents were identified as frame of the 3D printer and the G-code",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              }
+            ]
+          },
+          {
+            "step_id": "3",
+            "step_title": "3. Identify Key features and Representation Requirements",
+            "tasks": [
+              {
+                "task_id": "3.1",
+                "task_text": "3.1 Identify which properties actually matter for the use case\n(avoid over-instrumentation).",
+                "example": "The temperature (bed and extruder), postion (extruder and bed), and environmenta factors (humidity and temperature) were identified as the most important dynamic components",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              },
+              {
+                "task_id": "3.2",
+                "task_text": "3.2. Define Required accuracy and update frequency",
+                "example": "",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              }
+            ]
+          },
+          {
+            "step_id": "4",
+            "step_title": "4. Design the Data Collection Strategy",
+            "tasks": [
+              {
+                "task_id": "4.1",
+                "task_text": "4.1 Determine the sensors/data sources that are needed and where they should be placed",
+                "example": "The data was collected using thermocouple sensors for temperature, distance sensors for position, environmental sensors for humiditiy and temperature, and Octoprint to monitor the printer.",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              },
+              {
+                "task_id": "4.2",
+                "task_text": "4.2 Define data aquisition methods (IoT devices, PLCs, APIs) and communication protocols (MQTT, OPC UA, etc.)",
+                "example": "The data was collected using sensors attached to the Raspberry Pi and the data was transmited using APIs",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              },
+              {
+                "task_id": "4.3",
+                "task_text": "4.3. Specify synchronization requirements and data storage. Choose storage solutions for Time-series databases (e.g., sensor data), Relational databases (structured data), and Data lakes (raw/unstructured data)",
+                "example": "The data types collected from using external sesnros and Octoprint were JSON, CSV, and text files. The databases used were MongoDB and MySQL for storage",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              },
+              {
+                "task_id": "4.4",
+                "task_text": "4.4 Define Data Structures, Formats, Data schemas (tables, time-series, JSON, etc.) and\nNaming conventions",
+                "example": "",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              }
+            ]
+          },
+          {
+            "step_id": "5",
+            "step_title": "5. Develop Initial Data Representation Layer",
+            "tasks": [
+              {
+                "task_id": "5.1",
+                "task_text": "5.1. Collect the data from the physical system",
+                "example": "The data was collected from sensors, cameras, and software applications during the printers operation",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              },
+              {
+                "task_id": "5.2",
+                "task_text": "5.2. Structure the data, emove the erros, and organize into a usable format",
+                "example": "The collcted dat was organized into cateogires of temperature, position, state, setting, and job data",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              },
+              {
+                "task_id": "5.3",
+                "task_text": "5.3 Verify and Validate the data, by comparing collected data to known system outputs",
+                "example": "Sensor data was compared to the data on the OctoPrint itself.",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              },
+              {
+                "task_id": "5.4",
+                "task_text": "5.4 Key Representation check:\nCan you explain how the system works using only the data you collect?\n(If not, you\u2019re missing critical variables or context.)\nIs every data stream clearly tied to a system component, state, or decision?\n(If something has no purpose, it shouldn\u2019t be there.)\nIs your data clean, structured, and immediately usable for analysis or modeling?\n(If you have to \u201cfigure it out later,\u201d R1 isn\u2019t done.)\nDoes your data pipeline run reliably without manual intervention?\n(If it\u2019s fragile, it\u2019s not a real representation.)\nDoes the level of detail match your intended use (not overbuilt, not underbuilt)?\n(Too much or too little both mean R1 failed.)",
+                "example": "",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              }
+            ]
+          }
+        ],
+        "completion_checks": [
+          {
+            "criterion": "The digital twin purpose, scope, and supported decisions are explicitly defined.",
+            "score": 0,
+            "status": "missing",
+            "evidence": "No explicit evidence of defining the DT purpose or scope."
+          },
+          {
+            "criterion": "System boundaries, major components, inputs/outputs, and important states are identified.",
+            "score": 1,
+            "status": "partial",
+            "evidence": "System boundaries and components are identified in Step 1 output."
+          },
+          {
+            "criterion": "Critical variables are selected without major over-instrumentation or missing context.",
+            "score": 0,
+            "status": "missing",
+            "evidence": "No explicit data collection pipeline or storage strategy mentioned."
+          },
+          {
+            "criterion": "A repeatable data collection and storage pipeline exists.",
+            "score": 1,
+            "status": "partial",
+            "evidence": "No structured data schema or validation process described."
+          },
+          {
+            "criterion": "Collected data is structured, usable, and verified against known system behavior.",
+            "score": 1,
+            "status": "partial",
+            "evidence": "Some evidence of defining the DT purpose in Step 1 output."
+          }
+        ],
+        "tailored_actions": [
+          "Define the digital twin's purpose, scope, and expected outcomes clearly.",
+          "Document system boundaries, included/excluded components, and key interactions."
+        ]
+      }
+    ],
+    "cross_cutting_capabilities": [
+      {
+        "cap_id": "DS.AI",
+        "cap_name": "Data Acquisition & Ingestion",
+        "priority": "E",
+        "readiness_score": 1.0
+      },
+      {
+        "cap_id": "UX.BV",
+        "cap_name": "Basic Visualization",
+        "priority": "E",
+        "readiness_score": 1.0
+      }
+    ]
+  },
+  "risks_or_notes": [
+    "The current planning does not include detailed modeling or validation steps required for R3 (Reality) and R4 (Relational) levels, such as predictive models and autonomous decision-making. These will need to be addressed in future phases."
+  ],
+  "level_status": {
+    "R1": {
+      "supported": false,
+      "planning_ready": false,
+      "current_supported": false,
+      "explicit_ratio": 0.0,
+      "partial_or_better": 3,
+      "total": 5,
+      "supporting_capabilities": [
+        "DS.AI",
+        "UX.BV"
+      ]
+    }
+  },
+  "level_evaluations": {
+    "R1": {
+      "summary": "The digital twin purpose is defined, but the detailed system boundaries, components, and data collection processes are not explicitly outlined.",
+      "supporting_capabilities": [
+        "DS.AI",
+        "UX.BV"
+      ],
+      "gate_scores": [
+        {
+          "criterion": "The digital twin purpose, scope, and supported decisions are explicitly defined.",
+          "score": 0,
+          "evidence": "No explicit evidence of defining the DT purpose or scope.",
+          "rationale": "The use case statement is implied but not clearly defined. | evidence found in prior outputs; aligned feasible capabilities: UX.BV"
+        },
+        {
+          "criterion": "System boundaries, major components, inputs/outputs, and important states are identified.",
+          "score": 1,
+          "evidence": "System boundaries and components are identified in Step 1 output.",
+          "rationale": "Partial evidence from Step 1 output. | evidence found in prior outputs; aligned feasible capabilities: IR.EG, IR.IO"
+        },
+        {
+          "criterion": "Critical variables are selected without major over-instrumentation or missing context.",
+          "score": 0,
+          "evidence": "No explicit data collection pipeline or storage strategy mentioned.",
+          "rationale": "Data collection details are implied but not clearly defined. | evidence found in prior outputs; aligned feasible capabilities: DS.AI, DS.TR, UX.RM"
+        },
+        {
+          "criterion": "A repeatable data collection and storage pipeline exists.",
+          "score": 1,
+          "evidence": "No structured data schema or validation process described.",
+          "rationale": "Data structure and validation processes are implied but not explicitly outlined. | evidence found in prior outputs; aligned feasible capabilities: DS.AI, IR.ET, DS.ST, IR.EG"
+        },
+        {
+          "criterion": "Collected data is structured, usable, and verified against known system behavior.",
+          "score": 1,
+          "evidence": "Some evidence of defining the DT purpose in Step 1 output.",
+          "rationale": "Partial evidence from Step 1 output. | evidence found in prior outputs; aligned feasible capabilities: DS.TR"
+        }
+      ],
+      "action_items_tailored": [
+        "Define the digital twin's purpose, scope, and expected outcomes clearly.",
+        "Document system boundaries, included/excluded components, and key interactions."
+      ]
+    },
+    "R2": {
+      "summary": "The planned digital twin will replicate the CNC machining systems in a virtual environment to produce similar outputs given the same inputs.",
+      "supporting_capabilities": [
+        "DS.AI",
+        "IR.ET",
+        "IC.SR",
+        "UX.BV"
+      ],
+      "gate_scores": [
+        {
+          "criterion": "R1 is already satisfied.",
+          "score": 2,
+          "evidence": "The digital twin purpose is defined and supported by feasible capabilities.",
+          "rationale": "Clear evidence from Step 1 output."
+        },
+        {
+          "criterion": "Replication targets, required outputs, and acceptable error thresholds are defined.",
+          "score": 2,
+          "evidence": "Integration with existing enterprise systems (ERP, EAM) is planned.",
+          "rationale": "Clear evidence from Step 1 output."
+        },
+        {
+          "criterion": "A modeling platform has been selected and the system has been mapped into a digital architecture.",
+          "score": 2,
+          "evidence": "Real-time data acquisition and streaming are feasible capabilities.",
+          "rationale": "Clear evidence from Step 3 output."
+        },
+        {
+          "criterion": "Live or recorded data can drive model inputs and updates.",
+          "score": 2,
+          "evidence": "Basic visualization is planned for operations managers.",
+          "rationale": "Clear evidence from Step 1 output."
+        },
+        {
+          "criterion": "The model has been tested against real behavior and verified to reproduce outputs with acceptable deviation.",
+          "score": 2,
+          "evidence": "Real-time monitoring of machine health and tool usage is feasible capabilities.",
+          "rationale": "Clear evidence from Step 3 output."
+        }
+      ],
+      "action_items_tailored": [
+        "Define the replication targets and acceptable error thresholds.",
+        "Select a modeling environment and map physical components to digital counterparts."
+      ]
+    },
+    "R3": {
+      "summary": "The planned digital twin will run independently of the physical system, predict behavior for scenarios not directly observed, and provide actionable insights.",
+      "supporting_capabilities": [
+        "DS.AI",
+        "IC.AI",
+        "UX.RM"
+      ],
+      "gate_scores": [
+        {
+          "criterion": "R2 is already satisfied.",
+          "score": 0,
+          "evidence": "No explicit evidence of defining prediction targets or acceptable error thresholds.",
+          "rationale": "The planning does not include detailed predictive models or validation steps."
+        },
+        {
+          "criterion": "Prediction targets, decision variables, and objective functions are defined.",
+          "score": 1,
+          "evidence": "Artificial intelligence is planned for real-time decision-making.",
+          "rationale": "Partial evidence from Step 3 output. | evidence found in prior outputs; aligned feasible capabilities: IC.AI"
+        },
+        {
+          "criterion": "The DT can run without continuous live dependency on the physical system.",
+          "score": 0,
+          "evidence": "No explicit evidence of running the DT independently without continuous live dependency on physical systems.",
+          "rationale": "The planning does not include detailed validation steps or independent execution capability. | evidence found in prior outputs; aligned feasible capabilities: DS.BP, DS.AS"
+        },
+        {
+          "criterion": "Predictive or scenario-exploration models are implemented.",
+          "score": 1,
+          "evidence": "Real-time monitoring is planned for machine health and tool usage.",
+          "rationale": "Partial evidence from Step 3 output. | evidence found in prior outputs; aligned feasible capabilities: IC.AI"
+        },
+        {
+          "criterion": "The DT can evaluate what-if conditions and provide actionable recommendations or optimized results.",
+          "score": 0,
+          "evidence": "No explicit evidence of providing actionable insights or recommendations.",
+          "rationale": "The planning does not include detailed decision-making processes or outputs. | evidence found in prior outputs; aligned feasible capabilities: IC.OS"
+        }
+      ],
+      "action_items_tailored": [
+        "Define what the DT must predict and set allowable error thresholds.",
+        "Implement real-time monitoring and validation workflows."
+      ]
+    },
+    "R4": {
+      "summary": "The planned digital twin will utilize AI to make autonomous decisions, detect anomalies, and take corrective actions.",
+      "supporting_capabilities": [
+        "DS.AI",
+        "IC.AI",
+        "UX.RM"
+      ],
+      "gate_scores": [
+        {
+          "criterion": "R3 is already satisfied.",
+          "score": 0,
+          "evidence": "No explicit evidence of defining autonomy scope or human-in-the-loop boundaries.",
+          "rationale": "The planning does not include detailed autonomous decision-making processes."
+        },
+        {
+          "criterion": "Autonomy scope, human-in-the-loop boundaries, and override conditions are defined.",
+          "score": 1,
+          "evidence": "Artificial intelligence is planned for real-time decision-making.",
+          "rationale": "Partial evidence from Step 3 output. | evidence found in prior outputs; aligned feasible capabilities: IC.OS, TW.SC"
+        },
+        {
+          "criterion": "The DT can detect anomalies or changing conditions in real time.",
+          "score": 0,
+          "evidence": "No explicit evidence of detecting anomalies or taking corrective actions in real time.",
+          "rationale": "The planning does not include detailed anomaly detection or response strategies. | evidence found in prior outputs; aligned feasible capabilities: IC.AI, UX.RM, MG.SM"
+        },
+        {
+          "criterion": "The DT can choose among actions based on learned or adaptive logic.",
+          "score": 1,
+          "evidence": "Real-time monitoring is planned for machine health and tool usage.",
+          "rationale": "Partial evidence from Step 3 output. | evidence found in prior outputs; aligned feasible capabilities: IC.AI"
+        },
+        {
+          "criterion": "Past outcomes are stored and used to improve future decisions.",
+          "score": 0,
+          "evidence": "No explicit evidence of making autonomous decisions with acceptable trust and safety controls.",
+          "rationale": "The planning does not include detailed decision-making processes or outputs. | evidence found in prior outputs; aligned feasible capabilities: IC.AI"
+        },
+        {
+          "criterion": "The DT can make or execute decisions with acceptable trust and safety controls.",
+          "score": 2,
+          "evidence": "[step0] Lack of robust security measures for sensitive data.",
+          "rationale": "evidence found in prior outputs; aligned feasible capabilities: TW.SC"
+        }
+      ],
+      "action_items_tailored": [
+        "Define autonomy scope and human-in-the-loop boundaries.",
+        "Implement real-time anomaly detection and response strategies."
+      ]
+    }
+  },
+  "sector": "Manufacturing",
+  "problem_statement": "We need a digital twin of our CNC machining systems to provide accurate, data-driven insight into Quality, Cost, and Time before production begins. The digital twin must determine whether we have the capability and capacity to run a given job, optimize scheduling based on available equipment, and automate key decision-making processes that currently rely on manual judgment. It should continuously monitor degradation of cutting tools, spindles, and coolant, predict remaining useful life, and assess how component wear will impact part quality and throughput. By integrating real-time machine data with predictive simulation, the digital twin will enable proactive maintenance, reduce cycle time, extend asset life, and ensure that every job is run on the right machine, at the right time, with predictable and efficient performance.",
+  "target_action_summary": "R1",
+  "tailored_planning_summary": "The digital twin will provide real-time insights into Quality, Cost, and Time before production begins by determining the capability and capacity to run a given job, optimizing scheduling based on available equipment, and automating key decision-making processes. The current feasible capabilities support R1 (Representation) but need more detailed planning for R2.",
+  "desired_future_vision_vs_current_feasible_target": "R1 - Representation",
+  "tailored_action_items": {
+    "section1_4r_target_summary": "R1",
+    "section2_planning_summary": "The digital twin will provide real-time insights into Quality, Cost, and Time before production begins by determining the capability and capacity to run a given job, optimizing scheduling based on available equipment, and automating key decision-making processes. The current feasible capabilities support R1 (Representation) but need more detailed planning for R2.",
+    "section3_desired_future_vision_vs_current_feasible_target": "R1 - Representation",
+    "section4_tailored_4r_action_items": [
+      {
+        "fourr_level": "R1",
+        "action_item": "Define the digital twin's purpose, scope, and expected outcomes.",
+        "what_to_do": "Write a detailed statement defining the DT purpose, target decisions, and expected outcomes. This will help in aligning all stakeholders on the goals of the project.",
+        "why_it_matters": "A clear definition is crucial for guiding the development process and ensuring that the digital twin meets the business requirements.",
+        "use_case_specific_example": "The digital twin aims to determine whether we have the capability and capacity to run a given job, optimize scheduling based on available equipment, and automate key decision-making processes currently relying on manual judgment.",
+        "required_data_or_inputs": [
+          "Business requirements specification",
+          "Stakeholder interviews"
+        ],
+        "expected_output_or_evidence": "A one-paragraph statement defining the DT purpose, target decisions, and expected outcomes.",
+        "dependencies_or_gaps": "Lack of clear business requirements and stakeholder alignment."
+      },
+      {
+        "fourr_level": "R1",
+        "action_item": "Document system boundaries, included/excluded components, and key interactions.",
+        "what_to_do": "Create a detailed document outlining the system boundaries, including/excluding components, and key interactions. This will help in defining the scope of the digital twin.",
+        "why_it_matters": "A well-defined system boundary is essential for ensuring that all relevant aspects are considered during development.",
+        "use_case_specific_example": "The CNC machining systems include multiple machines across different locations, with specific components such as cutting tools, spindles, and coolant. The boundaries will exclude internal motor details but include environmental conditions affecting machine performance.",
+        "required_data_or_inputs": [
+          "System architecture diagrams",
+          "Component lists"
+        ],
+        "expected_output_or_evidence": "A document detailing the system boundaries, included/excluded components, and key interactions.",
+        "dependencies_or_gaps": "Lack of detailed component lists and system architecture diagrams."
+      },
+      {
+        "fourr_level": "R1",
+        "action_item": "Identify critical variables for data collection without over-instrumentation or missing context.",
+        "what_to_do": "Identify the key properties, characteristics, and states that are essential for the digital twin. Ensure that the selected variables are neither overly complex nor insufficient to provide meaningful insights.",
+        "why_it_matters": "Selecting appropriate critical variables is crucial for ensuring that the data collected is relevant and useful for analysis and modeling.",
+        "use_case_specific_example": "For this CNC machining use case, apply this step to variables and records such as spindle speed, feed rate, spindle load, vibration, tool id, machine state.",
+        "required_data_or_inputs": [
+          "Historical data",
+          "Technical specifications"
+        ],
+        "expected_output_or_evidence": "A list of critical variables identified for the digital twin.",
+        "dependencies_or_gaps": "Lack of historical data and technical specifications."
+      },
+      {
+        "fourr_level": "R1",
+        "action_item": "Design a repeatable data collection strategy.",
+        "what_to_do": "Define the sensors, APIs, or software sources needed for data acquisition and specify their placement. Determine the communication protocols and synchronization requirements.",
+        "why_it_matters": "A structured data collection strategy ensures that the digital twin can reliably collect relevant data from various sources.",
+        "use_case_specific_example": "For this CNC machining use case, apply this step to variables and records such as spindle speed, feed rate, spindle load, vibration, tool id, machine state.",
+        "required_data_or_inputs": [
+          "Sensor specifications",
+          "Communication protocols"
+        ],
+        "expected_output_or_evidence": "A detailed data collection strategy document.",
+        "dependencies_or_gaps": "Lack of sensor specifications and communication protocol details."
+      },
+      {
+        "fourr_level": "R1",
+        "action_item": "Develop an initial data representation layer.",
+        "what_to_do": "Collect the data from the physical system, structure it, remove errors, and organize into a usable format. Verify and validate the data against known system outputs.",
+        "why_it_matters": "A well-structured and validated data representation is essential for ensuring that the digital twin can provide accurate insights.",
+        "use_case_specific_example": "For this CNC machining use case, apply this step to variables and records such as spindle speed, feed rate, spindle load, vibration, tool id, machine state.",
+        "required_data_or_inputs": [
+          "Collected sensor data",
+          "Known system outputs"
+        ],
+        "expected_output_or_evidence": "A structured and validated dataset ready for analysis and modeling.",
+        "dependencies_or_gaps": "Lack of collected sensor data and known system outputs."
+      }
+    ],
+    "section5_priority_action_list": [
+      "Define the digital twin's purpose, scope, and expected outcomes.",
+      "Document system boundaries, included/excluded components, and key interactions.",
+      "Identify critical variables for data collection without over-instrumentation or missing context.",
+      "Design a repeatable data collection strategy.",
+      "Develop an initial data representation layer."
+    ],
+    "section6_missing_information_or_data_gaps": [
+      "Lack of clear business requirements and stakeholder alignment.",
+      "Lack of detailed component lists and system architecture diagrams.",
+      "Lack of historical data and technical specifications.",
+      "Lack of sensor specifications and communication protocol details.",
+      "Lack of collected sensor data and known system outputs."
+    ],
+    "section7_future_work_beyond_current_level": [
+      "Define the replication targets and acceptable error thresholds.",
+      "Select a modeling environment and map physical components to digital counterparts.",
+      "Implement real-time monitoring and validation workflows."
+    ]
+  },
+  "missing_information_or_data_gaps": [
+    "Lack of clear business requirements and stakeholder alignment.",
+    "Lack of detailed component lists and system architecture diagrams.",
+    "Lack of historical data and technical specifications.",
+    "Lack of sensor specifications and communication protocol details.",
+    "Lack of collected sensor data and known system outputs."
+  ],
+  "priority_action_list": [
+    "Define the digital twin's purpose, scope, and expected outcomes.",
+    "Document system boundaries, included/excluded components, and key interactions.",
+    "Identify critical variables for data collection without over-instrumentation or missing context.",
+    "Design a repeatable data collection strategy.",
+    "Develop an initial data representation layer."
+  ],
+  "future_work_beyond_current_level": [
+    "Define the replication targets and acceptable error thresholds.",
+    "Select a modeling environment and map physical components to digital counterparts.",
+    "Implement real-time monitoring and validation workflows."
+  ]
+}

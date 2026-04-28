@@ -1,0 +1,129 @@
+Step 0 blank: What sector should be analyzed (e.g., 'manufacturing', 'energy', 'healthcare')? Manufacturing
+Step 1 blank: Paste the problem statement for the digital twin use case:
+(Paste text, then type END on its own line and press Enter)
+
+We need a digital twin of our CNC machining systems to provide accurate, data-driven insight into Quality, Cost, and Time before production begins. The digital twin must determine whether we have the capability and capacity to run a given job, optimize scheduling based on available equipment, and automate key decision-making processes that currently rely on manual judgment. It should continuously monitor degradation of cutting tools, spindles, and coolant, predict remaining useful life, and assess how component wear will impact part quality and throughput. By integrating real-time machine data with predictive simulation, the digital twin will enable proactive maintenance, reduce cycle time, extend asset life, and ensure that every job is run on the right machine, at the right time, with predictable and efficient performance.
+END
+Injected CPT context from: C:\Users\lando\OneDrive\Desktop\DTAF\cpt.md
+Warming up model (first run can take a while on some machines)...
+
+==============================
+Capability Feasibility Checklist
+==============================
+Screening Essential capabilities: 17
+Ranking all 17 Essential capabilities by readiness.
+
+
+Capability: DS.AI (E) — Data Acquisition & Ingestion
+Notes: Ensure all data sources are reliable and high-quality to support real-time decision-making.
+  A) Real-time data acquisition from IoT sensors [E] [HARD]
+  B) Integration with ERP and CMMS systems [E]
+  C) High-quality data sources [E] [HARD]
+  D) Latency less than 5 seconds for critical data [E]
+  E) Scalability to handle over 50 CNC machines [E]
+  F) Data quality checks in place [H]
+  G) Real-time monitoring of machine health and tool usage [H]
+  H) Edge computing capabilities for real-time processing [H]
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: IR.ET (E) — Enterprise System Integration
+Notes: Critical for seamless integration and real-time data flow between digital twin and enterprise systems.
+  A) Integration with ERP system [E] [HARD]
+  B) Integration with CMMS system [E]
+  C) Real-time data streaming from IoT devices [H] [HARD]
+  D) Data consistency across systems [H]
+  E) Support for multiple manufacturing plants [H]
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: IC.SR (E) — Search
+Notes: Essential for real-time monitoring and predictive analytics.
+  A) Real-time querying of machine health data [E] [HARD]
+  B) Historical data retrieval capabilities [H]
+  C) Integration with existing databases [H] [HARD]
+  D) Support for complex queries [H]
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: UX.BV (E) — Basic Visualization
+Notes: Critical for providing quick insights and real-time monitoring.
+  A) Basic visualization of machine health data [E] [HARD]
+  B) Real-time dashboards for operations managers [H]
+  C) Mobile access to digital twin data [H] [HARD]
+  D) Integration with collaboration platforms like Teams or Yammer [H]
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: DS.ST (E) — Data Streaming
+  A) You have the data and access needed to implement this capability [HARD]
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: IR.EG (E) — Eng. System Integration
+  A) You have the data and access needed to implement this capability [HARD]
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: IC.AI (E) — Artificial Intelligence
+  A) You have the data and access needed to implement this capability [HARD]
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: DS.TR (E) — Data Transformation
+  A) You have the data and access needed to implement this capability [HARD]
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: IR.IO (E) — OT/IoT System Integration
+  A) You have the data and access needed to implement this capability [HARD]
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: IC.OS (E) — Orchestration
+  A) You have the data and access needed to implement this capability [HARD]
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: UX.RM (E) — Real-time Monitoring
+  A) You have the data and access needed to implement this capability [HARD]
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: DS.BP (E) — Batch Processing
+  A) You have the data and access needed to implement this capability [HARD]
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: DS.RT (E) — Real-time Processing
+  A) You have the data and access needed to implement this capability [HARD]
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: DS.AS (E) — Asynchronous Integration
+  A) You have the data and access needed to implement this capability [HARD]
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: MG.DM (E) — Device Management
+Notes: Essential for managing the lifecycle of IoT devices.
+  A) Provisioning of IoT devices [E] [HARD]
+  B) Authentication and authorization mechanisms in place [H]
+  C) Real-time device diagnostics [H] [HARD]
+  D) Scalability to manage multiple locations [H]
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: TW.SC (E) — Security
+Notes: Critical for maintaining data integrity and security.
+  A) Data encryption in transit and at rest [E] [HARD]
+  B) Role-based access control implemented [H]
+  C) Compliance with industry-specific regulations [H] [HARD]
+  D) Regular security audits [H]
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: MG.SM (E) — System Monitoring
+  A) You have the data and access needed to implement this capability [HARD]
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
