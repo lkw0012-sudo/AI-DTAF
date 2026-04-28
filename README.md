@@ -13,7 +13,7 @@ After installing Ollama, go to your command terminal (Windows Key + R, type "cmd
 
 ollama pull qwen2.5:7b  
 
-Afterwards, download and open the "DTAF" folder and run the python file (DO NOT REMOVE FROM FOLDER).
+Afterwards, download and extract the "DTAF" folder and run the python file (DO NOT REMOVE FROM FOLDER).
 
 Ensure you have an understanding of what you want your digital twin to do, create a comprehensive problem statement before you the file.
 Look at the EXAMPLE folder to get a good understanding of what the problem statement needs to look like.
