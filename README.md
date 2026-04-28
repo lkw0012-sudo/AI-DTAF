@@ -2,9 +2,14 @@
 To use the folder follow the instructions below:  
 
 Download Python 3.13: https://www.python.org/downloads/release/python-31313/
+
+Install VS Code: Download and install the editor from code.visualstudio.com
+
+Install the Python Extension: Open VS Code, go to the Extensions icon on the left sidebar, search for "Python," and click Install.
+
 Download Ollama: https://ollama.com/  
 
-After installing Ollama, go to your command terminal (Windows Key + R, type cmd, Enter) and paste the following command:  
+After installing Ollama, go to your command terminal (Windows Key + R, type "cmd", Enter) and paste the following command:  
 
 ollama pull qwen2.5:7b  
 
