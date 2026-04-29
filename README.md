@@ -19,3 +19,22 @@ Ensure you have an understanding of what you want your digital twin to do, creat
 Look at the EXAMPLE folder to get a good understanding of what the problem statement needs to look like.
 
 Follow the instructions provided by the code when ran.
+
+Minimum Hardware:
+CPU: 4 to 6 modern cores
+
+RAM: 16 GB
+
+GPU: none required, or 6 to 8 GB VRAM
+
+Storage: SSD with at least 20 GB free
+
+Recommended
+
+CPU: 8+ cores
+
+RAM: 32 GB
+
+GPU: 12 to 16 GB VRAM
+
+Storage: NVMe SSD with 30+ GB free
