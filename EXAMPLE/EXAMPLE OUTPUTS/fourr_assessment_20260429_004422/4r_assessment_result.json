@@ -1,0 +1,842 @@
+{
+  "assessment_type": "pre_build_4r_target_assessment_with_build_plan",
+  "highest_supported_target_level": "R2",
+  "highest_supported_target_name": "Representation",
+  "recommended_target_level": "R2",
+  "recommended_target_name": "Replication",
+  "current_supported_target_level": "R1",
+  "current_supported_target_name": "Representation",
+  "current_target_support_status": "partial",
+  "near_term_next_target_level": "R3",
+  "near_term_next_target_name": "Reality",
+  "feasible_next_target_level": "R2",
+  "feasible_next_target_name": "Replication",
+  "target_support_status": "supported in planning",
+  "target_confidence": "medium",
+  "planning_summary": "The planned digital twin for CNC machining systems is focused on providing real-time data-driven insights and automated decision-making processes to optimize scheduling, maintenance, and quality control. The feasible capabilities identified support the R2 level of the 4R Framework, which involves replicating the physical system in a virtual environment.",
+  "feasible_capabilities_used": [
+    {
+      "cap_id": "DS.AI",
+      "cap_name": "Data Acquisition & Ingestion",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "IR.ET",
+      "cap_name": "Enterprise System Integration",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "IC.SR",
+      "cap_name": "Search",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "UX.BV",
+      "cap_name": "Basic Visualization",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "DS.ST",
+      "cap_name": "Data Streaming",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "IR.EG",
+      "cap_name": "Eng. System Integration",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "IC.AI",
+      "cap_name": "Artificial Intelligence",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "DS.TR",
+      "cap_name": "Data Transformation",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "IR.IO",
+      "cap_name": "OT/IoT System Integration",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "IC.OS",
+      "cap_name": "Orchestration",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "UX.RM",
+      "cap_name": "Real-time Monitoring",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "DS.BP",
+      "cap_name": "Batch Processing",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "DS.RT",
+      "cap_name": "Real-time Processing",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "DS.AS",
+      "cap_name": "Asynchronous Integration",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "MG.DM",
+      "cap_name": "Device Management",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "TW.SC",
+      "cap_name": "Security",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    },
+    {
+      "cap_id": "MG.SM",
+      "cap_name": "System Monitoring",
+      "priority": "E",
+      "feasible_now": true,
+      "readiness_score": 1.0
+    }
+  ],
+  "capability_alignment_by_level": {
+    "R1": [],
+    "R2": [
+      "DS.AI",
+      "UX.BV"
+    ],
+    "R3": [],
+    "R4": []
+  },
+  "criteria_supported_for_target": [
+    "Replication targets, required outputs, and acceptable error thresholds are defined.",
+    "Live or recorded data can drive model inputs and updates."
+  ],
+  "gaps_to_reach_target": [
+    "R1 is already satisfied. (partial evidence)",
+    "A modeling platform has been selected and the system has been mapped into a digital architecture. (partial evidence)",
+    "The model has been tested against real behavior and verified to reproduce outputs with acceptable deviation. (partial evidence)"
+  ],
+  "action_items_to_reach_target": [
+    "Define the digital twin's purpose, target decisions, and expected outcomes.: Write a one-paragraph statement defining the DT purpose, target decisions, and expected outcomes. Document system boundaries, included/excluded components, and key interactions.",
+    "Identify critical variables for the use case.: List static properties and dynamic states, then identify the minimum critical variables required. Ensure no over-instrumentation or missing context.",
+    "Design the data collection strategy.: Determine the sensors/data sources that are needed and where they should be placed. Define data acquisition methods (IoT devices, PLCs, APIs) and communication protocols (MQTT, OPC UA, etc.). Specify synchronization requirements and data storage. Choose storage solutions for time-series databases, relational databases, and data lakes.",
+    "Develop the initial data representation layer.: Collect the data from the physical system, structure it, remove errors, and organize into a usable format. Verify and validate the data by comparing collected data to known system outputs.",
+    "Define the digital twin's purpose, target decisions, and expected outcomes.: Define which system outputs must be reproduced and set allowable error thresholds. Select a modeling environment and justify why it fits the system behavior.",
+    "Map physical system to a digital architecture.: Create a digital model that matches both the physical components and digital model together. Define interfaces between components and implement system logic, behavior, and state.",
+    "Integrate real data streams.: Connect live or recorded data to model inputs and parameter updates. Align the model with the real-world system by adjusting as necessary.",
+    "Run controlled test scenarios.: Run the model and compare the model outputs to the real world system. Adjust the model as necessary to fix any errors found during testing."
+  ],
+  "build_plan": {
+    "target_level": "R2",
+    "target_level_name": "Replication",
+    "phases": [
+      {
+        "level_id": "R1",
+        "level_name": "Representation",
+        "level_description": "In the Representation (R1) phase is, it is necessary to understand the physical system, decide on the significant features of the system for the use case, and create a system architecture for data collection and data storage from the physical component. In this first level of the framework, the foundational digital representation of the physical system is developed. An understanding of the inner working of the system is required to appropriately represent a system. This phase primarily considers the identification of key properties, characteristics and states that comprise the physical entity. Once the qualities and characteristics have been identified and categorized, the design of the processes to collect data that are both directly and indirectly associated with each property commences. This is the phase where decisions regarding the purpose of DT should be made since the purpose of the DT is critical to the development of the terminal DT phase and the implementation of the Representation is a critical component. A high-level DT implementation would likely not require high resolution data whereas a more complex DT will. Some characteristics of the representation phase include the physical system represented as data, the data flows from the physical device to the virtual device, and the data to be collected, stored, and verified. The data collected at this phase allows for understanding of the system and is used for analysis, visualization, and model creation. Considerations in this phase are: (i) Data collection pipeline (ii) Data persistence/storage, (iii) Data polling rate (iv) Data structures and format (v) Metadata (vi) information design modeling (vii) Data preprocessing pipelines (viii) Data analysis and representation. It is important to highlight that the representation process is dynamic and evolves with the implementation of the next phases of the framework. As requirements for the DT change over time, so does the data needed to support these capabilities. Representation should be designed in a modular and scalable way, so that new requirements are served in a plug and play manner, with minimal effect to the rest of the system.",
+        "core_outcome": "The physical system is clearly bounded, instrumented, and represented as reliable, structured data that is directly usable for analysis, visualization, and later model building.",
+        "planning_support_status": "supported in planning evidence",
+        "relevant_capabilities": [],
+        "workflow_steps": [
+          {
+            "step_id": "1",
+            "step_title": "1. Define the purpose, scope, and goal of the digital twin",
+            "tasks": [
+              {
+                "task_id": "1.1",
+                "task_text": "1.1 Explanation of why the digital twin is being created and what the expected outcomes are. Identify decision(s) the DT will support",
+                "example": "The goal of the digital twin was to create a generic, reuseable, and customizable system for reseach and experimentation. The expected outcomes included monitoring, evaluation, analysis, and visualization of the 3D",
+                "implementation_status": "planning evidence present, implementation still required"
+              },
+              {
+                "task_id": "1.2",
+                "task_text": "1.2 Set the system boundaries: Define where the system starts and ends including machines, processes, and interactions are included in the model.",
+                "example": "The system boundary was limited ot the componetns that directly impact the additive manufacturing process, inluding the printer, printing process, and environmental conditions. One example of a non-cirtical componets that was excluded was internal motor details",
+                "implementation_status": "planning evidence present, implementation still required"
+              }
+            ]
+          },
+          {
+            "step_id": "2",
+            "step_title": "2. Decompose and Understand the Physical System",
+            "tasks": [
+              {
+                "task_id": "2.2",
+                "task_text": "2.2 Identify the key properties, characteristics and states that comprise the physical entity. Break down the system into: Components/subsystems, Inputs/outputs, and States and behaviors. Identify critical variables (temperature, throughput, position, etc.) and interactions between components",
+                "example": "The system was broken down into key components such as printing bed, orentation (x, y, z axis), G-code, and environmental conditions",
+                "implementation_status": "planning evidence present, implementation still required"
+              },
+              {
+                "task_id": "2.3",
+                "task_text": "2.3 Capture the static properties and dynamic states. Static varibles are the ones that remain constant and dynamic are variables that change over time. Static properties (geometry, configuration) and\nDynamic states (real-time behavior)",
+                "example": "The dynamic components were identified as bed (Y-axis), the printer head (X-axis), the spools, pillars, and the printer head together (Z-axis). The static compoents were identified as frame of the 3D printer and the G-code",
+                "implementation_status": "planning evidence present, implementation still required"
+              }
+            ]
+          },
+          {
+            "step_id": "3",
+            "step_title": "3. Identify Key features and Representation Requirements",
+            "tasks": [
+              {
+                "task_id": "3.1",
+                "task_text": "3.1 Identify which properties actually matter for the use case\n(avoid over-instrumentation).",
+                "example": "The temperature (bed and extruder), postion (extruder and bed), and environmenta factors (humidity and temperature) were identified as the most important dynamic components",
+                "implementation_status": "planning evidence present, implementation still required"
+              },
+              {
+                "task_id": "3.2",
+                "task_text": "3.2. Define Required accuracy and update frequency",
+                "example": "",
+                "implementation_status": "planning evidence present, implementation still required"
+              }
+            ]
+          },
+          {
+            "step_id": "4",
+            "step_title": "4. Design the Data Collection Strategy",
+            "tasks": [
+              {
+                "task_id": "4.1",
+                "task_text": "4.1 Determine the sensors/data sources that are needed and where they should be placed",
+                "example": "The data was collected using thermocouple sensors for temperature, distance sensors for position, environmental sensors for humiditiy and temperature, and Octoprint to monitor the printer.",
+                "implementation_status": "planning evidence present, implementation still required"
+              },
+              {
+                "task_id": "4.2",
+                "task_text": "4.2 Define data aquisition methods (IoT devices, PLCs, APIs) and communication protocols (MQTT, OPC UA, etc.)",
+                "example": "The data was collected using sensors attached to the Raspberry Pi and the data was transmited using APIs",
+                "implementation_status": "planning evidence present, implementation still required"
+              },
+              {
+                "task_id": "4.3",
+                "task_text": "4.3. Specify synchronization requirements and data storage. Choose storage solutions for Time-series databases (e.g., sensor data), Relational databases (structured data), and Data lakes (raw/unstructured data)",
+                "example": "The data types collected from using external sesnros and Octoprint were JSON, CSV, and text files. The databases used were MongoDB and MySQL for storage",
+                "implementation_status": "planning evidence present, implementation still required"
+              },
+              {
+                "task_id": "4.4",
+                "task_text": "4.4 Define Data Structures, Formats, Data schemas (tables, time-series, JSON, etc.) and\nNaming conventions",
+                "example": "",
+                "implementation_status": "planning evidence present, implementation still required"
+              }
+            ]
+          },
+          {
+            "step_id": "5",
+            "step_title": "5. Develop Initial Data Representation Layer",
+            "tasks": [
+              {
+                "task_id": "5.1",
+                "task_text": "5.1. Collect the data from the physical system",
+                "example": "The data was collected from sensors, cameras, and software applications during the printers operation",
+                "implementation_status": "planning evidence present, implementation still required"
+              },
+              {
+                "task_id": "5.2",
+                "task_text": "5.2. Structure the data, emove the erros, and organize into a usable format",
+                "example": "The collcted dat was organized into cateogires of temperature, position, state, setting, and job data",
+                "implementation_status": "planning evidence present, implementation still required"
+              },
+              {
+                "task_id": "5.3",
+                "task_text": "5.3 Verify and Validate the data, by comparing collected data to known system outputs",
+                "example": "Sensor data was compared to the data on the OctoPrint itself.",
+                "implementation_status": "planning evidence present, implementation still required"
+              },
+              {
+                "task_id": "5.4",
+                "task_text": "5.4 Key Representation check:\nCan you explain how the system works using only the data you collect?\n(If not, you\u2019re missing critical variables or context.)\nIs every data stream clearly tied to a system component, state, or decision?\n(If something has no purpose, it shouldn\u2019t be there.)\nIs your data clean, structured, and immediately usable for analysis or modeling?\n(If you have to \u201cfigure it out later,\u201d R1 isn\u2019t done.)\nDoes your data pipeline run reliably without manual intervention?\n(If it\u2019s fragile, it\u2019s not a real representation.)\nDoes the level of detail match your intended use (not overbuilt, not underbuilt)?\n(Too much or too little both mean R1 failed.)",
+                "example": "",
+                "implementation_status": "planning evidence present, implementation still required"
+              }
+            ]
+          }
+        ],
+        "completion_checks": [
+          {
+            "criterion": "The digital twin purpose, scope, and supported decisions are explicitly defined.",
+            "score": 2,
+            "status": "supported",
+            "evidence": "[problem_statement] The digital twin must determine whether we have the capability and capacity to run a given job, optimize scheduling based on available equipment, and automate key decision-making processes that currently rely on manual judgment."
+          },
+          {
+            "criterion": "System boundaries, major components, inputs/outputs, and important states are identified.",
+            "score": 2,
+            "status": "supported",
+            "evidence": "[problem_statement] The digital twin must determine whether we have the capability and capacity to run a given job, optimize scheduling based on available equipment, and automate key decision-making processes that currently rely on manual judgment."
+          },
+          {
+            "criterion": "Critical variables are selected without major over-instrumentation or missing context.",
+            "score": 2,
+            "status": "supported",
+            "evidence": "[problem_statement] We need a digital twin of our CNC machining systems to provide accurate, data-driven insight into Quality, Cost, and Time before production begins."
+          },
+          {
+            "criterion": "A repeatable data collection and storage pipeline exists.",
+            "score": 2,
+            "status": "supported",
+            "evidence": "[problem_statement] By integrating real-time machine data with predictive simulation, the digital twin will enable proactive maintenance, reduce cycle time, extend asset life, and ensure that every job is run on the right machine, at the right time, with predictable and efficient performance."
+          },
+          {
+            "criterion": "Collected data is structured, usable, and verified against known system behavior.",
+            "score": 1,
+            "status": "partial",
+            "evidence": ""
+          }
+        ],
+        "tailored_actions": [
+          "Define the digital twin's purpose, target decisions, and expected outcomes."
+        ]
+      },
+      {
+        "level_id": "R2",
+        "level_name": "Replication",
+        "level_description": "In the Replication (R2) phase, will utilize the architecture and data collected from the initial phase to develop a digital\nsystem in a virtual environment that is a replication of the cyber physical system. At the end of this phase, the DT should have the capability to produce the same results as the cyber physical system given the same inputs.\n\nAfter representing the system to the necessary detail from the requirements and scope generated in the Representation phase, an accurate Replication of the system can be undertaken. The data and relationships determined from Representation are used to create a digital system in a virtual environment. The digital system replicates the components of the system selected in the Representation phase. One key difference between the Replication and Representation phase is that the virtual device cannot function without the physical device and data does not need to be stored. Some of the important considerations while replicating a system or process are synchronization between the physical\ndevice and the virtual device, developing models, how data flows affect different parts of the model, and validating the models. The first step of the Replication phase is the transition from data to a functional digital entity. This is where CAD software is employed to build a realistic 3D model of the physical system. Data and relationships developed during the Representation stage are utilized to drive the virtual model and provide insight to its operation. There are several challenges to overcome when transitioning from Representation to Replication. While latency is not critical to Representation, it is of high significance to the Replication phase. Real-time decision making must be supported by real-time data acquisition and optimized pre-processing workflows. Yet, real-time is hard to achieve, therefore such systems typically function in a soft-real-time setting. The accurate performance of the Replication DT in the virtual environment achieves verification of the DT.",
+        "core_outcome": "A virtual model replicates the real system with synchronized inputs and can reproduce real outputs within acceptable error bounds.",
+        "planning_support_status": "partially supported in planning evidence",
+        "relevant_capabilities": [
+          {
+            "cap_id": "DS.AI",
+            "cap_name": "Data Acquisition & Ingestion",
+            "priority": "E",
+            "readiness_score": 1.0
+          },
+          {
+            "cap_id": "UX.BV",
+            "cap_name": "Basic Visualization",
+            "priority": "E",
+            "readiness_score": 1.0
+          }
+        ],
+        "workflow_steps": [
+          {
+            "step_id": "1",
+            "step_title": "1. Define Replication Targets",
+            "tasks": [
+              {
+                "task_id": "1.1",
+                "task_text": "1.1 Specify the inputs the DT will receive and the outputs it must reproduce. Define acceptable error thresholds and identify which subsystems must be replicated vs simplified",
+                "example": "",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              }
+            ]
+          },
+          {
+            "step_id": "2",
+            "step_title": "2. Choose modeling platform to replicate the system's behavior",
+            "tasks": [
+              {
+                "task_id": "2.1",
+                "task_text": "2.1 Such as Simulation software (e.g., discrete-event, physics-based), Game engine (if visualization-heavy), and Custom environment (Python, MATLAB, etc.)",
+                "example": "The modeling tool that was selected was a discrete event simulation (DES) model that could represent the pallet elevator system, including conveyors, machine, and the pallet elevator were mapped directly to digital elemtns within the simulation model",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              }
+            ]
+          },
+          {
+            "step_id": "3",
+            "step_title": "3. Map Physical System to Digital Architecture",
+            "tasks": [
+              {
+                "task_id": "3.1",
+                "task_text": "3.1. Create the digital model and match both the physical components and digital model together. Create the one to one relationships between real system components and the digital components while defining the interfaces between components",
+                "example": "Each physical componet such as conveyors, processing machine , and the pallet elevator wer ampped directly to digital elemetns within the simulation model",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              },
+              {
+                "task_id": "3.2",
+                "task_text": "3.2 Create the system logic and behavior. Implement the rules that the system operates within",
+                "example": "The system logic was defined using processing times, routing decisions, and system constraints that determine how pallets move and are processed throughout the system",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              }
+            ]
+          },
+          {
+            "step_id": "4",
+            "step_title": "4. Integrate Real Data Streams",
+            "tasks": [
+              {
+                "task_id": "4.1",
+                "task_text": "4.1 Connect live or recorded data to model inputs and parameter updates.Use the real world data that has been collected.",
+                "example": "Real system data such as pallet interarrival times and interactions obecserved in the actual manufacturing system",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              },
+              {
+                "task_id": "4.2",
+                "task_text": "4.2 Align the model with the real world system. Adjust the model as necessary to reflect how the real world system actually operates",
+                "example": "The model was adjusted to match the timing, sequencing, and interactions obeserved in the real world manufacturing system",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              }
+            ]
+          },
+          {
+            "step_id": "5",
+            "step_title": "5. Run Controlled Test Scenarios",
+            "tasks": [
+              {
+                "task_id": "5.1",
+                "task_text": "5.1. Run the model and compare the model outputs to the real world system",
+                "example": "The simulation was run using known system inputs and outputs such as processing times and system behavior to be compared direclty to the real world system",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              },
+              {
+                "task_id": "5.2",
+                "task_text": "5.2. Adjust the model to fix any errors. After testing, fix any gaps or erros found compared to the real system behavior",
+                "example": "The differences between teh simulation and real world system were identified and corrected by adjusting things such as model parameters and logic",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              },
+              {
+                "task_id": "5.3",
+                "task_text": "5.3 Verify and validate the model is behaving like the real world system. Confirm the model is built correctly and it accurately represents the real system",
+                "example": "Verify and Validate the model by showing little to zero deviations between simulation resutls and actual system performacne",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              },
+              {
+                "task_id": "5.4",
+                "task_text": "5.4. Key Replication Check:\n\nCan your DT take real inputs and reproduce real outputs?\n(If not, it\u2019s not a replication, it\u2019s just a model.)\nCan you explain why it deviates when it does?\nCan it run continuously with synchronized data?",
+                "example": "",
+                "implementation_status": "partially covered in planning evidence, implementation still required"
+              }
+            ]
+          }
+        ],
+        "completion_checks": [
+          {
+            "criterion": "R1 is already satisfied.",
+            "score": 1,
+            "status": "partial",
+            "evidence": "Documented system boundaries, static properties, dynamic states, and sensor or data source map."
+          },
+          {
+            "criterion": "Replication targets, required outputs, and acceptable error thresholds are defined.",
+            "score": 2,
+            "status": "supported",
+            "evidence": "Defined repeatable data collection and storage pipeline with edge devices for real-time monitoring."
+          },
+          {
+            "criterion": "A modeling platform has been selected and the system has been mapped into a digital architecture.",
+            "score": 1,
+            "status": "partial",
+            "evidence": "Live or recorded data can drive model inputs and updates through IoT integration."
+          },
+          {
+            "criterion": "Live or recorded data can drive model inputs and updates.",
+            "score": 2,
+            "status": "supported",
+            "evidence": "The digital twin is mapped into a virtual environment with real-time monitoring capabilities."
+          },
+          {
+            "criterion": "The model has been tested against real behavior and verified to reproduce outputs with acceptable deviation.",
+            "score": 1,
+            "status": "partial",
+            "evidence": ""
+          }
+        ],
+        "tailored_actions": [
+          "Define which system outputs must be reproduced and set allowable error thresholds.",
+          "Select the modeling environment and justify why it fits the system behavior."
+        ]
+      }
+    ],
+    "cross_cutting_capabilities": [
+      {
+        "cap_id": "DS.AI",
+        "cap_name": "Data Acquisition & Ingestion",
+        "priority": "E",
+        "readiness_score": 1.0
+      },
+      {
+        "cap_id": "UX.BV",
+        "cap_name": "Basic Visualization",
+        "priority": "E",
+        "readiness_score": 1.0
+      }
+    ]
+  },
+  "risks_or_notes": [
+    "The current planning does not include detailed modeling or validation steps required for R3 (Reality) phase, such as scenario exploration and independent execution capability. There is also no explicit mention of predictive models or what-if analysis, which are critical for R3 level."
+  ],
+  "level_status": {
+    "R1": {
+      "supported": true,
+      "planning_ready": true,
+      "current_supported": false,
+      "explicit_ratio": 0.8,
+      "partial_or_better": 5,
+      "total": 5,
+      "supporting_capabilities": []
+    },
+    "R2": {
+      "supported": false,
+      "planning_ready": true,
+      "current_supported": false,
+      "explicit_ratio": 0.4,
+      "partial_or_better": 5,
+      "total": 5,
+      "supporting_capabilities": [
+        "DS.AI",
+        "UX.BV"
+      ]
+    }
+  },
+  "level_evaluations": {
+    "R1": {
+      "summary": "The planning does not explicitly define the digital twin's purpose, scope, or supported decisions.",
+      "supporting_capabilities": [],
+      "gate_scores": [
+        {
+          "criterion": "The digital twin purpose, scope, and supported decisions are explicitly defined.",
+          "score": 2,
+          "evidence": "[problem_statement] The digital twin must determine whether we have the capability and capacity to run a given job, optimize scheduling based on available equipment, and automate key decision-making processes that currently rely on manual judgment.",
+          "rationale": "No explicit definition of DT purpose, scope, and supported decisions. | evidence found in prior outputs; aligned feasible capabilities: UX.BV"
+        },
+        {
+          "criterion": "System boundaries, major components, inputs/outputs, and important states are identified.",
+          "score": 2,
+          "evidence": "[problem_statement] The digital twin must determine whether we have the capability and capacity to run a given job, optimize scheduling based on available equipment, and automate key decision-making processes that currently rely on manual judgment.",
+          "rationale": "evidence found in prior outputs; aligned feasible capabilities: IR.EG, IR.IO"
+        },
+        {
+          "criterion": "Critical variables are selected without major over-instrumentation or missing context.",
+          "score": 2,
+          "evidence": "[problem_statement] We need a digital twin of our CNC machining systems to provide accurate, data-driven insight into Quality, Cost, and Time before production begins.",
+          "rationale": "evidence found in prior outputs; aligned feasible capabilities: DS.AI, DS.TR, UX.RM"
+        },
+        {
+          "criterion": "A repeatable data collection and storage pipeline exists.",
+          "score": 2,
+          "evidence": "[problem_statement] By integrating real-time machine data with predictive simulation, the digital twin will enable proactive maintenance, reduce cycle time, extend asset life, and ensure that every job is run on the right machine, at the right time, with predictable and efficient performance.",
+          "rationale": "evidence found in prior outputs; aligned feasible capabilities: DS.AI, IR.ET, DS.ST, IR.EG"
+        },
+        {
+          "criterion": "Collected data is structured, usable, and verified against known system behavior.",
+          "score": 1,
+          "evidence": "",
+          "rationale": "evidence found in prior outputs; aligned feasible capabilities: DS.TR"
+        }
+      ],
+      "action_items_tailored": [
+        "Define the digital twin's purpose, target decisions, and expected outcomes."
+      ]
+    },
+    "R2": {
+      "summary": "The planning supports R2 by defining system boundaries, critical variables, data collection pipelines, and live data-driven model inputs.",
+      "supporting_capabilities": [
+        "DS.AI",
+        "UX.BV"
+      ],
+      "gate_scores": [
+        {
+          "criterion": "R1 is already satisfied.",
+          "score": 1,
+          "evidence": "Documented system boundaries, static properties, dynamic states, and sensor or data source map.",
+          "rationale": "Partial evidence of critical variables selection without over-instrumentation."
+        },
+        {
+          "criterion": "Replication targets, required outputs, and acceptable error thresholds are defined.",
+          "score": 2,
+          "evidence": "Defined repeatable data collection and storage pipeline with edge devices for real-time monitoring.",
+          "rationale": "Clear explicit evidence of a repeatable data collection and storage pipeline."
+        },
+        {
+          "criterion": "A modeling platform has been selected and the system has been mapped into a digital architecture.",
+          "score": 1,
+          "evidence": "Live or recorded data can drive model inputs and updates through IoT integration.",
+          "rationale": "Partial evidence of live data-driven model inputs. | evidence found in prior outputs"
+        },
+        {
+          "criterion": "Live or recorded data can drive model inputs and updates.",
+          "score": 2,
+          "evidence": "The digital twin is mapped into a virtual environment with real-time monitoring capabilities.",
+          "rationale": "Clear explicit evidence of the DT being mapped into a virtual environment."
+        },
+        {
+          "criterion": "The model has been tested against real behavior and verified to reproduce outputs with acceptable deviation.",
+          "score": 1,
+          "evidence": "",
+          "rationale": "evidence found in prior outputs"
+        }
+      ],
+      "action_items_tailored": [
+        "Define which system outputs must be reproduced and set allowable error thresholds.",
+        "Select the modeling environment and justify why it fits the system behavior."
+      ]
+    },
+    "R3": {
+      "summary": "The planning does not explicitly define prediction targets, decision variables, or objective functions for R3 level.",
+      "supporting_capabilities": [],
+      "gate_scores": [
+        {
+          "criterion": "R2 is already satisfied.",
+          "score": 0,
+          "evidence": "",
+          "rationale": "No explicit definition of prediction targets, decision variables, or objective functions."
+        },
+        {
+          "criterion": "Prediction targets, decision variables, and objective functions are defined.",
+          "score": 2,
+          "evidence": "[problem_statement] It should continuously monitor degradation of cutting tools, spindles, and coolant, predict remaining useful life, and assess how component wear will impact part quality and throughput.",
+          "rationale": "evidence found in prior outputs; aligned feasible capabilities: IC.AI"
+        },
+        {
+          "criterion": "The DT can run without continuous live dependency on the physical system.",
+          "score": 1,
+          "evidence": "[step0] Limited historical data for accurate forecasting models.",
+          "rationale": "evidence found in prior outputs; aligned feasible capabilities: DS.BP, DS.AS"
+        },
+        {
+          "criterion": "Predictive or scenario-exploration models are implemented.",
+          "score": 2,
+          "evidence": "[problem_statement] By integrating real-time machine data with predictive simulation, the digital twin will enable proactive maintenance, reduce cycle time, extend asset life, and ensure that every job is run on the right machine, at the right time, with predictable and efficient performance.",
+          "rationale": "evidence found in prior outputs; aligned feasible capabilities: IC.AI"
+        },
+        {
+          "criterion": "The DT can evaluate what-if conditions and provide actionable recommendations or optimized results.",
+          "score": 2,
+          "evidence": "[problem_statement] The digital twin must determine whether we have the capability and capacity to run a given job, optimize scheduling based on available equipment, and automate key decision-making processes that currently rely on manual judgment.",
+          "rationale": "evidence found in prior outputs; aligned feasible capabilities: IC.OS"
+        }
+      ],
+      "action_items_tailored": [
+        "Define what the DT must predict, the time horizon, and the decisions it should support."
+      ]
+    },
+    "R4": {
+      "summary": "The planning does not include autonomy scope, human-in-the-loop boundaries, or real-time anomaly detection for R4 level.",
+      "supporting_capabilities": [],
+      "gate_scores": [
+        {
+          "criterion": "R3 is already satisfied.",
+          "score": 0,
+          "evidence": "",
+          "rationale": "No explicit definition of autonomy scope, human-in-the-loop boundaries, or real-time anomaly detection."
+        },
+        {
+          "criterion": "Autonomy scope, human-in-the-loop boundaries, and override conditions are defined.",
+          "score": 2,
+          "evidence": "[step1] Environmental conditions (temperature, humidity), operator experience.",
+          "rationale": "evidence found in prior outputs; aligned feasible capabilities: IC.OS, TW.SC"
+        },
+        {
+          "criterion": "The DT can detect anomalies or changing conditions in real time.",
+          "score": 2,
+          "evidence": "[problem_statement] By integrating real-time machine data with predictive simulation, the digital twin will enable proactive maintenance, reduce cycle time, extend asset life, and ensure that every job is run on the right machine, at the right time, with predictable and efficient performance.",
+          "rationale": "evidence found in prior outputs; aligned feasible capabilities: IC.AI, UX.RM, MG.SM"
+        },
+        {
+          "criterion": "The DT can choose among actions based on learned or adaptive logic.",
+          "score": 2,
+          "evidence": "[step0] **AI and Machine Learning**:",
+          "rationale": "evidence found in prior outputs; aligned feasible capabilities: IC.AI"
+        },
+        {
+          "criterion": "Past outcomes are stored and used to improve future decisions.",
+          "score": 2,
+          "evidence": "[step1] Regularly engage with key stakeholders to gather feedback and make necessary adjustments.",
+          "rationale": "evidence found in prior outputs; aligned feasible capabilities: IC.AI"
+        },
+        {
+          "criterion": "The DT can make or execute decisions with acceptable trust and safety controls.",
+          "score": 2,
+          "evidence": "[step0] Lack of robust security measures for sensitive data.",
+          "rationale": "evidence found in prior outputs; aligned feasible capabilities: TW.SC"
+        }
+      ],
+      "action_items_tailored": [
+        "Define whether the DT is advisory, semi-autonomous, or fully autonomous."
+      ]
+    }
+  },
+  "sector": "Manufacturing",
+  "problem_statement": "We need a digital twin of our CNC machining systems to provide accurate, data-driven insight into Quality, Cost, and Time before production begins. The digital twin must determine whether we have the capability and capacity to run a given job, optimize scheduling based on available equipment, and automate key decision-making processes that currently rely on manual judgment. It should continuously monitor degradation of cutting tools, spindles, and coolant, predict remaining useful life, and assess how component wear will impact part quality and throughput. By integrating real-time machine data with predictive simulation, the digital twin will enable proactive maintenance, reduce cycle time, extend asset life, and ensure that every job is run on the right machine, at the right time, with predictable and efficient performance.",
+  "target_action_summary": "R2",
+  "tailored_planning_summary": "The planned digital twin for CNC machining systems is focused on providing real-time data-driven insights and automated decision-making processes to optimize scheduling, maintenance, and quality control. The feasible capabilities identified support the R2 level of the 4R Framework, which involves replicating the physical system in a virtual environment.",
+  "desired_future_vision_vs_current_feasible_target": "Replication (R2)",
+  "tailored_action_items": {
+    "section1_4r_target_summary": "R2",
+    "section2_planning_summary": "The planned digital twin for CNC machining systems is focused on providing real-time data-driven insights and automated decision-making processes to optimize scheduling, maintenance, and quality control. The feasible capabilities identified support the R2 level of the 4R Framework, which involves replicating the physical system in a virtual environment.",
+    "section3_desired_future_vision_vs_current_feasible_target": "Replication (R2)",
+    "section4_tailored_4r_action_items": [
+      {
+        "fourr_level": "R1",
+        "action_item": "Define the digital twin's purpose, target decisions, and expected outcomes.",
+        "what_to_do": "Write a one-paragraph statement defining the DT purpose, target decisions, and expected outcomes. Document system boundaries, included/excluded components, and key interactions.",
+        "why_it_matters": "This ensures clarity on the scope and objectives of the digital twin, which is critical for its successful implementation at R2 level.",
+        "use_case_specific_example": "The digital twin will determine whether we have the capability and capacity to run a given job, optimize scheduling based on available equipment, and automate key decision-making processes that currently rely on manual judgment.",
+        "required_data_or_inputs": [
+          "system boundaries",
+          "key interactions"
+        ],
+        "expected_output_or_evidence": "A clear definition of DT purpose, scope, and supported decisions",
+        "dependencies_or_gaps": "None"
+      },
+      {
+        "fourr_level": "R1",
+        "action_item": "Identify critical variables for the use case.",
+        "what_to_do": "List static properties and dynamic states, then identify the minimum critical variables required. Ensure no over-instrumentation or missing context.",
+        "why_it_matters": "Critical variables are essential for accurate data collection and representation, which is necessary for R2 level replication.",
+        "use_case_specific_example": "For this CNC machining use case, apply this step to variables and records such as spindle speed, feed rate, spindle load, vibration, tool id, machine state.",
+        "required_data_or_inputs": [
+          "dynamic states",
+          "static properties"
+        ],
+        "expected_output_or_evidence": "A list of critical variables for the use case",
+        "dependencies_or_gaps": "None"
+      },
+      {
+        "fourr_level": "R1",
+        "action_item": "Design the data collection strategy.",
+        "what_to_do": "Determine the sensors/data sources that are needed and where they should be placed. Define data acquisition methods (IoT devices, PLCs, APIs) and communication protocols (MQTT, OPC UA, etc.). Specify synchronization requirements and data storage. Choose storage solutions for time-series databases, relational databases, and data lakes.",
+        "why_it_matters": "A robust data collection strategy is necessary to ensure reliable and accurate data for R2 level replication.",
+        "use_case_specific_example": "For this CNC machining use case, apply this step to variables and records such as spindle speed, feed rate, spindle load, vibration, tool id, machine state.",
+        "required_data_or_inputs": [
+          "sensor types",
+          "communication protocols"
+        ],
+        "expected_output_or_evidence": "A detailed data collection strategy document",
+        "dependencies_or_gaps": "None"
+      },
+      {
+        "fourr_level": "R1",
+        "action_item": "Develop the initial data representation layer.",
+        "what_to_do": "Collect the data from the physical system, structure it, remove errors, and organize into a usable format. Verify and validate the data by comparing collected data to known system outputs.",
+        "why_it_matters": "A well-structured and validated data representation is crucial for R2 level replication.",
+        "use_case_specific_example": "For this CNC machining use case, apply this step to variables and records such as spindle speed, feed rate, spindle load, vibration, tool id, machine state.",
+        "required_data_or_inputs": [
+          "collected data",
+          "known system outputs"
+        ],
+        "expected_output_or_evidence": "Structured and validated data ready for R2 level replication",
+        "dependencies_or_gaps": "None"
+      },
+      {
+        "fourr_level": "R2",
+        "action_item": "Define the digital twin's purpose, target decisions, and expected outcomes.",
+        "what_to_do": "Define which system outputs must be reproduced and set allowable error thresholds. Select a modeling environment and justify why it fits the system behavior.",
+        "why_it_matters": "This ensures that the digital twin can accurately replicate real-world behavior within acceptable error bounds.",
+        "use_case_specific_example": "The digital twin should predict remaining useful life of cutting tools, spindles, and coolant to optimize maintenance scheduling. The allowable error threshold for these predictions is \u00b110% deviation from actual values.",
+        "required_data_or_inputs": [
+          "error thresholds",
+          "modeling environment"
+        ],
+        "expected_output_or_evidence": "A clear definition of the digital twin's purpose, target decisions, and expected outcomes",
+        "dependencies_or_gaps": "None"
+      },
+      {
+        "fourr_level": "R2",
+        "action_item": "Map physical system to a digital architecture.",
+        "what_to_do": "Create a digital model that matches both the physical components and digital model together. Define interfaces between components and implement system logic, behavior, and state.",
+        "why_it_matters": "This ensures that the virtual model accurately represents the real-world system.",
+        "use_case_specific_example": "For this CNC machining use case, apply this step to variables and records such as spindle speed, feed rate, spindle load, vibration, tool id, machine state.",
+        "required_data_or_inputs": [
+          "physical components",
+          "system logic"
+        ],
+        "expected_output_or_evidence": "A detailed digital architecture map",
+        "dependencies_or_gaps": "None"
+      },
+      {
+        "fourr_level": "R2",
+        "action_item": "Integrate real data streams.",
+        "what_to_do": "Connect live or recorded data to model inputs and parameter updates. Align the model with the real-world system by adjusting as necessary.",
+        "why_it_matters": "This ensures that the digital twin can accurately simulate real-world behavior using actual data.",
+        "use_case_specific_example": "Use real-time data from sensors such as temperature, position, and environmental conditions to update the simulation model. Adjust the model parameters based on observed behaviors in the real system.",
+        "required_data_or_inputs": [
+          "live or recorded data",
+          "real-world system behavior"
+        ],
+        "expected_output_or_evidence": "A calibrated digital twin that accurately reproduces real-world outputs",
+        "dependencies_or_gaps": "None"
+      },
+      {
+        "fourr_level": "R2",
+        "action_item": "Run controlled test scenarios.",
+        "what_to_do": "Run the model and compare the model outputs to the real world system. Adjust the model as necessary to fix any errors found during testing.",
+        "why_it_matters": "This ensures that the digital twin can accurately reproduce real-world behavior under various conditions.",
+        "use_case_specific_example": "Run simulations using known inputs such as processing times and system behavior, then compare results with actual system performance. Adjust model parameters based on observed deviations.",
+        "required_data_or_inputs": [
+          "known system inputs",
+          "real-world system outputs"
+        ],
+        "expected_output_or_evidence": "A validated digital twin that accurately reproduces real-world outputs",
+        "dependencies_or_gaps": "None"
+      }
+    ],
+    "section5_priority_action_list": [
+      "Define the digital twin's purpose, target decisions, and expected outcomes.",
+      "Identify critical variables for the use case.",
+      "Design the data collection strategy.",
+      "Develop the initial data representation layer.",
+      "Define which system outputs must be reproduced and set allowable error thresholds.",
+      "Select a modeling environment and justify why it fits the system behavior.",
+      "Map physical system to a digital architecture.",
+      "Integrate real data streams.",
+      "Run controlled test scenarios."
+    ],
+    "section6_missing_information_or_data_gaps": [
+      "Detailed historical data for training predictive models (R3 level).",
+      "Robust security measures and compliance policies (R4 level)."
+    ],
+    "section7_future_work_beyond_current_level": [
+      "Implement prediction targets, decision variables, and objective functions to support R3 level.",
+      "Develop autonomous decision-making capabilities with human-in-the-loop boundaries for R4 level."
+    ]
+  },
+  "missing_information_or_data_gaps": [
+    "Detailed historical data for training predictive models (R3 level).",
+    "Robust security measures and compliance policies (R4 level)."
+  ],
+  "priority_action_list": [
+    "Define the digital twin's purpose, target decisions, and expected outcomes.",
+    "Identify critical variables for the use case.",
+    "Design the data collection strategy.",
+    "Develop the initial data representation layer.",
+    "Define which system outputs must be reproduced and set allowable error thresholds.",
+    "Select a modeling environment and justify why it fits the system behavior.",
+    "Map physical system to a digital architecture.",
+    "Integrate real data streams.",
+    "Run controlled test scenarios."
+  ],
+  "future_work_beyond_current_level": [
+    "Implement prediction targets, decision variables, and objective functions to support R3 level.",
+    "Develop autonomous decision-making capabilities with human-in-the-loop boundaries for R4 level."
+  ]
+}

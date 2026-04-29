@@ -1,0 +1,241 @@
+{
+  "DS.AI": {
+    "have_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "prerequisites": [
+      "Real-time data acquisition from IoT sensors [E]",
+      "Integration with ERP and CMMS systems [E]",
+      "High-quality data sources [E]",
+      "Latency less than 5 seconds for critical data [E]",
+      "Scalability to handle over 50 CNC machines [E]",
+      "Data quality checks in place [H]",
+      "Real-time monitoring of machine health and tool usage [H]",
+      "Edge computing capabilities for real-time processing [H]"
+    ],
+    "hard_gates": [
+      0,
+      2
+    ]
+  },
+  "IR.ET": {
+    "have_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "prerequisites": [
+      "Integration with ERP system [E]",
+      "Integration with CMMS system [E]",
+      "Real-time data streaming from IoT devices [H]",
+      "Data consistency across systems [H]",
+      "Support for multiple manufacturing plants [H]"
+    ],
+    "hard_gates": [
+      0,
+      2
+    ]
+  },
+  "IC.SR": {
+    "have_indices": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "prerequisites": [
+      "Real-time querying of machine health data [E]",
+      "Historical data retrieval capabilities [H]",
+      "Integration with existing databases [H]",
+      "Support for complex queries [H]"
+    ],
+    "hard_gates": [
+      0,
+      2
+    ]
+  },
+  "UX.BV": {
+    "have_indices": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "prerequisites": [
+      "Basic visualization of machine health data [E]",
+      "Real-time dashboards for operations managers [H]",
+      "Mobile access to digital twin data [H]",
+      "Integration with collaboration platforms like Teams or Yammer [H]"
+    ],
+    "hard_gates": [
+      0,
+      2
+    ]
+  },
+  "DS.ST": {
+    "have_indices": [
+      0
+    ],
+    "prerequisites": [
+      "You have the data and access needed to implement this capability"
+    ],
+    "hard_gates": [
+      0
+    ]
+  },
+  "IR.EG": {
+    "have_indices": [
+      0
+    ],
+    "prerequisites": [
+      "You have the data and access needed to implement this capability"
+    ],
+    "hard_gates": [
+      0
+    ]
+  },
+  "IC.AI": {
+    "have_indices": [
+      0
+    ],
+    "prerequisites": [
+      "You have the data and access needed to implement this capability"
+    ],
+    "hard_gates": [
+      0
+    ]
+  },
+  "DS.TR": {
+    "have_indices": [
+      0
+    ],
+    "prerequisites": [
+      "You have the data and access needed to implement this capability"
+    ],
+    "hard_gates": [
+      0
+    ]
+  },
+  "IR.IO": {
+    "have_indices": [
+      0
+    ],
+    "prerequisites": [
+      "You have the data and access needed to implement this capability"
+    ],
+    "hard_gates": [
+      0
+    ]
+  },
+  "IC.OS": {
+    "have_indices": [
+      0
+    ],
+    "prerequisites": [
+      "You have the data and access needed to implement this capability"
+    ],
+    "hard_gates": [
+      0
+    ]
+  },
+  "UX.RM": {
+    "have_indices": [
+      0
+    ],
+    "prerequisites": [
+      "You have the data and access needed to implement this capability"
+    ],
+    "hard_gates": [
+      0
+    ]
+  },
+  "DS.BP": {
+    "have_indices": [
+      0
+    ],
+    "prerequisites": [
+      "You have the data and access needed to implement this capability"
+    ],
+    "hard_gates": [
+      0
+    ]
+  },
+  "DS.RT": {
+    "have_indices": [
+      0
+    ],
+    "prerequisites": [
+      "You have the data and access needed to implement this capability"
+    ],
+    "hard_gates": [
+      0
+    ]
+  },
+  "DS.AS": {
+    "have_indices": [
+      0
+    ],
+    "prerequisites": [
+      "You have the data and access needed to implement this capability"
+    ],
+    "hard_gates": [
+      0
+    ]
+  },
+  "MG.DM": {
+    "have_indices": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "prerequisites": [
+      "Provisioning of IoT devices [E]",
+      "Authentication and authorization mechanisms in place [H]",
+      "Real-time device diagnostics [H]",
+      "Scalability to manage multiple locations [H]"
+    ],
+    "hard_gates": [
+      0,
+      2
+    ]
+  },
+  "TW.SC": {
+    "have_indices": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "prerequisites": [
+      "Data encryption in transit and at rest [E]",
+      "Role-based access control implemented [H]",
+      "Compliance with industry-specific regulations [H]",
+      "Regular security audits [H]"
+    ],
+    "hard_gates": [
+      0,
+      2
+    ]
+  },
+  "MG.SM": {
+    "have_indices": [
+      0
+    ],
+    "prerequisites": [
+      "You have the data and access needed to implement this capability"
+    ],
+    "hard_gates": [
+      0
+    ]
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "current_functions": [
+    {
+      "name": "Capability and Capacity Assessment",
+      "purpose": "Determine if the CNC machining systems have the necessary capacity to run a given job.",
+      "related_system_elements": [
+        "CNC machines",
+        "Cutting tools",
+        "Spindles",
+        "Coolant systems"
+      ],
+      "related_variables": [
+        "Machine performance metrics",
+        "Tool wear indicators",
+        "Spindle condition data",
+        "Coolant quality and usage"
+      ],
+      "related_decisions": [
+        "Determine capability and capacity to run a given job."
+      ]
+    },
+    {
+      "name": "Scheduling Optimization",
+      "purpose": "Optimize scheduling based on available equipment.",
+      "related_system_elements": [
+        "CNC machines",
+        "Cutting tools",
+        "Spindles",
+        "Coolant systems"
+      ],
+      "related_variables": [
+        "Asset utilization rates",
+        "Cycle time data"
+      ],
+      "related_decisions": [
+        "Optimize scheduling based on available equipment."
+      ]
+    },
+    {
+      "name": "Decision Automation",
+      "purpose": "Automate key decision-making processes that currently rely on manual judgment.",
+      "related_system_elements": [
+        "CNC machines",
+        "Cutting tools",
+        "Spindles",
+        "Coolant systems"
+      ],
+      "related_variables": [
+        "Machine performance metrics",
+        "Tool wear indicators",
+        "Spindle condition data",
+        "Coolant quality and usage",
+        "Part quality measurements",
+        "Cycle time data",
+        "Asset utilization rates"
+      ],
+      "related_decisions": [
+        "Automate key decision-making processes."
+      ]
+    }
+  ],
+  "future_functions": [
+    {
+      "name": "Proactive Maintenance Planning",
+      "reason_future": "Enable proactive maintenance by predicting component degradation and remaining useful life."
+    },
+    {
+      "name": "Reduced Cycle Time Through Optimized Scheduling",
+      "reason_future": "Decrease cycle time through more efficient scheduling based on real-time data."
+    },
+    {
+      "name": "Extended Asset Life Through Predictive Analytics",
+      "reason_future": "Extend the life of assets by predicting and preventing failures before they occur."
+    },
+    {
+      "name": "Ensured Consistent Part Quality and Throughput",
+      "reason_future": "Ensure consistent part quality and throughput through continuous monitoring and predictive analytics."
+    }
+  ]
+}
