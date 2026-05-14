@@ -1027,6 +1027,12 @@ def dtaf_select_essential_and_high(priorities: Dict[str, str]) -> tuple[list[str
     high.sort(key=lambda c: CAP_ORDER.get(c, 10_000))
     return essential, high
 
+def dtaf_chunks(items: list[str], size: int) -> list[list[str]]:
+    if size <= 0:
+        size = 4
+
+    return [items[i:i + size] for i in range(0, len(items), size)]
+  
 def dtaf_safe_json_extract(s: str) -> Dict[str, Any]:
     s = s.strip()
     try:
@@ -1130,7 +1136,7 @@ def dtaf_generate_gates_with_ollama(
         base_url=base_url,
         model=model,
         messages=messages,
-        max_tokens=2200,
+        max_tokens=min(8192, 1200 + 900 * len(cap_ids))
         temperature=0.0,
         timeout=timeout,
         retries=retries,
@@ -1266,36 +1272,59 @@ def run_dtaf_addon_after_step4(
 
     gates: Dict[str, Dict[str, Any]] = {}
 
+    # Main batching setting
+    batch_size = 4
+
+    # -----------------------------
+    # Generate Essential gates
+    # -----------------------------
     if use_llm and selected:
-        try:
-            llm_map = dtaf_generate_gates_with_ollama(
-                base_url=base_url,
-                model=model,
-                timeout=timeout,
-                retries=retries,
-                step1=step1,
-                step2=step2,
-                step3=step3,
-                cap_ids=selected,
-            )
-            for cid in selected:
-                gates[cid] = {
-                    "cap_id": cid,
-                    "cap_name": CAP_NAME.get(cid, "(unknown)"),
-                    "priority": priorities.get(cid, ""),
-                    "prerequisites": llm_map[cid]["prerequisites"],
-                    "hard_gates": llm_map[cid]["hard_gates"],
-                    "notes": llm_map[cid].get("notes", ""),
-                }
-            write_text(outdir / "gating_questions_source.txt", "ollama_json")
-        except Exception as e:
-            print(f"[warn] LLM gating failed; using fallback. Reason: {e}")
-            for cid in selected:
-                gates[cid] = dtaf_fallback_gates(cid, priorities.get(cid, ""))
+        any_llm_success = False
+        any_llm_failure = False
+
+        for batch in dtaf_chunks(selected, batch_size):
+            try:
+                llm_map = dtaf_generate_gates_with_ollama(
+                    base_url=base_url,
+                    model=model,
+                    timeout=timeout,
+                    retries=retries,
+                    step1=step1,
+                    step2=step2,
+                    step3=step3,
+                    cap_ids=batch,
+                )
+
+                for cid in batch:
+                    gates[cid] = {
+                        "cap_id": cid,
+                        "cap_name": CAP_NAME.get(cid, "(unknown)"),
+                        "priority": priorities.get(cid, ""),
+                        "prerequisites": llm_map[cid]["prerequisites"],
+                        "hard_gates": llm_map[cid]["hard_gates"],
+                        "notes": llm_map[cid].get("notes", ""),
+                    }
+
+                any_llm_success = True
+
+            except Exception as e:
+                any_llm_failure = True
+                print(f"[warn] LLM gating failed for batch {batch}; using fallback. Reason: {e}")
+
+                for cid in batch:
+                    gates[cid] = dtaf_fallback_gates(cid, priorities.get(cid, ""))
+
+        if any_llm_success and any_llm_failure:
+            write_text(outdir / "gating_questions_source.txt", f"ollama_json_batched_size_{batch_size}_partial_fallback")
+        elif any_llm_success:
+            write_text(outdir / "gating_questions_source.txt", f"ollama_json_batched_size_{batch_size}")
+        else:
             write_text(outdir / "gating_questions_source.txt", "fallback")
+
     else:
         for cid in selected:
             gates[cid] = dtaf_fallback_gates(cid, priorities.get(cid, ""))
+
         write_text(outdir / "gating_questions_source.txt", "fallback")
 
     answers: Dict[str, Any] = {}
@@ -1309,9 +1338,12 @@ def run_dtaf_addon_after_step4(
 
     def screen_list(cap_list: list[str]) -> None:
         nonlocal gates, answers, results
+
         for cid in cap_list:
             cap = gates.get(cid) or dtaf_fallback_gates(cid, priorities.get(cid, ""))
+
             have = dtaf_ask_checklist(cap)
+
             if have is None:
                 answers[cid] = {"skipped": True}
                 results.append({
@@ -1325,7 +1357,11 @@ def run_dtaf_addon_after_step4(
                     "missing_hard_gate_indices": cap["hard_gates"],
                 })
             else:
-                answers[cid] = {"have_indices": have, "prerequisites": cap["prerequisites"], "hard_gates": cap["hard_gates"]}
+                answers[cid] = {
+                    "have_indices": have,
+                    "prerequisites": cap["prerequisites"],
+                    "hard_gates": cap["hard_gates"],
+                }
                 results.append(dtaf_score(cap, have))
 
     screen_list(selected)
@@ -1342,78 +1378,137 @@ def run_dtaf_addon_after_step4(
     results_sorted = sorted(results, key=rank_key)
     recommended = [r for r in results_sorted if r["feasible_now"]][:keep]
 
-    # Optionally extend to High Value if you need to fill Top-K
+    # -----------------------------
+    # Optionally extend to High Value
+    # -----------------------------
     if extend_to_high and len(recommended) < keep:
         remaining = [cid for cid in high if cid not in selected]
+
         if remaining:
-            print(f"\nNot enough feasible Essentials to fill Top {keep}. Screening High Value...\n")
+            print(f"\nNot enough feasible Essentials to fill Top {keep}. Screening High Value.\n")
 
-        # Generate gates for high if using LLM (one shot), else fallback
         if use_llm and remaining:
-            try:
-                llm_map = dtaf_generate_gates_with_ollama(
-                    base_url=base_url,
-                    model=model,
-                    timeout=timeout,
-                    retries=retries,
-                    step1=step1,
-                    step2=step2,
-                    step3=step3,
-                    cap_ids=remaining,
-                )
-                for cid in remaining:
-                    gates[cid] = {
-                        "cap_id": cid,
-                        "cap_name": CAP_NAME.get(cid, "(unknown)"),
-                        "priority": priorities.get(cid, ""),
-                        "prerequisites": llm_map[cid]["prerequisites"],
-                        "hard_gates": llm_map[cid]["hard_gates"],
-                        "notes": llm_map[cid].get("notes", ""),
-                    }
-            except Exception:
-                for cid in remaining:
-                    gates[cid] = dtaf_fallback_gates(cid, priorities.get(cid, ""))
+            high_llm_success = False
+            high_llm_failure = False
 
-        screen_list(remaining)
+            for batch in dtaf_chunks(remaining, batch_size):
+                try:
+                    llm_map = dtaf_generate_gates_with_ollama(
+                        base_url=base_url,
+                        model=model,
+                        timeout=timeout,
+                        retries=retries,
+                        step1=step1,
+                        step2=step2,
+                        step3=step3,
+                        cap_ids=batch,
+                    )
 
-        results_sorted = sorted(results, key=rank_key)
-        recommended = [r for r in results_sorted if r["feasible_now"]][:keep]
+                    for cid in batch:
+                        gates[cid] = {
+                            "cap_id": cid,
+                            "cap_name": CAP_NAME.get(cid, "(unknown)"),
+                            "priority": priorities.get(cid, ""),
+                            "prerequisites": llm_map[cid]["prerequisites"],
+                            "hard_gates": llm_map[cid]["hard_gates"],
+                            "notes": llm_map[cid].get("notes", ""),
+                        }
 
-    # Write artifacts
-    write_text(outdir / "selected_caps.json", json.dumps(selected, indent=2))
-    write_text(outdir / "gating_questions.json", json.dumps(gates, indent=2))
-    write_text(outdir / "user_answers.json", json.dumps(answers, indent=2))
+                    high_llm_success = True
+
+                except Exception as e:
+                    high_llm_failure = True
+                    print(f"[warn] LLM gating failed for High Value batch {batch}; using fallback. Reason: {e}")
+
+                    for cid in batch:
+                        gates[cid] = dtaf_fallback_gates(cid, priorities.get(cid, ""))
+
+            if high_llm_success and high_llm_failure:
+                write_text(outdir / "high_value_gating_questions_source.txt", f"ollama_json_batched_size_{batch_size}_partial_fallback")
+            elif high_llm_success:
+                write_text(outdir / "high_value_gating_questions_source.txt", f"ollama_json_batched_size_{batch_size}")
+            else:
+                write_text(outdir / "high_value_gating_questions_source.txt", "fallback")
+
+        else:
+            for cid in remaining:
+                gates[cid] = dtaf_fallback_gates(cid, priorities.get(cid, ""))
+
+            if remaining:
+                write_text(outdir / "high_value_gating_questions_source.txt", "fallback")
+
+        if remaining:
+            screen_list(remaining)
+
+            results_sorted = sorted(results, key=rank_key)
+            recommended = [r for r in results_sorted if r["feasible_now"]][:keep]
+
+    # -----------------------------
+    # Save outputs
+    # -----------------------------
+    write_text(outdir / "gates.json", json.dumps(gates, indent=2))
+    write_text(outdir / "answers.json", json.dumps(answers, indent=2))
     write_text(outdir / "screen_results.json", json.dumps(results_sorted, indent=2))
-    write_text(outdir / "recommended.json", json.dumps(recommended, indent=2))
 
-    # Summary
+    recommended_payload = {
+        "recommended": recommended,
+        "screen_results": results_sorted,
+        "selected_essential": selected,
+        "checklist_batch_size": batch_size,
+        "gates": gates,
+        "answers": answers,
+    }
+
+    write_text(outdir / "recommended.json", json.dumps(recommended_payload, indent=2))
+
     lines = []
-    lines.append("# DTAF Add-on (post Step 4) — Capability Readiness Screen")
-    lines.append(f"- DTC outdir: `{dtc_outdir.name}`")
-    lines.append(f"- Screened Essentials: **{len(selected)}**")
-    lines.append(f"- Feasible capabilities (ranked by readiness): **{len(recommended)}**\n")
-    lines.append("## Recommended capabilities you can do now")
+    lines.append("# DTAF Capability Feasibility Checklist Summary\n")
+    lines.append(f"- Essential capabilities screened: {len(selected)}")
+    lines.append(f"- Batch size: {batch_size}")
+    lines.append(f"- Recommendation limit: {keep}\n")
+
+    lines.append("## Recommended capabilities you can do now\n")
     if recommended:
         for r in recommended:
-            lines.append(f"- **{r['cap_id']} ({r['priority']})** — {r['cap_name']} | readiness={r['readiness_score']}")
+            lines.append(
+                f"- **{r['cap_id']} ({r['priority']})** - {r['cap_name']} "
+                f"| readiness={r['readiness_score']}"
+            )
     else:
-        lines.append("- *(None feasible with current answers.)*")
+        lines.append("- None feasible with current answers.")
+
+    lines.append("\n## Full readiness ranking\n")
+    if results_sorted:
+        lines.append("| Rank | Capability | Priority | Feasible now | Readiness | Missing hard gates |")
+        lines.append("|---:|---|---|---|---:|---|")
+
+        for i, r in enumerate(results_sorted, start=1):
+            missing_hard = ", ".join(str(x) for x in r.get("missing_hard_gate_indices", []))
+            if not missing_hard:
+                missing_hard = "None"
+
+            lines.append(
+                f"| {i} | {r['cap_id']} - {r['cap_name']} | {r['priority']} | "
+                f"{'Yes' if r['feasible_now'] else 'No'} | {r['readiness_score']} | {missing_hard} |"
+            )
+    else:
+        lines.append("- No checklist results were recorded.")
+
     write_text(outdir / "summary.md", "\n".join(lines))
 
-    append_jsonl(
-        log_path,
-        {
-            "step": "DTAF_addon_post_step4",
-            "time_utc": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
-            "output_path": str((outdir / "summary.md").name),
-        },
-    )
+    append_jsonl(log_path, {
+        "step": "DTAF_addon_post_step4",
+        "time_utc": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+        "output_path": str((outdir / "summary.md").name),
+        "batch_size": batch_size,
+    })
 
     print("\nDTAF add-on complete.")
     print(f"Saved: {outdir.resolve()}")
     print(f" - {outdir / 'summary.md'}")
-    print(f" - {outdir / 'recommended.json'}\n")
-    return outdir
+    print(f" - {outdir / 'recommended.json'}")
+    print(f" - {outdir / 'gates.json'}")
+    print(f" - {outdir / 'screen_results.json'}\n")
 
 
 # -----------------------------
