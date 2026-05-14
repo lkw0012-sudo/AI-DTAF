@@ -1035,12 +1035,15 @@ def dtaf_validate_gates(obj: Dict[str, Any], cap_ids: list[str]) -> Dict[str, Di
         ...
       }
     }
+
+    Guarantees every capability has at least 3 checklist items.
     """
     caps_obj = obj.get("capabilities", {})
     if not isinstance(caps_obj, dict):
         raise ValueError("JSON missing 'capabilities' dict")
 
     out: Dict[str, Dict[str, Any]] = {}
+
     for cid in cap_ids:
         entry = caps_obj.get(cid, {})
         if not isinstance(entry, dict):
@@ -1052,30 +1055,54 @@ def dtaf_validate_gates(obj: Dict[str, Any], cap_ids: list[str]) -> Dict[str, Di
 
         if not isinstance(prereq, list):
             prereq = []
+
         prereq = [str(x).strip() for x in prereq if str(x).strip()]
         prereq = list(dict.fromkeys(prereq))  # dedupe
 
-        # enforce size
-        if len(prereq) < 1:
-            prereq = ["You have the data and access needed to implement this capability"]
+        # NEW: treat 1 or 2 item lists as incomplete
+        if len(prereq) < 3:
+            fallback = dtaf_fallback_gates(cid, "")
+            fallback_items = fallback.get("prerequisites", [])
+
+            for item in fallback_items:
+                item = str(item).strip()
+                if item and item not in prereq:
+                    prereq.append(item)
+
+                if len(prereq) >= 3:
+                    break
+
+        # Final backup, just in case fallback itself is short
+        while len(prereq) < 3:
+            prereq.append(f"You can define the data, access, and implementation needs for {cid}")
+
         if len(prereq) > 10:
             prereq = prereq[:10]
 
         if not isinstance(hard, list):
             hard = []
+
         hard2: list[int] = []
+
         for x in hard:
             if isinstance(x, int):
                 hard2.append(x)
             elif isinstance(x, str) and x.isdigit():
                 hard2.append(int(x))
+
         hard2 = sorted(set([h for h in hard2 if 0 <= h < len(prereq)]))
+
         if len(hard2) == 0:
             hard2 = [0]
+
         if len(hard2) > 4:
             hard2 = hard2[:4]
 
-        out[cid] = {"prerequisites": prereq, "hard_gates": hard2, "notes": str(notes).strip()}
+        out[cid] = {
+            "prerequisites": prereq,
+            "hard_gates": hard2,
+            "notes": str(notes).strip(),
+        }
 
     return out
 
@@ -1317,6 +1344,24 @@ def run_dtaf_addon_after_step4(
     print("==============================")
     print(f"Screening Essential capabilities: {len(selected)}")
     print(f"Ranking all {len(selected)} Essential capabilities by readiness.\n")
+
+    for cid in selected:
+        cap = gates.get(cid) or dtaf_fallback_gates(cid, priorities.get(cid, ""))
+
+        if len(cap.get("prerequisites", [])) < 3:
+            fallback = dtaf_fallback_gates(cid, priorities.get(cid, ""))
+
+            for item in fallback.get("prerequisites", []):
+                if item not in cap["prerequisites"]:
+                    cap["prerequisites"].append(item)
+
+                if len(cap["prerequisites"]) >= 3:
+                    break
+
+            if not cap.get("hard_gates"):
+                cap["hard_gates"] = [0]
+
+        gates[cid] = cap
 
     def screen_list(cap_list: list[str]) -> None:
         nonlocal gates, answers, results
