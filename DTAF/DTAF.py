@@ -1,22 +1,4 @@
 #!/usr/bin/env python3
-"""
-REQUIRED files (in the same folder as this script):
-  - cpt.md
-  - DTCstep0.md
-  - DTCstep1.md
-  - DTCstep2.md
-  - DTCstep3_part1.md
-  - DTCstep3_part2.md
-
-OPTIONAL add-on files for framework assessments:
-  - 4R_AI_Assessment_Knowledge_Base.json
-  - 4S_Framework_Knowledge_Base.json
-
-Prereqs:
-  - Install Ollama
-  - Pull model:  ollama pull qwen2.5:7b
-"""
-
 import argparse
 import ast
 import html
