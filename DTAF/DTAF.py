@@ -1118,7 +1118,7 @@ def dtaf_generate_gates_with_ollama(
         base_url=base_url,
         model=model,
         messages=messages,
-        max_tokens=min(8192, 1200 + 900 * len(cap_ids))
+        max_tokens=min(8192, 1200 + 900 * len(cap_ids)),
         temperature=0.0,
         timeout=timeout,
         retries=retries,
