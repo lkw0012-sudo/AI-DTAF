@@ -1,0 +1,87 @@
+{
+  "section1_4r_target_summary": {
+    "target_level": "R1",
+    "target_name": "Representation",
+    "justification": "The current digital twin framework focuses on providing real-time data-driven insights into quality, cost, and time before production begins. The primary goal is to determine capability and capacity for running a given job, optimize scheduling based on available equipment, and automate key decision-making processes."
+  },
+  "section2_planning_summary": {
+    "planning_summary": "The planned digital twin for CNC machining systems aims to provide real-time data-driven insights into quality, cost, and time before production begins. The primary focus is on accurate scheduling based on available equipment, predictive maintenance, and tool wear prediction."
+  },
+  "section3_desired_future_vision_vs_current_feasible_target": {
+    "desired_future_vision": "The digital twin should be capable of predicting remaining useful life (RUL) for cutting tools, spindles, and coolant, optimizing scheduling based on equipment availability, and providing actionable insights to reduce cycle time and extend asset life.",
+    "current_feasible_target": "The current feasible target is R1, which involves creating a foundational digital representation that supports real-time data collection, storage, and analysis."
+  },
+  "section4_tailored_4r_action_items": [
+    {
+      "fourr_level": "R1",
+      "action_item": "Define the purpose, scope, and goal of the digital twin.",
+      "what_to_do": "Write a one-paragraph statement defining the DT's purpose, target decisions, and expected outcomes. Document system boundaries, included/excluded components, and key interactions.",
+      "why_it_matters": "This ensures clarity on what the digital twin is intended to achieve and helps in aligning all stakeholders with its objectives.",
+      "use_case_specific_example": "The goal of the digital twin was to create a data-driven platform for CNC machining systems that can predict tool wear, optimize scheduling based on available equipment, and automate key decision-making processes. The expected outcomes include real-time monitoring of machine health, accurate scheduling, and reduced cycle time.",
+      "required_data_or_inputs": [
+        "System boundaries",
+        "Included/excluded components",
+        "Key interactions"
+      ],
+      "expected_output_or_evidence": "A clear statement defining the DT's purpose, scope, and goals, along with documented system boundaries and key interactions.",
+      "dependencies_or_gaps": "Ensure that all stakeholders are involved in this process to gather comprehensive input."
+    },
+    {
+      "fourr_level": "R1",
+      "action_item": "Identify critical variables for the use case.",
+      "what_to_do": "List static properties and dynamic states, then identify the minimum critical variables required. Ensure that over-instrumentation is avoided.",
+      "why_it_matters": "This step ensures that only essential data is collected, reducing complexity and improving efficiency.",
+      "use_case_specific_example": "Critical variables include temperature (bed and extruder), position (extruder and bed), environment factors (humidity and temperature), tool wear, machine status, and part quality.",
+      "required_data_or_inputs": [
+        "Static properties",
+        "Dynamic states"
+      ],
+      "expected_output_or_evidence": "A list of critical variables that are essential for the digital twin's functionality.",
+      "dependencies_or_gaps": "Ensure that all relevant stakeholders provide input on which variables are most important."
+    },
+    {
+      "fourr_level": "R1",
+      "action_item": "Design the data collection strategy.",
+      "what_to_do": "Determine the sensors/data sources needed and where they should be placed. Define data acquisition methods, communication protocols, synchronization requirements, and storage solutions.",
+      "why_it_matters": "A well-designed data collection strategy ensures that all necessary data is collected in a timely and accurate manner.",
+      "use_case_specific_example": "Data will be collected using thermocouple sensors for temperature, distance sensors for position, environmental sensors for humidity and temperature, and Octoprint to monitor the printer. The data will be transmitted via APIs and stored in MongoDB and MySQL databases.",
+      "required_data_or_inputs": [
+        "Sensors",
+        "APIs",
+        "Communication protocols"
+      ],
+      "expected_output_or_evidence": "A detailed plan for data collection, including sensor placement, communication methods, and storage solutions.",
+      "dependencies_or_gaps": "Ensure that all necessary hardware and software are available and properly configured."
+    },
+    {
+      "fourr_level": "R1",
+      "action_item": "Develop the initial data representation layer.",
+      "what_to_do": "Collect the data from the physical system, structure it, remove errors, and organize into a usable format. Verify and validate the data by comparing collected data to known system outputs.",
+      "why_it_matters": "This ensures that the data is clean, structured, and immediately usable for analysis or modeling.",
+      "use_case_specific_example": "Data will be collected from sensors, cameras, and software applications during the printer's operation. The data will be organized into categories of temperature, position, state, settings, and job data. Sensor data will be compared to the data on OctoPrint itself.",
+      "required_data_or_inputs": [
+        "Collected data",
+        "Known system outputs"
+      ],
+      "expected_output_or_evidence": "Structured and validated data that is ready for analysis or modeling.",
+      "dependencies_or_gaps": "Ensure that all necessary tools and processes are in place to clean and validate the data."
+    }
+  ],
+  "section5_priority_action_list": [
+    "Define the purpose, scope, and goal of the digital twin.",
+    "Identify critical variables for the use case.",
+    "Design the data collection strategy.",
+    "Develop the initial data representation layer."
+  ],
+  "section6_missing_information_or_data_gaps": [
+    "Detailed documentation on system boundaries and key interactions.",
+    "A clear list of static properties and dynamic states.",
+    "Specific details on sensor placement and communication protocols.",
+    "Validation processes for collected data against known outputs."
+  ],
+  "section7_future_work_beyond_current_level": [
+    "Define prediction targets, decision variables, and objective functions to support R2 level capabilities.",
+    "Implement predictive models and scenario analysis workflows to support R3 level capabilities.",
+    "Integrate control-system connections and real-time anomaly detection for R4 level autonomy."
+  ]
+}

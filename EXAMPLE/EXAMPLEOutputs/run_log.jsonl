@@ -1,0 +1,12 @@
+{"step": "run_configuration", "time_utc": "2026-06-03T06:36:23.580565Z", "model_selection": {"auto": true, "selected_model": "qwen2.5:7b", "selection_source": "installed_recommended_tier", "resource_profile": "safe", "recommended_tier": "safe-balanced", "recommended_model": "qwen2.5:7b", "tier_reason": "default safe local profile; good quality while leaving resources for the user", "hardware": {"system": "Windows", "machine": "AMD64", "cpu_logical": 32, "ram_gb": 63.2, "gpu_vram_gb": 16.0}, "installed_models_seen": ["qwen2.5:3b", "qwen2.5:3b-instruct-q4_K_M", "qwen2.5:7b", "gemma3:12b", "phi3.5:3.8b", "qwen2.5-coder:14b-16k", "qwen2.5-coder:14b", "qwen2.5:14b-instruct-16k", "qwen2.5-coder:14b-instruct-q4_K_M", "qwen2.5:14b-instruct", "nemotron-3-nano:30b", "qwen3:8b"], "warnings": [], "runtime_options": {"num_thread": 6}}, "deterministic_completion_fields": {"seed": 42, "top_p": 0.1}}
+{"step": "0", "time_utc": "2026-06-03T06:36:40.207248Z", "output_path": "step0_use_case_suitability.md"}
+{"step": "1", "time_utc": "2026-06-03T06:36:55.723561Z", "output_path": "step1_business_requirements.md"}
+{"step": "2", "time_utc": "2026-06-03T06:37:11.992356Z", "output_path": "step2_capability_selector.md"}
+{"step": "3_part1", "time_utc": "2026-06-03T06:37:30.335473Z", "output_path": "step3_part1.md"}
+{"step": "3_part2", "time_utc": "2026-06-03T06:37:49.090407Z", "output_path": "step3_part2.md"}
+{"step": "4_deterministic", "time_utc": "2026-06-03T06:37:49.113762Z", "output_path": "step4_cpt_table.html", "priority_count": 19, "priority_counts": {"E": 10, "H": 7, "F": 2}, "priority_parse_warning": ""}
+{"step": "DTAF_addon_post_step4", "time_utc": "2026-06-03T06:39:08.679468Z", "output_path": "summary.md", "batch_size": 4}
+{"step": "4R_assessment_addon", "time_utc": "2026-06-03T06:39:42.963884Z", "output_path": "4r_assessment_summary.md"}
+{"step": "4S_assessment_addon", "time_utc": "2026-06-03T06:40:01.220805Z", "output_path": "4s_assessment_summary.md"}
+{"step": "DTV_assessment_addon", "time_utc": "2026-06-03T06:40:10.611194Z", "output_path": "dtv_assessment_summary.md"}
+{"step": "final_html_report", "time_utc": "2026-06-03T06:40:13.146818Z", "output_path": "digital_twin_build_guide.html"}

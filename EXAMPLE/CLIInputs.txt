@@ -1,0 +1,192 @@
+Step 0 blank: What sector should be analyzed (e.g., 'manufacturing', 'energy', 'healthcare')? Manufacturing
+Step 1 blank: Paste the problem statement for the digital twin use case:
+(Paste text, then type END on its own line and press Enter)
+
+We need a digital twin of our CNC machining systems to provide accurate, data-driven insight into Quality, Cost, and Time before production begins. The digital twin must determine whether we have the capability and capacity to run a given job, optimize scheduling based on available equipment, and automate key decision-making processes that currently rely on manual judgment. It should continuously monitor degradation of cutting tools, spindles, and coolant, predict remaining useful life, and assess how component wear will impact part quality and throughput. By integrating real-time machine data with predictive simulation, the digital twin will enable proactive maintenance, reduce cycle time, extend asset life, and ensure that every job is run on the right machine, at the right time, with predictable and efficient performance.
+END
+
+AI model selection:
+ - Model: qwen2.5:7b
+ - Mode: auto (safe-balanced, resource profile=safe)
+ - Hardware: RAM=63.2 GB, GPU VRAM=16.0 GB, logical CPUs=32
+ - Ollama runtime options: {'num_thread': 6}
+ - Reason: default safe local profile; good quality while leaving resources for the user
+Injected CPT context from: ...\AI-DTAF-main\AI-DTAF-main\DTAF\cpt.md
+Warming up model (first run can take a while on some machines)...
+Parsed capability priorities: E=18, H=7, F=1
+Applied capability priority floors to stabilize 11 capabilities from explicit use-case language.
+
+==============================
+Capability Feasibility Checklist
+==============================
+Screening Essential capabilities: 18
+Ranking all 18 Essential capabilities by readiness.
+
+
+Capability: DS.AI (E) — Data Acquisition & Ingestion
+Notes: Ensure high-quality data for accurate predictions. Edge computing is critical for real-time processing.
+  A) Real-time data collection from sensors is enabled. [HARD]
+  B) Multi-source integration with enterprise systems (ERP, MES) is established.
+  C) Data quality assurance processes are in place and validated. [HARD]
+  D) Edge computing devices for preprocessing data are deployed.
+  E) APIs for integrating with IoT devices and SCADA systems are developed.
+  F) Real-time validation mechanisms using machine learning models are implemented.
+  G) Historical data storage repository is set up and accessible.
+  H) Data cleaning and structuring processes are defined.
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: IR.ET (E) — Enterprise System Integration
+Notes: Ensure seamless integration and secure data transfer between systems.
+  A) Integration with existing enterprise systems (ERP, MES) is complete. [HARD]
+  B) Data transfer protocols between digital twin and enterprise systems are defined.
+  C) Real-time monitoring of machine health is enabled.
+  D) Edge devices for data collection are deployed. [HARD]
+  E) Fog computing capabilities are available for real-time processing.
+  F) Cloud storage solutions for historical data are set up.
+  G) Security measures for data transmission are in place.
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: IC.SR (E) — Search
+  A) You have enough data to compute/derive the outputs for this capability [HARD]
+  B) You can define success criteria/labels for the analytics
+  C) You have a place to run analytics and store results
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: UX.BV (E) — Basic Visualization
+Notes: Ensure that operations managers can access real-time machine status through dashboards.
+  A) Basic visualization dashboards are developed. [HARD]
+  B) Real-time data streaming capabilities are established.
+  C) Data cleaning and preprocessing steps are defined.
+  D) Edge devices for real-time monitoring are deployed. [HARD]
+  E) Cloud storage solutions for historical data are set up.
+  F) Security measures for data transmission are in place.
+  G) User roles and permissions are configured.
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: DS.ST (E) — Data Streaming
+Notes: Critical for handling high-speed data streams from sensors and maintaining system uptime.
+  A) Continuous data acquisition from sensors is established. [HARD]
+  B) Data streaming infrastructure is in place.
+  C) Real-time data processing capabilities are available.
+  D) Integration with SCADA systems is complete. [HARD]
+  E) Edge devices for real-time monitoring are deployed.
+  F) Cloud storage solutions are set up for large volumes of data.
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: IR.EG (E) — Eng. System Integration
+  A) You have credentials/export/API access to the target system [HARD]
+  B) You can map identifiers between systems (job IDs, part numbers, machine IDs)
+  C) Policy/security allows the integration in production
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: IC.AI (E) — Artificial Intelligence
+Notes: Critical for providing real-time recommendations and improving production scheduling efficiency.
+  A) Predictive maintenance models are developed. [HARD]
+  B) Real-time decision support systems are in place.
+  C) Historical data is available for model training.
+  D) Machine learning frameworks like TensorFlow or PyTorch are installed. [HARD]
+  E) Real-time processing engines are set up.
+  F) Integration with existing enterprise systems (ERP, MES) is complete.
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: DS.TR (E) — Data Transformation
+Notes: Essential for preparing raw data for further analysis and decision-making.
+  A) Data cleaning processes are established. [HARD]
+  B) Structuring and enriching capabilities are implemented.
+  C) Real-time data transformation is supported. [HARD]
+  D) Edge devices for initial data cleaning are available.
+  E) Cloud services for advanced data processing are set up.
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: IR.IO (E) — OT/IoT System Integration
+  A) You have credentials/export/API access to the target system [HARD]
+  B) You can map identifiers between systems (job IDs, part numbers, machine IDs)
+  C) Policy/security allows the integration in production
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: IC.OS (E) — Orchestration
+  A) You have enough data to compute/derive the outputs for this capability [HARD]
+  B) You can define success criteria/labels for the analytics
+  C) You have a place to run analytics and store results
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: UX.RM (E) — Real-time Monitoring
+  A) You have a tool to display the results (dashboard/BI/web/SCADA/Excel) [HARD]
+  B) You know the target user and what decision they will make from the display
+  C) You can define the data, access, and implementation needs for UX.RM
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: DS.BP (E) — Batch Processing
+  A) You can access the needed source data in a repeatable way (not manual retyping) [HARD]
+  B) You can move data into a usable store (files/db/historian) consistently
+  C) You can identify assets/jobs with stable IDs to join data later
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: IC.SM (E) — Simulation
+  A) You have enough data to compute/derive the outputs for this capability [HARD]
+  B) You can define success criteria/labels for the analytics
+  C) You have a place to run analytics and store results
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: DS.RT (E) — Real-time Processing
+Notes: Critical for ensuring real-time decision support and continuous monitoring.
+  A) Continuous data acquisition from sensors is in place [Y/N] [HARD]
+  B) Data transfer protocols are defined for real-time processing [Y/N]
+  C) Real-time monitoring systems are deployed [Y/N]
+  D) Edge devices are configured for low-latency communication [Y/N] [HARD]
+  E) Cloud storage solutions are set up for historical data [Y/N]
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: DS.AS (E) — Asynchronous Integration
+Notes: Ensures consistent and reliable data flow between systems.
+  A) Data sources are identified and integrated [Y/N] [HARD]
+  B) Real-time data processing pipelines are established [Y/N]
+  C) Historical data is available for analysis [Y/N] [HARD]
+  D) Edge devices are configured for real-time data streaming [Y/N]
+  E) Cloud storage solutions are set up for long-term data retention [Y/N]
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: MG.DM (E) — Device Management
+Notes: Critical for ensuring the reliability and security of connected devices.
+  A) IoT devices are connected to the network [Y/N] [HARD]
+  B) Authentication mechanisms for IoT devices are in place [Y/N]
+  C) Maintenance schedules are defined and automated [Y/N]
+  D) Device health monitoring is implemented [Y/N] [HARD]
+  E) Access control policies are established [Y/N]
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all 
+
+Capability: TW.SC (E) — Security
+  A) You can meet the required governance/security needs for the data/services [HARD]
+  B) You can monitor and log the pipeline/service health at a basic level
+  C) You can define the data, access, and implementation needs for TW.SC
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all
+
+Capability: MG.SM (E) — System Monitoring
+Notes: Ensure secure and reliable management of IoT devices.
+  A) IoT devices are connected to the digital twin. [HARD]
+  B) Authentication and authorization mechanisms are in place.
+  C) Maintenance scheduling tools are operational.
+  D) Device management platform (e.g., AWS IoT, Azure IoT Hub) is integrated. [HARD]
+  E) Access control policies for device data are defined.
+  F) Audit trails for system activities are maintained.
+  G) Real-time monitoring of device health is enabled.
+  H) Regular maintenance schedules are established.
+Answer with letters you HAVE (e.g., A C). Or: all / none / skip
+A: all

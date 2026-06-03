@@ -1,0 +1,526 @@
+{
+  "R1": {
+    "The digital twin purpose, scope, and supported decisions are explicitly defined.": {
+      "criterion": "The digital twin purpose, scope, and supported decisions are explicitly defined.",
+      "keywords": [
+        "purpose",
+        "scope",
+        "decision",
+        "supported decisions",
+        "objective",
+        "goal",
+        "outcome",
+        "kpi",
+        "business requirement",
+        "problem statement"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "IC.PR",
+        "UX.BV",
+        "IC.SM"
+      ],
+      "snippets": [
+        "[problem_statement] The digital twin must determine whether we have the capability and capacity to run a given job, optimize scheduling based on available equipment, and automate key decision-making processes that currently rely on manual judgment.",
+        "[step1] # Digital Twin Business Requirements Specification",
+        "[step1] Relying heavily on human judgment for scheduling and decision-making.",
+        "[step1] ### Primary Business Goals"
+      ],
+      "strength": "explicit"
+    },
+    "System boundaries, major components, inputs/outputs, and important states are identified.": {
+      "criterion": "System boundaries, major components, inputs/outputs, and important states are identified.",
+      "keywords": [
+        "boundary",
+        "boundaries",
+        "component",
+        "components",
+        "asset",
+        "equipment",
+        "resource",
+        "process step",
+        "input",
+        "output",
+        "state",
+        "states",
+        "architecture",
+        "workflow",
+        "interface",
+        "subsystem"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "IR.EG",
+        "IR.IO",
+        "DS.CX",
+        "IC.SM"
+      ],
+      "snippets": [
+        "[problem_statement] The digital twin must determine whether we have the capability and capacity to run a given job, optimize scheduling based on available equipment, and automate key decision-making processes that currently rely on manual judgment.",
+        "[problem_statement] It should continuously monitor degradation of cutting tools, spindles, and coolant, predict remaining useful life, and assess how component wear will impact part quality and throughput.",
+        "[problem_statement] By integrating real-time machine data with predictive simulation, the digital twin will enable proactive maintenance, reduce cycle time, extend asset life, and ensure that every job is run on the right machine, at the right time, with predictable and efficient performance.",
+        "[step0] Misallocation of resources affecting production planning."
+      ],
+      "strength": "explicit"
+    },
+    "Critical variables are selected without major over-instrumentation or missing context.": {
+      "criterion": "Critical variables are selected without major over-instrumentation or missing context.",
+      "keywords": [
+        "critical variable",
+        "variable",
+        "variables",
+        "parameter",
+        "parameters",
+        "monitor",
+        "measure",
+        "sensor",
+        "degradation",
+        "condition",
+        "performance",
+        "vibration",
+        "temperature",
+        "position",
+        "throughput",
+        "quality",
+        "cycle time",
+        "service level",
+        "utilization"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "DS.AI",
+        "DS.TR",
+        "UX.RM"
+      ],
+      "snippets": [
+        "[problem_statement] We need a digital twin of our CNC machining systems to provide accurate, data-driven insight into Quality, Cost, and Time before production begins.",
+        "[problem_statement] It should continuously monitor degradation of cutting tools, spindles, and coolant, predict remaining useful life, and assess how component wear will impact part quality and throughput.",
+        "[problem_statement] By integrating real-time machine data with predictive simulation, the digital twin will enable proactive maintenance, reduce cycle time, extend asset life, and ensure that every job is run on the right machine, at the right time, with predictable and efficient performance.",
+        "[step0] Variability in product quality due to inconsistent processes."
+      ],
+      "strength": "explicit"
+    },
+    "A repeatable data collection and storage pipeline exists.": {
+      "criterion": "A repeatable data collection and storage pipeline exists.",
+      "keywords": [
+        "pipeline",
+        "ingest",
+        "ingestion",
+        "collect",
+        "collection",
+        "stream",
+        "batch",
+        "database",
+        "historian",
+        "storage",
+        "archive",
+        "api",
+        "mqtt",
+        "file drop",
+        "repeatable",
+        "automated",
+        "real-time"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "DS.AI",
+        "IR.ET",
+        "DS.ST",
+        "IR.EG",
+        "IR.IO"
+      ],
+      "snippets": [
+        "[problem_statement] By integrating real-time machine data with predictive simulation, the digital twin will enable proactive maintenance, reduce cycle time, extend asset life, and ensure that every job is run on the right machine, at the right time, with predictable and efficient performance.",
+        "[step0] **Lack of Real-Time Data**:",
+        "[step0] Insufficient data collection and analysis capabilities.",
+        "[step0] Enhanced real-time monitoring but initial setup costs are high."
+      ],
+      "strength": "explicit"
+    },
+    "Collected data is structured, usable, and verified against known system behavior.": {
+      "criterion": "Collected data is structured, usable, and verified against known system behavior.",
+      "keywords": [
+        "structured",
+        "clean",
+        "normalize",
+        "normalized",
+        "transformation",
+        "wrangling",
+        "contextual",
+        "validated",
+        "validation",
+        "verified",
+        "verification",
+        "compare",
+        "comparison",
+        "reference",
+        "known behavior",
+        "calibration"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "DS.TR",
+        "DS.CX",
+        "IC.SM"
+      ],
+      "snippets": [
+        "[step1] Data collection and analysis, initial model validation.",
+        "[step1] ### Deployment Environment Preferences",
+        "[step1] Implement rigorous data cleaning processes.",
+        "[step2] | **DS.TR** [E] | Convert raw data types through cleaning, structuring, and enriching to make it suitable for further processing."
+      ],
+      "strength": "explicit"
+    }
+  },
+  "R2": {
+    "R1 is already satisfied.": {
+      "criterion": "R1 is already satisfied.",
+      "keywords": [],
+      "feasible_caps": [],
+      "selected_caps": [],
+      "snippets": [],
+      "strength": "none"
+    },
+    "Replication targets, required outputs, and acceptable error thresholds are defined.": {
+      "criterion": "Replication targets, required outputs, and acceptable error thresholds are defined.",
+      "keywords": [
+        "replication",
+        "replicate",
+        "acceptable error",
+        "error threshold",
+        "acceptable deviation",
+        "target output",
+        "fidelity",
+        "accuracy",
+        "match real behavior"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "IC.SM"
+      ],
+      "snippets": [
+        "[step0] Improved accuracy but requires skilled personnel.",
+        "[step0] To enhance accuracy and responsiveness to market changes.",
+        "[step1] | In-House Data Analysis | Limited accuracy and real-time capabilities.",
+        "[step1] | Tool Wear Prediction Accuracy | Degree of accuracy in predicting tool life."
+      ],
+      "strength": "explicit"
+    },
+    "A modeling platform has been selected and the system has been mapped into a digital architecture.": {
+      "criterion": "A modeling platform has been selected and the system has been mapped into a digital architecture.",
+      "keywords": [
+        "modeling platform",
+        "simulation platform",
+        "platform",
+        "digital architecture",
+        "architecture",
+        "model repository",
+        "simulation model",
+        "digital model"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "UX.AV",
+        "IC.SM"
+      ],
+      "snippets": [
+        "[step2] | Simulation models for training |",
+        "[step2] Simulation model repository is not explicitly required but could be beneficial for future enhancements.",
+        "[step3_part1] Use IoT platforms like AWS IoT or Azure IoT Hub for device management.",
+        "[step3_part1] **Consent Management Platforms**:"
+      ],
+      "strength": "explicit"
+    },
+    "Live or recorded data can drive model inputs and updates.": {
+      "criterion": "Live or recorded data can drive model inputs and updates.",
+      "keywords": [
+        "live data",
+        "recorded data",
+        "playback",
+        "model input",
+        "model inputs",
+        "updates",
+        "synchronization",
+        "streaming",
+        "batch",
+        "historical data"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "DS.AI",
+        "DS.ST",
+        "IR.IO",
+        "IC.SM"
+      ],
+      "snippets": [
+        "[step0] **Insufficient Historical Data**:",
+        "[step0] Improved customer support but require continuous updates.",
+        "[step0] Frequent updates requiring constant monitoring.",
+        "[step0] | Demand Forecasting | Inaccurate Predictions, Seasonal Fluctuations, Market Volatility | Insufficient Historical Data, Complex Models, External Factors | Stockouts/Excess Inventory, Misallocation of Resources, Financial Instability |"
+      ],
+      "strength": "explicit"
+    },
+    "The model has been tested against real behavior and verified to reproduce outputs with acceptable deviation.": {
+      "criterion": "The model has been tested against real behavior and verified to reproduce outputs with acceptable deviation.",
+      "keywords": [
+        "tested",
+        "validated",
+        "verification",
+        "validation",
+        "deviation",
+        "error threshold",
+        "reproduce",
+        "accuracy",
+        "compare to real",
+        "real behavior"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "IC.SM"
+      ],
+      "snippets": [
+        "[step0] Improved accuracy but requires skilled personnel.",
+        "[step0] To enhance accuracy and responsiveness to market changes.",
+        "[step1] | In-House Data Analysis | Limited accuracy and real-time capabilities.",
+        "[step1] | Tool Wear Prediction Accuracy | Degree of accuracy in predicting tool life."
+      ],
+      "strength": "explicit"
+    }
+  },
+  "R3": {
+    "R2 is already satisfied.": {
+      "criterion": "R2 is already satisfied.",
+      "keywords": [],
+      "feasible_caps": [],
+      "selected_caps": [],
+      "snippets": [],
+      "strength": "none"
+    },
+    "Prediction targets, decision variables, and objective functions are defined.": {
+      "criterion": "Prediction targets, decision variables, and objective functions are defined.",
+      "keywords": [
+        "predict",
+        "prediction",
+        "forecast",
+        "remaining useful life",
+        "rul",
+        "scenario",
+        "objective",
+        "optimization",
+        "decision variable"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "IC.PR",
+        "IC.AI"
+      ],
+      "snippets": [
+        "[problem_statement] It should continuously monitor degradation of cutting tools, spindles, and coolant, predict remaining useful life, and assess how component wear will impact part quality and throughput.",
+        "[problem_statement] By integrating real-time machine data with predictive simulation, the digital twin will enable proactive maintenance, reduce cycle time, extend asset life, and ensure that every job is run on the right machine, at the right time, with predictable and efficient performance.",
+        "[step0] Poor predictive maintenance strategies.",
+        "[step0] **Predictive Maintenance**:"
+      ],
+      "strength": "explicit"
+    },
+    "The DT can run without continuous live dependency on the physical system.": {
+      "criterion": "The DT can run without continuous live dependency on the physical system.",
+      "keywords": [
+        "offline",
+        "historical data",
+        "recorded data",
+        "batch",
+        "asynchronous",
+        "without continuous",
+        "not continuous",
+        "decoupled"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "IC.SM"
+      ],
+      "snippets": [
+        "[step0] **Insufficient Historical Data**:",
+        "[step0] | Demand Forecasting | Inaccurate Predictions, Seasonal Fluctuations, Market Volatility | Insufficient Historical Data, Complex Models, External Factors | Stockouts/Excess Inventory, Misallocation of Resources, Financial Instability |",
+        "[step1] Historical data analysis for predictive maintenance and long-term planning.",
+        "[step1] **Historical Data Access**:"
+      ],
+      "strength": "explicit"
+    },
+    "Predictive or scenario-exploration models are implemented.": {
+      "criterion": "Predictive or scenario-exploration models are implemented.",
+      "keywords": [
+        "predictive",
+        "what-if",
+        "scenario",
+        "simulation",
+        "model",
+        "forecast",
+        "scenario exploration"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "IC.PR",
+        "IC.AI",
+        "IC.SM"
+      ],
+      "snippets": [
+        "[problem_statement] By integrating real-time machine data with predictive simulation, the digital twin will enable proactive maintenance, reduce cycle time, extend asset life, and ensure that every job is run on the right machine, at the right time, with predictable and efficient performance.",
+        "[step0] Poor predictive maintenance strategies.",
+        "[step0] **Predictive Maintenance**:",
+        "[step0] Rapid changes in market conditions affecting forecasts."
+      ],
+      "strength": "explicit"
+    },
+    "The DT can evaluate what-if conditions and provide actionable recommendations or optimized results.": {
+      "criterion": "The DT can evaluate what-if conditions and provide actionable recommendations or optimized results.",
+      "keywords": [
+        "what-if",
+        "scenario",
+        "recommendation",
+        "recommendations",
+        "optimize",
+        "optimized",
+        "scheduling",
+        "prescriptive",
+        "actionable"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "IC.PR"
+      ],
+      "snippets": [
+        "[problem_statement] The digital twin must determine whether we have the capability and capacity to run a given job, optimize scheduling based on available equipment, and automate key decision-making processes that currently rely on manual judgment.",
+        "[step0] **Inefficient Maintenance Scheduling**:",
+        "[step0] | Operations | Equipment Downtime, Inventory Management, Quality Control | Lack of Real-Time Data, Inefficient Maintenance Scheduling, Manual Processes | Increased Costs, Reduced Productivity, Decreased Customer Satisfaction |",
+        "[step1] Relying heavily on human judgment for scheduling and decision-making."
+      ],
+      "strength": "explicit"
+    }
+  },
+  "R4": {
+    "R3 is already satisfied.": {
+      "criterion": "R3 is already satisfied.",
+      "keywords": [],
+      "feasible_caps": [],
+      "selected_caps": [],
+      "snippets": [],
+      "strength": "none"
+    },
+    "Autonomy scope, human-in-the-loop boundaries, and override conditions are defined.": {
+      "criterion": "Autonomy scope, human-in-the-loop boundaries, and override conditions are defined.",
+      "keywords": [
+        "autonomy",
+        "human-in-the-loop",
+        "override",
+        "approval",
+        "guardrail",
+        "operator",
+        "escalation"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "TW.SC"
+      ],
+      "snippets": [
+        "[step1] Environmental conditions (temperature, humidity), operator experience."
+      ],
+      "strength": "partial"
+    },
+    "The DT can detect anomalies or changing conditions in real time.": {
+      "criterion": "The DT can detect anomalies or changing conditions in real time.",
+      "keywords": [
+        "anomaly",
+        "alert",
+        "real-time",
+        "monitoring",
+        "event",
+        "detect",
+        "condition change"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "IC.AI",
+        "UX.RM",
+        "MG.SM"
+      ],
+      "snippets": [
+        "[problem_statement] By integrating real-time machine data with predictive simulation, the digital twin will enable proactive maintenance, reduce cycle time, extend asset life, and ensure that every job is run on the right machine, at the right time, with predictable and efficient performance.",
+        "[step0] **Lack of Real-Time Data**:",
+        "[step0] Enhanced real-time monitoring but initial setup costs are high.",
+        "[step0] Lack of real-time external data (e.g., economic indicators, weather)."
+      ],
+      "strength": "explicit"
+    },
+    "The DT can choose among actions based on learned or adaptive logic.": {
+      "criterion": "The DT can choose among actions based on learned or adaptive logic.",
+      "keywords": [
+        "choose among actions",
+        "adaptive",
+        "policy",
+        "learned",
+        "learning",
+        "business rules",
+        "decision logic"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "IC.AI"
+      ],
+      "snippets": [
+        "[step0] **AI and Machine Learning**:",
+        "[step2] | **IC.AI** [E] | Perform actions and take decisions like humans, including machine learning, natural language processing, knowledge modeling, reasoning, inferencing.",
+        "[step2] Federated learning might be useful for edge devices, but initial implementation may require specialized expertise.",
+        "[step3_part1] Implement real-time data validation mechanisms using machine learning models."
+      ],
+      "strength": "explicit"
+    },
+    "Past outcomes are stored and used to improve future decisions.": {
+      "criterion": "Past outcomes are stored and used to improve future decisions.",
+      "keywords": [
+        "feedback",
+        "history",
+        "outcomes",
+        "stored",
+        "used to improve",
+        "future decisions",
+        "learning loop",
+        "event log"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "IC.AI"
+      ],
+      "snippets": [
+        "[step3_part1] Ensure that all transmitted and stored data is secure and unaltered.",
+        "[step3_part2] Ensure that all transmitted and stored data is secure and unaltered."
+      ],
+      "strength": "explicit"
+    },
+    "The DT can make or execute decisions with acceptable trust and safety controls.": {
+      "criterion": "The DT can make or execute decisions with acceptable trust and safety controls.",
+      "keywords": [
+        "command",
+        "control",
+        "execute",
+        "automation",
+        "safe",
+        "safety",
+        "security",
+        "trust",
+        "override",
+        "governance"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "TW.SC"
+      ],
+      "snippets": [
+        "[step0] Security breaches leading to data loss or unauthorized access.",
+        "[step0] Simplifies integration but requires robust security measures.",
+        "[step0] **Lack of Automation Tools**:",
+        "[step0] Damage to brand reputation and customer trust."
+      ],
+      "strength": "explicit"
+    }
+  }
+}

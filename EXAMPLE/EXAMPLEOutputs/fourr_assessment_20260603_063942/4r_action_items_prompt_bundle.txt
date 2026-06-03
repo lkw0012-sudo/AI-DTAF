@@ -1,0 +1,1201 @@
+Use case sector: Manufacturing
+
+Use case description:
+We need a digital twin of our CNC machining systems to provide accurate, data-driven insight into Quality, Cost, and Time before production begins. The digital twin must determine whether we have the capability and capacity to run a given job, optimize scheduling based on available equipment, and automate key decision-making processes that currently rely on manual judgment. It should continuously monitor degradation of cutting tools, spindles, and coolant, predict remaining useful life, and assess how component wear will impact part quality and throughput. By integrating real-time machine data with predictive simulation, the digital twin will enable proactive maintenance, reduce cycle time, extend asset life, and ensure that every job is run on the right machine, at the right time, with predictable and efficient performance.
+
+Target 4R level and justification:
+{
+  "recommended_target_level": "R1",
+  "recommended_target_name": "Representation",
+  "highest_supported_target_level": null,
+  "target_support_status": "partial",
+  "target_confidence": "low",
+  "planning_summary": "The planned digital twin for CNC machining systems aims to provide real-time data-driven insights into quality, cost, and time before production begins. The primary focus is on accurate scheduling based on available equipment, predictive maintenance, and tool wear prediction. The evidence provided supports the planning of a digital twin that can achieve R2 (Replication) level capabilities.",
+  "criteria_supported_for_target": [
+    "The digital twin purpose, scope, and supported decisions are explicitly defined.",
+    "Critical variables are selected without major over-instrumentation or missing context."
+  ],
+  "gaps_to_reach_target": [
+    "System boundaries, major components, inputs/outputs, and important states are identified. (partial evidence)",
+    "A repeatable data collection and storage pipeline exists. (partial evidence)",
+    "Collected data is structured, usable, and verified against known system behavior. (no explicit evidence)"
+  ]
+}
+
+Selected digital twin capabilities (feasible capabilities):
+None
+
+Available data and system context:
+# Digital Twin Business Requirements Specification
+
+## 1. Business Context
+
+### Industry Sector and Specific Domain
+- **Industry Sector**: Manufacturing
+- **Specific Domain**: CNC Machining Systems
+
+### Scale of Operations
+- **Number of Assets**: Over 50 CNC machines across multiple locations.
+- **Locations**: Three main manufacturing plants in different regions.
+
+### Current Operational Environment and Key Constraints
+- **Operational Environment**: High volume, high precision machining operations with strict quality control requirements.
+- **Key Constraints**:
+  - Limited human resources for manual oversight.
+  - Frequent equipment breakdowns leading to delays and increased costs.
+  - Inconsistent tool wear impacting part quality and throughput.
+
+### Primary Stakeholders and Their Roles
+| Role | Responsibilities |
+|------|------------------|
+| Operations Manager | Oversee day-to-day operations, ensure production schedules are met. |
+| Maintenance Engineer | Monitor machine health, perform preventive maintenance. |
+| Quality Control Specialist | Ensure parts meet quality standards, conduct regular inspections. |
+| Production Planner | Schedule jobs based on available resources and demand forecasts. |
+
+## 2. Problem Analysis
+
+### Root Causes of the Current Challenges
+- **Manual Judgment**: Relying heavily on human judgment for scheduling and decision-making.
+- **Inaccurate Predictions**: Inability to accurately predict tool wear, machine degradation, and part quality.
+- **Lack of Real-Time Data**: Insufficient real-time data for proactive maintenance and optimization.
+
+### Quantifiable Business Impact
+| Impact Category | Description |
+|-----------------|-------------|
+| Financial       | Increased costs due to equipment downtime and rework. |
+| Operational     | Reduced productivity and throughput, delayed deliveries. |
+| Safety          | Potential safety hazards from machine breakdowns. |
+
+### Current Approaches and Their Limitations
+| Approach        | Limitation |
+|-----------------|------------|
+| Manual Scheduling | Time-consuming, prone to human error. |
+| Reactive Maintenance | High costs due to unexpected breakdowns. |
+| In-House Data Analysis | Limited accuracy and real-time capabilities. |
+
+## 3. Digital Twin Objectives
+
+### Primary Business Goals
+- Provide accurate, data-driven insights into Quality, Cost, and Time before production begins.
+- Determine capability and capacity for running a given job.
+- Optimize scheduling based on available equipment.
+- Automate key decision-making processes.
+
+### Key Performance Indicators (KPIs)
+| KPI | Description |
+|-----|-------------|
+| Equipment Uptime | Percentage of time machines are operational. |
+| Tool Wear Prediction Accuracy | Degree of accuracy in predicting tool life. |
+| Production Schedule Adherence | Percentage of jobs completed on schedule. |
+| Cost Reduction | Savings achieved through optimized scheduling and maintenance.
+
+### Required Timeframe for Implementation
+- **Short-term (1-3 months)**: Initial setup, integration with existing systems.
+- **Medium-term (4-6 months)**: Data collection and analysis, initial model validation.
+- **Long-term (7-9 months)**: Full deployment, continuous improvement.
+
+### Strategic Alignment
+- Aligns with broader organizational initiatives to enhance operational efficiency and reduce costs.
+
+## 4. Operational Requirements
+
+### Real-time vs. Batch Processing Needs
+- **Real-time**: Monitoring machine health, tool wear, and part quality.
+- **Batch Processing**: Historical data analysis for predictive maintenance and long-term planning.
+
+### Data Update Frequency Requirements
+- **Machine Health**: Every 5 minutes.
+- **Tool Wear**: Every hour.
+- **Part Quality**: After each production run.
+
+### Decision-making Processes to be Supported
+- Scheduling based on available equipment.
+- Predictive maintenance scheduling.
+- Tool replacement decisions.
+
+### Integration with Existing Systems and Workflows
+- Integrate with existing enterprise systems (ERP, MES).
+- Support current workflows for quality control and production planning.
+
+### Level of Automation Desired
+- High level of automation to reduce manual intervention in decision-making processes.
+
+## 5. Data Requirements
+
+### Types of Data Needed
+- **Operational**: Machine status, tool usage, part quality.
+- **Historical**: Past machine performance, maintenance records.
+- **Contextual**: Environmental conditions (temperature, humidity), operator experience.
+
+### Data Sources Available
+- **Sensors**: Installed on machines for real-time data collection.
+- **Enterprise Systems**: ERP, MES for historical and operational data.
+- **Maintenance Logs**: Records of past maintenance activities.
+
+### Data Quality and Completeness Assessment
+- **Quality**: High quality from sensors, moderate from logs.
+- **Completeness**: Incomplete due to manual entry errors in logs.
+
+### Data Volume, Velocity, and Variety Considerations
+- **Volume**: Large volume of data generated by sensors.
+- **Velocity**: Real-time data streaming requires high-speed processing.
+- **Variety**: Mixed types of data (numerical, text, images).
+
+### Special Requirements Around Data Governance or Compliance
+- Ensure compliance with industry standards for data privacy and security.
+
+## 6. User Experience Requirements
+
+### Primary Users and Their Roles
+- **Operations Manager**
+- **Maintenance Engineer**
+- **Quality Control Specialist**
+- **Production Planner**
+
+### Visualization and Interaction Needs
+- **Basic Visualization**: Real-time dashboards showing machine status, tool wear.
+- **Advanced Visualization**: 3D models of parts, detailed analytics.
+
+### Alert and Notification Requirements
+- **Tool Wear Alerts**: Notifications when tools are nearing end of life.
+- **Maintenance Scheduling Alerts**: Reminders for scheduled maintenance tasks.
+
+### Collaboration and Knowledge Sharing Aspects
+- **Real-time Monitoring**: Shared access to real-time data across teams.
+- **Historical Data Access**: Ability to view past performance data for trend analysis.
+
+### Mobile/Remote Access Requirements
+- Support mobile devices for remote monitoring and management.
+
+## 7. Technical Considerations
+
+### Existing Technology Infrastructure
+- Current IT infrastructure includes on-premises servers, cloud services (AWS).
+
+### Deployment Environment Preferences
+- **Edge**: For real-time processing of sensor data.
+- **Cloud**: For historical data storage and analysis.
+- **Hybrid**: Combining edge and cloud for optimal performance.
+
+### Security and Compliance Requirements
+- Ensure data encryption in transit and at rest.
+- Comply with industry standards (ISO 27001, GDPR).
+
+### Scalability Needs for Future Expansion
+- Design system to handle increased data volume as operations scale.
+
+### Performance Expectations
+- Low latency for real-time decision-making.
+- High throughput for batch processing tasks.
+
+## 8. Implementation Approach
+
+### Phasing and Prioritization Recommendations
+1. **Phase 1 (1-3 months)**: Initial setup, integration with existing systems.
+2. **Phase 2 (4-6 months)**: Data collection and analysis, initial model validation.
+3. **Phase 3 (7-9 months)**: Full deployment, continuous improvement.
+
+### Key Risks and Mitigations
+- **Risk**: Data quality issues leading to inaccurate predictions.
+  - **Mitigation**: Implement rigorous data cleaning processes.
+- **Risk**: Integration challenges with existing systems.
+  - **Mitigation**: Conduct thorough compatibility testing before full-scale implementation.
+
+### Success Criteria
+- Achieve a minimum of 95% equipment uptime within the first six months.
+- Reduce tool replacement costs by at least 20% in the first year.
+- Improve production schedule adherence to over 98%.
+
+### Organizational Readiness Considerations
+- Ensure cross-functional team involvement for successful implementation.
+- Provide training and support for all stakeholders.
+
+---
+
+This specification provides a detailed foundation for identifying specific capabilities from the Digital Twin Capabilities Periodic Table.
+
+Step 0 context:
+# Manufacturing Sector Challenges Analysis
+
+## Operations
+
+### Typical Issues
+- **Equipment Downtime**: Frequent breakdowns and maintenance issues.
+- **Inventory Management**: Inaccurate stock levels leading to shortages or overstocking.
+- **Quality Control**: Variability in product quality due to inconsistent processes.
+
+### Root Causes
+- **Lack of Real-Time Data**: Insufficient data collection and analysis capabilities.
+- **Inefficient Maintenance Scheduling**: Poor predictive maintenance strategies.
+- **Manual Processes**: Manual data entry and tracking leading to errors.
+
+### Impact on Business Performance
+- Increased operational costs due to downtime and rework.
+- Reduced productivity and throughput.
+- Decreased customer satisfaction from delayed deliveries or defective products.
+
+### Recent Trends/Disruptions
+- **IoT and Edge Computing**: Enhanced real-time monitoring but initial setup costs are high.
+- **Predictive Maintenance**: Can reduce downtime but requires significant investment in sensors and analytics.
+
+## Demand Forecasting
+
+### Typical Issues
+- **Inaccurate Predictions**: Overestimating or underestimating demand.
+- **Seasonal Fluctuations**: Difficulty in accounting for seasonal variations.
+- **Market Volatility**: Rapid changes in market conditions affecting forecasts.
+
+### Root Causes
+- **Insufficient Historical Data**: Limited data to build accurate models.
+- **Complexity of Models**: Advanced models are difficult to implement and maintain.
+- **External Factors**: Lack of real-time external data (e.g., economic indicators, weather).
+
+### Impact on Business Performance
+- Stockouts or excess inventory leading to lost sales or storage costs.
+- Misallocation of resources affecting production planning.
+- Financial instability due to inaccurate budgeting.
+
+### Recent Trends/Disruptions
+- **AI and Machine Learning**: Improved accuracy but requires skilled personnel.
+- **Big Data Analytics**: Enhanced data processing capabilities but initial setup is complex.
+
+## Technology Integration
+
+### Typical Issues
+- **Data Silos**: Inconsistent data across different systems.
+- **Interoperability Issues**: Difficulty in integrating legacy systems with new technologies.
+- **Security Concerns**: Risks associated with connecting disparate systems.
+
+### Root Causes
+- **Legacy Systems**: Older systems not designed for modern integration standards.
+- **Vendor Lock-In**: Dependence on specific software or hardware vendors.
+- **Lack of Standardization**: Absence of common protocols and APIs.
+
+### Impact on Business Performance
+- Reduced efficiency due to manual data transfer processes.
+- Increased costs from custom development projects.
+- Security breaches leading to data loss or unauthorized access.
+
+### Recent Trends/Disruptions
+- **Cloud Computing**: Simplifies integration but requires robust security measures.
+- **APIs and Microservices**: Enhances flexibility but demands continuous maintenance.
+
+## Customer Engagement
+
+### Typical Issues
+- **Poor 
+
+Step 2 selected capabilities context:
+# Digital Twin Capability Selector
+
+## 1. Capability Mapping
+
+### Data Services (DS)
+
+| Capability | Description | Justification | Deployment Considerations |
+|------------|-------------|---------------|-------------------------|
+| **DS.AI** [E] | Configure and acquire data from different sources including sensors, enterprise systems, etc. | Essential for real-time monitoring of machine health and tool wear. | Edge and Fog (for real-time processing) |
+| **DS.ST** [H] | Transfer large volumes of data continuously between a source and destination. | High value for handling high-speed data streams from sensors. | Cloud (for centralized storage and analysis) |
+| **DS.TR** [E] | Convert raw data types through cleaning, structuring, and enriching to make it suitable for further processing. | Essential for preparing data for predictive analytics. | Edge/Fog (for initial data cleaning) |
+| **DS.CX** [H] | Add language or metadata to enrich real-time or transactional data. | High value for contextualizing data for better decision-making. | Cloud (for advanced data enrichment) |
+| **DS.BP** [F] | Execute against previously collected data in bulk form. | Future enhancement for batch processing of historical data. | Edge/Fog/Cloud |
+
+### Integration (IR)
+
+| Capability | Description | Justification | Key Systems to Integrate |
+|------------|-------------|---------------|------------------------|
+| **IR.ET** [E] | Integrate the digital twin with existing enterprise systems such as ERP, MES. | Essential for seamless data flow and process integration. | ERP, MES, SCADA |
+| **IR.EG** [H] | Integrate the digital twin with engineering systems like CAD, CAM, BIM. | High value for model use and data flow between engineering applications. | CAD, CAM, BIM |
+| **IR.IO** [E] | Integrate directly with control systems and IoT devices/sensors, SCADA. | Essential for real-time monitoring of machine health. | Sensors, SCADA |
+
+### Intelligence (IC)
+
+| Capability | Description | Justification | Critical Intelligence Capabilities |
+|------------|-------------|---------------|----------------------------------|
+| **IC.AI** [E] | Perform actions and take decisions like humans, including machine learning, natural language processing, knowledge modeling, reasoning, inferencing. | Essential for predictive maintenance and tool wear prediction. | AI/ML models for predictive analytics |
+| **IC.PR** [H] | Estimate specified future events or consequences of other events. | High value for predicting remaining useful life and part quality. | Predictive models for tool wear and part quality |
+| **IC.SM** [E] | Create approximate imitation of processes or systems using historical information, physical models, video, audio, and animation. | Essential for training operations and maintenance teams. | Simulation models for training |
+
+### User Experience (UX)
+
+| Capability | Description | Justification | Considerations for Different User Roles |
+|------------|-------------|---------------|---------------------------------------|
+| **UX.BV** [E] | Display data through simple charts, graphs, dashboards, tables, hierarchical and basic 3D views of assets. | Essential for operations managers to understand machine status. | Operations Manager |
+| **UX.AV** [H] | Display complex charts, multi-system dashboards, 3D models, animations, overlayed data visualizations. | High value for detailed analysis by maintenance engineers and quality control specialists. | Maintenance Engineer, Quality Control Specialist |
+| **UX.RM** [E] | Present and interact with continuously updated information streaming at zero or low latency. | Essential for real-time decision-making by production planners. | Production Planner |
+
+### Management (MG)
+
+| Capability | Description | Justification | Operational Governance Needs |
+|------------|-------------|---------------|-----------------------------|
+| **MG.DM** [E] | Provision, authenticate, configure, maintain, monitor and diagnose connected IoT devices. | Essential for device management in the digital twin environment. | Device Management |
+| **MG.SM** [H] | Observe Digital Twin systems by collecting, analyzing, and acting on health data. | High value for system monitoring and proactive maintenance. | System Monitoring |
+
+### Trustworthiness (TW)
+
+| Capability | Description | Justification | Security or Compliance Considerations |
+|------------|-------------|---------------|--------------------------------------|
+| **TW.SC** [E] | Protect Digital Twins from unauthorized access, change, or destruction. | Essential for maintaining system integrity and confidentiality. | Data Encryption, Access Control |
+| **TW.PR** [H] | Enable individual control over personal information collection, storage, and disclosure. | High value for data privacy compliance (GDPR). | Privacy Policies |
+
+## 2. Capability Priority Assessment
+
+| Capability ID | Priority Level |
+|---------------|----------------|
+| DS.AI         | [E]            |
+| DS.ST         | [H]            |
+| DS.TR         | [E]            |
+| DS.CX         | [H]            |
+| DS.BP         | [F]            |
+| IR.ET         | [E]            |
+| IR.EG         | [H]            |
+| IR.IO         | [E]            |
+| IC.AI         | [E]            |
+| IC.PR         | [H]            |
+| IC.SM         | [E]            |
+| UX.BV        | [E]            |
+| UX.AV       | [H]            |
+| UX.RM       | [E]            |
+| MG.DM         | [E]            |
+| MG.SM         | [H]            |
+| TW.SC         | [E]            |
+| TW.PR         | [H]            |
+
+## 3. Digital Twin Capability Periodic Table Visualization
+
+```markdown
+| Capability ID | Priority Level |
+|---------------|----------------|
+| DS.AI [E]     |                |
+| DS.ST [H]     |                |
+| DS.TR [E]     |                |
+| DS.CX [H]     |                |
+| DS.BP [F]     |                |
+| IR.ET [E]     |                |
+| IR.EG [H]     |                |
+| IR.IO [E]     |                |
+| IC.AI [E]     |                |
+| IC.PR [H]     |                |
+| IC.SM [E]     |                |
+| UX.BV [E]     |                |
+| UX.AV [H]     |                |
+| UX.RM [E]     |                |
+| MG.DM [E]     |                |
+| MG.SM [H]     |                |
+| TW.SC [E]     |                |
+| TW.PR [H]     |                |
+```
+
+## 4. Implementation Considerations
+
+### Capability Gaps and Challenges
+- **DS.SR**: Simulation model repository is not explicitly required but could be beneficial for future enhancements.
+- **IC.FL**: Federated learning might be useful for edge devices, but initial implementation may require specialized expertise.
+
+### Phasing Approach
+1. **Phase 1 (3 months)**: Implement DS.AI, DS.ST, IR.ET, MG.DM, UX.BV.
+2. **Phase 2 (6 months)**: Add DS.TR, IC.AI, IR.IO, MG.SM, UX.AV.
+3. **Phase 3 (9 months)**: Integrate DS.CX, IC.PR, IC.SM, UX.RM, TW.SC.
+
+### Specialized Expertise Needed
+- **Data Scientists**: For developing and maintaining AI/ML models.
+- 
+
+Step 3 technical/deep-dive context:
+# Capability Deep Dives
+
+## Part 1: Critical Non-Trustworthiness Capabilities
+
+### DS.AI (Data Acquisition and Ingestion)
+#### Specific Requirements
+- **Real-time Data Collection**: Continuous data acquisition from sensors, enterprise systems.
+- **Multi-source Integration**: Integration with various data sources including IoT devices, SCADA, ERP, MES.
+- **Data Quality Assurance**: Ensuring high-quality data through preprocessing steps.
+
+#### Success Criteria
+- **95%+ Data Acquisition Rate**: Ensure that the system can continuously collect data from all relevant sources.
+- **100% Data Integrity**: Verify that the collected data is accurate and reliable for further processing.
+
+#### Recommended Technology Approaches
+- **Edge Computing**: Use edge devices to preprocess and clean data before sending it to the cloud.
+- **API Integration**: Develop APIs to integrate with existing enterprise systems.
+- **Data Quality Checks**: Implement real-time data validation mechanisms using machine learning models.
+
+#### Potential Challenges in Implementation
+- **Data Inconsistencies**: Handling inconsistencies across different data sources.
+- **Scalability Issues**: Managing large volumes of data from multiple sensors and systems.
+- **Integration Complexity**: Ensuring seamless integration with existing enterprise systems.
+
+### IC.AI (Artificial Intelligence)
+#### Specific Requirements
+- **Predictive Maintenance Models**: Develop models to predict tool wear, machine degradation, and part quality.
+- **Real-time Decision Support**: Provide real-time recommendations for maintenance actions and scheduling decisions.
+- **Historical Data Analysis**: Analyze historical data to improve model accuracy.
+
+#### Success Criteria
+- **90%+ Prediction Accuracy**: Ensure that the AI models can accurately predict tool wear and machine degradation.
+- **85%+ Scheduling Efficiency**: Improve production scheduling efficiency by reducing manual intervention.
+
+#### Recommended Technology Approaches
+- **Machine Learning Frameworks**: Use frameworks like TensorFlow or PyTorch for model development.
+- **Real-time Processing Engines**: Implement real-time processing engines to provide immediate insights.
+- **Historical Data Storage**: Store and manage historical data in a centralized repository.
+
+#### Potential Challenges in Implementation
+- **Data Quality Issues**: Ensuring that the training data is clean and representative.
+- **Model Overfitting**: Preventing overfitting by using appropriate validation techniques.
+- **Real-time Performance**: Maintaining real-time performance with large-scale models.
+
+### MG.DM (Device Management)
+#### Specific Requirements
+- **IoT Device Management**: Manage and monitor IoT devices connected to the digital twin.
+- **Authentication and Authorization**: Ensure secure access control for device data.
+- **Maintenance Scheduling**: Schedule regular maintenance tasks for devices.
+
+#### Success Criteria
+- **100% Device Uptime**: Maintain high uptime for all connected devices.
+- **95%+ Maintenance Compliance**: Ensure that maintenance tasks are completed on schedule.
+
+#### Recommended Technology Approaches
+- **IoT Platforms**: Use IoT platforms like AWS IoT or Azure IoT Hub for device management.
+- **Identity and Access Management (IAM)**: Implement IAM solutions to manage device access securely.
+- **Maintenance Scheduling Tools**: Utilize scheduling tools to automate maintenance tasks.
+
+#### Potential Challenges in Implementation
+- **Device Diversity**: Managing a wide range of devices with varying protocols.
+- **Security Risks**: Ensuring that devices are secure against unauthorized access and attacks.
+- **Scalability Issues**: Handling the increasing number of connected devices as operations scale.
+
+## Part 2: All Trustworthiness Capabilities
+
+### TW.SC (Security)
+#### Specific Requirements
+- **Data Encryption**: Encrypt data during transmission and storage to protect sensitive information.
+- **Access Control**: Implement strict access control measures for device data.
+- **Audit Trails**: Maintain detailed audit trails for system activities.
+
+#### Success Criteria
+- **100% Data Integrity**: Ensure that all transmitted and stored data is secure and unaltered.
+- **95%+ Access Compliance**: Ensure that only authorized personnel have access to sensitive data.
+
+#### Recommended Technology Approaches
+- **Data Encryption Standards**: Use industry-standard encryption protocols like AES for data protection.
+- **Access Control Policies**: Implement role-based access control (RBAC) policies.
+- **Audit Logging Tools**: Utilize logging tools to maintain detailed audit trails.
+
+#### Potential Challenges in Implementation
+- **Complexity of Security Measures**: Ensuring that all security measures are robust and effective.
+- **Compliance Issues**: Adhering to industry-specific compliance standards like GDPR or HIPAA.
+- **Performance Impact**: Balancing security with performance to avoid bottlenecks.
+
+### TW.PR (Privacy)
+#### Specific Requirements
+- **Data Anonymization**: Ensure that personal data is anonymized before storage and processing.
+- **User Consent Management**: Implement mechanisms for user consent management.
+- **Transparency Reports**: Provide regular transparency reports on data handling practices.
+
+#### Success Criteria
+- **100% Data Privacy Compliance**: Ensure that all data handling practices comply with privacy regulations.
+- **95%+ User Consent Rate**: Ensure that users are fully informed and give explicit consent for their data to be used.
+
+#### Recommended Technology Approaches
+- **Data Anonymization Techniques**: Use techniques like differential privacy or k-anonymity.
+- **Consent Management Platforms**: Implement platforms to manage user consent effectively.
+- **Transparency Reporting Tools**: Utilize tools to generate regular transparency reports.
+
+#### Potential Challenges in Implementation
+- **Complexity of Data Handling**: Ensuring that all data handling processes are compliant with regulations.
+- **User Consent Management**: Managing and tracking user consent across different systems.
+- **Regulatory Compliance**: Adhering to changing privacy regulations and standards.
+
+### TW.SF (Safety)
+#### Specific Requirements
+- **Hazard Detection Systems**: Implement systems to detect potential hazards in real-time.
+- **Emergency Response Protocols**: Develop and implement emergency response protocols.
+- **Regular Safety Audits**: Conduct regular safety audits to ensure compliance with safety standards.
+
+#### Success Criteria
+- **0% Incidents**: Ensure that no incidents occur due to system failures or malfunctions.
+- **100% Compliance**: Ensure full compliance with all relevant safety regulations.
+
+#### Recommended Technology Approaches
+- **Hazard Detection Algorithms**: Develop and implement algorithms for hazard detection.
+- **Emergency Response Systems**: Set up emergency response systems and protocols.
+- **Safety Audits Tools**: Utilize tools to conduct regular safety audits.
+
+#### Potential Challenges in Implementation
+- **Complexity of Safety Systems**: Ensuring that all safety systems are robust and effective.
+- **Regulatory Compliance**: Adhering to strict safety regulations and standards.
+- **User Training**: Providing comprehensive training for users on safety protocols.
+
+### TW.RL (Reliability)
+#### Specific Requirements
+- **High Availability**: Ensure high availability of the digital twin system.
+- **Fault Tolerance Mechanisms**: Implement fault tolerance mechanisms to handle system failures.
+- **Regular Maintenance Schedules**: Schedule regular maintenance and updates to ensure reliability.
+
+#### Success Criteria
+- **99.9% Uptime**: Maintain a high uptime rate for the digital twin system.
+- **0% Downtime Incidents**: Ensure that no significant downtime incidents occur.
+
+#### Recommended Technology Approaches
+- **High Availability Architectures**: Design architectures with built-in redundancy and failover mechanisms.
+- **Fault Tolerance Techniques**: Implement techniques like clustering and load balancing.
+- **Regular Maintenance Schedules**: Develop and implement regular maintenance schedules.
+
+#### Potential Challenges in Implementation
+- **Complexity of High Availability**: Ensuring that all components are highly available.
+- **Maintenance Downtime**: Managing maintenance activities without causing significant downtime.
+- **Scalability Issues**: Handling increased loads during peak times while maintaining reliability.
+
+### TW.RS (Resilience)
+#### Specific Requirements
+- **Disaster Recovery Plans**: Develop and implement disaster recovery plans.
+- **Redundancy Mechanisms**: Implement redundancy mechanisms to handle system failures.
+- **Regular Testing of Resilience**: Conduct regular testing to ensure resilience mechanisms are effective.
+
+#### Success Criteria
+- **0% Data Loss Incidents**: Ensure that no data loss occurs during disasters or system failures.
+- **95%+ Recovery Time Objectives (RTO)**: Achieve quick recovery times in
+
+4R database steps for the required levels:
+[
+  {
+    "id": "R1",
+    "name": "Representation",
+    "description": "In the Representation (R1) phase is, it is necessary to understand the physical system, decide on the significant features of the system for the use case, and create a system architecture for data collection and data storage from the physical component. In this first level of the framework, the foundational digital representation of the physical system is developed. An understanding of the inner working of the system is required to appropriately represent a system. This phase primarily considers the identification of key properties, characteristics and states that comprise the physical entity. Once the qualities and characteristics have been identified and categorized, the design of the processes to collect data that are both directly and indirectly associated with each property commences. This is the phase where decisions regarding the purpose of DT should be made since the purpose of the DT is critical to the development of the terminal DT phase and the implementation of the Representation is a critical component. A high-level DT implementation would likely not require high resolution data whereas a more complex DT will. Some characteristics of the representation phase include the physical system represented as data, the data flows from the physical device to the virtual device, and the data to be collected, stored, and verified. The data collected at this phase allows for understanding of the system and is used for analysis, visualization, and model creation. Considerations in this phase are: (i) Data collection pipeline (ii) Data persistence/storage, (iii) Data polling rate (iv) Data structures and format (v) Metadata (vi) information design modeling (vii) Data preprocessing pipelines (viii) Data analysis and representation. It is important to highlight that the representation process is dynamic and evolves with the implementation of the next phases of the framework. As requirements for the DT change over time, so does the data needed to support these capabilities. Representation should be designed in a modular and scalable way, so that new requirements are served in a plug and play manner, with minimal effect to the rest of the system.",
+    "core_outcome": "The physical system is clearly bounded, instrumented, and represented as reliable, structured data that is directly usable for analysis, visualization, and later model building.",
+    "workflow_steps": [
+      {
+        "step_id": "1",
+        "step_title": "1. Define the purpose, scope, and goal of the digital twin",
+        "tasks": [
+          {
+            "task_id": "1.1",
+            "task_text": "1.1 Explanation of why the digital twin is being created and what the expected outcomes are. Identify decision(s) the DT will support",
+            "example": "The goal of the digital twin was to create a generic, reuseable, and customizable system for reseach and experimentation. The expected outcomes included monitoring, evaluation, analysis, and visualization of the 3D"
+          },
+          {
+            "task_id": "1.2",
+            "task_text": "1.2 Set the system boundaries: Define where the system starts and ends including machines, processes, and interactions are included in the model.",
+            "example": "The system boundary was limited ot the componetns that directly impact the additive manufacturing process, inluding the printer, printing process, and environmental conditions. One example of a non-cirtical componets that was excluded was internal motor details"
+          }
+        ]
+      },
+      {
+        "step_id": "2",
+        "step_title": "2. Decompose and Understand the Physical System",
+        "tasks": [
+          {
+            "task_id": "2.2",
+            "task_text": "2.2 Identify the key properties, characteristics and states that comprise the physical entity. Break down the system into: Components/subsystems, Inputs/outputs, and States and behaviors. Identify critical variables (temperature, throughput, position, etc.) and interactions between components",
+            "example": "The system was broken down into key components such as printing bed, orentation (x, y, z axis), G-code, and environmental conditions"
+          },
+          {
+            "task_id": "2.3",
+            "task_text": "2.3 Capture the static properties and dynamic states. Static varibles are the ones that remain constant and dynamic are variables that change over time. Static properties (geometry, configuration) and\nDynamic states (real-time behavior)",
+            "example": "The dynamic components were identified as bed (Y-axis), the printer head (X-axis), the spools, pillars, and the printer head together (Z-axis). The static compoents were identified as frame of the 3D printer and the G-code"
+          }
+        ]
+      },
+      {
+        "step_id": "3",
+        "step_title": "3. Identify Key features and Representation Requirements",
+        "tasks": [
+          {
+            "task_id": "3.1",
+            "task_text": "3.1 Identify which properties actually matter for the use case\n(avoid over-instrumentation).",
+            "example": "The temperature (bed and extruder), postion (extruder and bed), and environmenta factors (humidity and temperature) were identified as the most important dynamic components"
+          },
+          {
+            "task_id": "3.2",
+            "task_text": "3.2. Define Required accuracy and update frequency",
+            "example": ""
+          }
+        ]
+      },
+      {
+        "step_id": "4",
+        "step_title": "4. Design the Data Collection Strategy",
+        "tasks": [
+          {
+            "task_id": "4.1",
+            "task_text": "4.1 Determine the sensors/data sources that are needed and where they should be placed",
+            "example": "The data was collected using thermocouple sensors for temperature, distance sensors for position, environmental sensors for humiditiy and temperature, and Octoprint to monitor the printer."
+          },
+          {
+            "task_id": "4.2",
+            "task_text": "4.2 Define data aquisition methods (IoT devices, PLCs, APIs) and communication protocols (MQTT, OPC UA, etc.)",
+            "example": "The data was collected using sensors attached to the Raspberry Pi and the data was transmited using APIs"
+          },
+          {
+            "task_id": "4.3",
+            "task_text": "4.3. Specify synchronization requirements and data storage. Choose storage solutions for Time-series databases (e.g., sensor data), Relational databases (structured data), and Data lakes (raw/unstructured data)",
+            "example": "The data types collected from using external sesnros and Octoprint were JSON, CSV, and text files. The databases used were MongoDB and MySQL for storage"
+          },
+          {
+            "task_id": "4.4",
+            "task_text": "4.4 Define Data Structures, Formats, Data schemas (tables, time-series, JSON, etc.) and\nNaming conventions",
+            "example": ""
+          }
+        ]
+      },
+      {
+        "step_id": "5",
+        "step_title": "5. Develop Initial Data Representation Layer",
+        "tasks": [
+          {
+            "task_id": "5.1",
+            "task_text": "5.1. Collect the data from the physical system",
+            "example": "The data was collected from sensors, cameras, and software applications during the printers operation"
+          },
+          {
+            "task_id": "5.2",
+            "task_text": "5.2. Structure the data, emove the erros, and organize into a usable format",
+            "example": "The collcted dat was organized into cateogires of temperature, position, state, setting, and job data"
+          },
+          {
+            "task_id": "5.3",
+            "task_text": "5.3 Verify and Validate the data, by comparing collected data to known system outputs",
+            "example": "Sensor data was compared to the data on the OctoPrint itself."
+          },
+          {
+            "task_id": "5.4",
+            "task_text": "5.4 Key Representation check:\nCan you explain how the system works using only the data you collect?\n(If not, you\u2019re missing critical variables or context.)\nIs every data stream clearly tied to a system component, state, or decision?\n(If something has no purpose, it shouldn\u2019t be there.)\nIs your data clean, structured, and immediately usable for analysis or modeling?\n(If you have to \u201cfigure it out later,\u201d R1 isn\u2019t done.)\nDoes your data pipeline run reliably without manual intervention?\n(If it\u2019s fragile, it\u2019s not a real representation.)\nDoes the level of detail match your intended use (not overbuilt, not underbuilt)?\n(Too much or too little both mean R1 failed.)",
+            "example": ""
+          }
+        ]
+      }
+    ],
+    "minimum_gate_criteria": [
+      "The digital twin purpose, scope, and supported decisions are explicitly defined.",
+      "System boundaries, major components, inputs/outputs, and important states are identified.",
+      "Critical variables are selected without major over-instrumentation or missing context.",
+      "A repeatable data collection and storage pipeline exists.",
+      "Collected data is structured, usable, and verified against known system behavior."
+    ],
+    "action_items_to_reach_this_level": [
+      "Write a one-paragraph statement defining the DT purpose, target decisions, and expected outcomes.",
+      "Document system boundaries, included/excluded components, and key interactions.",
+      "List static properties and dynamic states, then identify the minimum critical variables required.",
+      "Select sensors, APIs, or software sources and define the acquisition method for each.",
+      "Choose storage and data formats, then create naming conventions and metadata fields.",
+      "Implement preprocessing and data quality checks so the data is analysis-ready.",
+      "Validate collected data against known outputs or trusted reference readings."
+    ]
+  }
+]
+
+4R evaluation details by level:
+{
+  "R1": {
+    "summary": "The planning evidence supports the foundational aspects required for R1, such as data collection and storage. However, it lacks explicit definitions of purpose, scope, and critical variables.",
+    "supporting_capabilities": [
+      "DS.AI",
+      "UX.BV"
+    ],
+    "gate_scores": [
+      {
+        "criterion": "The digital twin purpose, scope, and supported decisions are explicitly defined.",
+        "score": 2,
+        "evidence": "No clear statement on the digital twin's purpose or use case.",
+        "rationale": "The planning summary does not explicitly define the DT's purpose and scope. | evidence found in prior outputs"
+      },
+      {
+        "criterion": "System boundaries, major components, inputs/outputs, and important states are identified.",
+        "score": 1,
+        "evidence": "System boundaries are identified through data collection sources (sensors, enterprise systems).",
+        "rationale": "While system boundaries are mentioned, they are not fully defined or categorized. | evidence found in prior outputs"
+      },
+      {
+        "criterion": "Critical variables are selected without major over-instrumentation or missing context.",
+        "score": 2,
+        "evidence": "Critical variables are selected but over-instrumentation is a risk.",
+        "rationale": "The planning summary does not explicitly list critical variables without potential over-instrumentation. | evidence found in prior outputs"
+      },
+      {
+        "criterion": "A repeatable data collection and storage pipeline exists.",
+        "score": 1,
+        "evidence": "A repeatable data collection and storage pipeline exists through edge computing and cloud services.",
+        "rationale": "Data acquisition and storage are planned but not fully detailed. | evidence found in prior outputs"
+      },
+      {
+        "criterion": "Collected data is structured, usable, and verified against known system behavior.",
+        "score": 0,
+        "evidence": "Collected data is structured but verification against known system behavior is not explicitly mentioned.",
+        "rationale": "While data structures are defined, there is no evidence of validation processes. | evidence found in prior outputs"
+      }
+    ],
+    "action_items_tailored": [
+      "Write a one-paragraph statement defining the DT purpose, target decisions, and expected outcomes.",
+      "Document system boundaries, included/excluded components, and key interactions.",
+      "List static properties and dynamic states, then identify the minimum critical variables required."
+    ]
+  },
+  "R2": {
+    "summary": "The evidence supports R1 capabilities but lacks explicit replication targets, decision variables, and independent execution. The digital twin can be built to achieve R2 level with additional planning.",
+    "supporting_capabilities": [
+      "DS.AI",
+      "IR.ET",
+      "IC.AI",
+      "UX.BV"
+    ],
+    "gate_scores": [
+      {
+        "criterion": "R1 is already satisfied.",
+        "score": 1,
+        "evidence": "Replication targets are implied through predictive maintenance and tool wear prediction.",
+        "rationale": "While the purpose is not explicitly stated, replication targets are inferred from the use cases."
+      },
+      {
+        "criterion": "Replication targets, required outputs, and acceptable error thresholds are defined.",
+        "score": 2,
+        "evidence": "Decision variables and objective functions are not defined.",
+        "rationale": "The planning summary does not specify what decisions the DT should support. | evidence found in prior outputs"
+      },
+      {
+        "criterion": "A modeling platform has been selected and the system has been mapped into a digital architecture.",
+        "score": 1,
+        "evidence": "A modeling platform has been selected (edge computing and cloud services).",
+        "rationale": "Edge and cloud services are planned for model development but not fully detailed. | evidence found in prior outputs"
+      },
+      {
+        "criterion": "Live or recorded data can drive model inputs and updates.",
+        "score": 2,
+        "evidence": "Live or recorded data can drive model inputs and updates.",
+        "rationale": "While data sources are identified, there is no explicit mention of real-time data driving the model. | evidence found in prior outputs"
+      },
+      {
+        "criterion": "The model has been tested against real behavior and verified to reproduce outputs with acceptable deviation.",
+        "score": 1,
+        "evidence": "The DT can run without continuous live dependency on the physical system through edge computing.",
+        "rationale": "Edge computing supports independent execution but not fully detailed. | evidence found in prior outputs"
+      }
+    ],
+    "action_items_tailored": [
+      "Define what the DT must predict and the time horizon for predictions.",
+      "Decouple the DT from continuous live data so it can run hypothetical cases.",
+      "Add predictive, physics-based, machine learning, or analytical models as appropriate."
+    ]
+  },
+  "R3": {
+    "summary": "The evidence supports R2 capabilities but lacks explicit prediction targets, scenario analysis, and actionable insights. The digital twin can be built to achieve R3 level with additional planning.",
+    "supporting_capabilities": [
+      "DS.AI",
+      "IR.ET",
+      "IC.AI",
+      "UX.BV"
+    ],
+    "gate_scores": [
+      {
+        "criterion": "R2 is already satisfied.",
+        "score": 1,
+        "evidence": "Prediction targets are implied through predictive maintenance and tool wear prediction.",
+        "rationale": "While the purpose is not explicitly stated, prediction targets are inferred from the use cases."
+      },
+      {
+        "criterion": "Prediction targets, decision variables, and objective functions are defined.",
+        "score": 2,
+        "evidence": "Decision variables and objective functions are not defined.",
+        "rationale": "The planning summary does not specify what decisions the DT should support. | evidence found in prior outputs"
+      },
+      {
+        "criterion": "The DT can run without continuous live dependency on the physical system.",
+        "score": 1,
+        "evidence": "The DT can run without continuous live dependency on the physical system through edge computing.",
+        "rationale": "Edge computing supports independent execution but not fully detailed. | evidence found in prior outputs"
+      },
+      {
+        "criterion": "Predictive or scenario-exploration models are implemented.",
+        "score": 1,
+        "evidence": "Predictive or scenario-exploration models are implemented.",
+        "rationale": "While predictive models are implied, there is no explicit mention of scenario analysis workflows. | evidence found in prior outputs"
+      },
+      {
+        "criterion": "The DT can evaluate what-if conditions and provide actionable recommendations or optimized results.",
+        "score": 1,
+        "evidence": "The DT can evaluate what-if conditions and provide actionable recommendations or optimized results through edge computing.",
+        "rationale": "Edge computing supports real-time decision support but not fully detailed. | evidence found in prior outputs"
+      }
+    ],
+    "action_items_tailored": [
+      "Define what the DT must predict, the time horizon, and the decisions it should support.",
+      "Add predictive, physics-based, machine learning, or analytical models as appropriate.",
+      "Implement scenario simulation and what-if analysis workflows."
+    ]
+  },
+  "R4": {
+    "summary": "The evidence does not provide clear evidence for R3 capabilities. The digital twin can be built to achieve R4 level with significant additional planning.",
+    "supporting_capabilities": [
+      "DS.AI",
+      "IR.ET",
+      "IC.AI",
+      "UX.BV"
+    ],
+    "gate_scores": [
+      {
+        "criterion": "R3 is already satisfied.",
+        "score": 0,
+        "evidence": "Autonomy scope is not defined.",
+        "rationale": "The planning summary does not specify the autonomy level or human-in-the-loop boundaries."
+      },
+      {
+        "criterion": "Autonomy scope, human-in-the-loop boundaries, and override conditions are defined.",
+        "score": 1,
+        "evidence": "Human-in-the-loop boundaries are not defined.",
+        "rationale": "The planning summary does not specify how humans will interact with the DT. | partial evidence found in prior outputs"
+      },
+      {
+        "criterion": "The DT can detect anomalies or changing conditions in real time.",
+        "score": 1,
+        "evidence": "The DT can detect anomalies through edge computing.",
+        "rationale": "Edge computing supports anomaly detection but not fully detailed. | evidence found in prior outputs"
+      },
+      {
+        "criterion": "The DT can choose among actions based on learned or adaptive logic.",
+        "score": 1,
+        "evidence": "The DT can choose among actions based on learned or adaptive logic.",
+        "rationale": "While predictive models are implied, there is no explicit mention of decision-making policies. | evidence found in prior outputs"
+      },
+      {
+        "criterion": "Past outcomes are stored and used to improve future decisions.",
+        "score": 1,
+        "evidence": "Past outcomes are stored and used to improve future decisions through edge computing.",
+        "rationale": "Edge computing supports learning from past data but not fully detailed. | evidence found in prior outputs"
+      },
+      {
+        "criterion": "The DT can make or execute decisions with acceptable trust and safety controls.",
+        "score": 2,
+        "evidence": "[step0] Security breaches leading to data loss or unauthorized access.",
+        "rationale": "evidence found in prior outputs"
+      }
+    ],
+    "action_items_tailored": [
+      "Define whether the DT is advisory, semi-autonomous, or fully autonomous.",
+      "Specify safety boundaries, override rules, and operator approval requirements.",
+      "Integrate control-system connections and real-time anomaly detection."
+    ]
+  }
+}
+
+Criterion-specific evidence index:
+{
+  "R1": {
+    "The digital twin purpose, scope, and supported decisions are explicitly defined.": {
+      "criterion": "The digital twin purpose, scope, and supported decisions are explicitly defined.",
+      "keywords": [
+        "purpose",
+        "scope",
+        "decision",
+        "supported decisions",
+        "objective",
+        "goal",
+        "outcome",
+        "kpi",
+        "business requirement",
+        "problem statement"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "IC.PR",
+        "UX.BV",
+        "IC.SM"
+      ],
+      "snippets": [
+        "[problem_statement] The digital twin must determine whether we have the capability and capacity to run a given job, optimize scheduling based on available equipment, and automate key decision-making processes that currently rely on manual judgment.",
+        "[step1] # Digital Twin Business Requirements Specification",
+        "[step1] Relying heavily on human judgment for scheduling and decision-making.",
+        "[step1] ### Primary Business Goals"
+      ],
+      "strength": "explicit"
+    },
+    "System boundaries, major components, inputs/outputs, and important states are identified.": {
+      "criterion": "System boundaries, major components, inputs/outputs, and important states are identified.",
+      "keywords": [
+        "boundary",
+        "boundaries",
+        "component",
+        "components",
+        "asset",
+        "equipment",
+        "resource",
+        "process step",
+        "input",
+        "output",
+        "state",
+        "states",
+        "architecture",
+        "workflow",
+        "interface",
+        "subsystem"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "IR.EG",
+        "IR.IO",
+        "DS.CX",
+        "IC.SM"
+      ],
+      "snippets": [
+        "[problem_statement] The digital twin must determine whether we have the capability and capacity to run a given job, optimize scheduling based on available equipment, and automate key decision-making processes that currently rely on manual judgment.",
+        "[problem_statement] It should continuously monitor degradation of cutting tools, spindles, and coolant, predict remaining useful life, and assess how component wear will impact part quality and throughput.",
+        "[problem_statement] By integrating real-time machine data with predictive simulation, the digital twin will enable proactive maintenance, reduce cycle time, extend asset life, and ensure that every job is run on the right machine, at the right time, with predictable and efficient performance.",
+        "[step0] Misallocation of resources affecting production planning."
+      ],
+      "strength": "explicit"
+    },
+    "Critical variables are selected without major over-instrumentation or missing context.": {
+      "criterion": "Critical variables are selected without major over-instrumentation or missing context.",
+      "keywords": [
+        "critical variable",
+        "variable",
+        "variables",
+        "parameter",
+        "parameters",
+        "monitor",
+        "measure",
+        "sensor",
+        "degradation",
+        "condition",
+        "performance",
+        "vibration",
+        "temperature",
+        "position",
+        "throughput",
+        "quality",
+        "cycle time",
+        "service level",
+        "utilization"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "DS.AI",
+        "DS.TR",
+        "UX.RM"
+      ],
+      "snippets": [
+        "[problem_statement] We need a digital twin of our CNC machining systems to provide accurate, data-driven insight into Quality, Cost, and Time before production begins.",
+        "[problem_statement] It should continuously monitor degradation of cutting tools, spindles, and coolant, predict remaining useful life, and assess how component wear will impact part quality and throughput.",
+        "[problem_statement] By integrating real-time machine data with predictive simulation, the digital twin will enable proactive maintenance, reduce cycle time, extend asset life, and ensure that every job is run on the right machine, at the right time, with predictable and efficient performance.",
+        "[step0] Variability in product quality due to inconsistent processes."
+      ],
+      "strength": "explicit"
+    },
+    "A repeatable data collection and storage pipeline exists.": {
+      "criterion": "A repeatable data collection and storage pipeline exists.",
+      "keywords": [
+        "pipeline",
+        "ingest",
+        "ingestion",
+        "collect",
+        "collection",
+        "stream",
+        "batch",
+        "database",
+        "historian",
+        "storage",
+        "archive",
+        "api",
+        "mqtt",
+        "file drop",
+        "repeatable",
+        "automated",
+        "real-time"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "DS.AI",
+        "IR.ET",
+        "DS.ST",
+        "IR.EG",
+        "IR.IO"
+      ],
+      "snippets": [
+        "[problem_statement] By integrating real-time machine data with predictive simulation, the digital twin will enable proactive maintenance, reduce cycle time, extend asset life, and ensure that every job is run on the right machine, at the right time, with predictable and efficient performance.",
+        "[step0] **Lack of Real-Time Data**:",
+        "[step0] Insufficient data collection and analysis capabilities.",
+        "[step0] Enhanced real-time monitoring but initial setup costs are high."
+      ],
+      "strength": "explicit"
+    },
+    "Collected data is structured, usable, and verified against known system behavior.": {
+      "criterion": "Collected data is structured, usable, and verified against known system behavior.",
+      "keywords": [
+        "structured",
+        "clean",
+        "normalize",
+        "normalized",
+        "transformation",
+        "wrangling",
+        "contextual",
+        "validated",
+        "validation",
+        "verified",
+        "verification",
+        "compare",
+        "comparison",
+        "reference",
+        "known behavior",
+        "calibration"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "DS.TR",
+        "DS.CX",
+        "IC.SM"
+      ],
+      "snippets": [
+        "[step1] Data collection and analysis, initial model validation.",
+        "[step1] ### Deployment Environment Preferences",
+        "[step1] Implement rigorous data cleaning processes.",
+        "[step2] | **DS.TR** [E] | Convert raw data types through cleaning, structuring, and enriching to make it suitable for further processing."
+      ],
+      "strength": "explicit"
+    }
+  },
+  "R2": {
+    "R1 is already satisfied.": {
+      "criterion": "R1 is already satisfied.",
+      "keywords": [],
+      "feasible_caps": [],
+      "selected_caps": [],
+      "snippets": [],
+      "strength": "none"
+    },
+    "Replication targets, required outputs, and acceptable error thresholds are defined.": {
+      "criterion": "Replication targets, required outputs, and acceptable error thresholds are defined.",
+      "keywords": [
+        "replication",
+        "replicate",
+        "acceptable error",
+        "error threshold",
+        "acceptable deviation",
+        "target output",
+        "fidelity",
+        "accuracy",
+        "match real behavior"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "IC.SM"
+      ],
+      "snippets": [
+        "[step0] Improved accuracy but requires skilled personnel.",
+        "[step0] To enhance accuracy and responsiveness to market changes.",
+        "[step1] | In-House Data Analysis | Limited accuracy and real-time capabilities.",
+        "[step1] | Tool Wear Prediction Accuracy | Degree of accuracy in predicting tool life."
+      ],
+      "strength": "explicit"
+    },
+    "A modeling platform has been selected and the system has been mapped into a digital architecture.": {
+      "criterion": "A modeling platform has been selected and the system has been mapped into a digital architecture.",
+      "keywords": [
+        "modeling platform",
+        "simulation platform",
+        "platform",
+        "digital architecture",
+        "architecture",
+        "model repository",
+        "simulation model",
+        "digital model"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "UX.AV",
+        "IC.SM"
+      ],
+      "snippets": [
+        "[step2] | Simulation models for training |",
+        "[step2] Simulation model repository is not explicitly required but could be beneficial for future enhancements.",
+        "[step3_part1] Use IoT platforms like AWS IoT or Azure IoT Hub for device management.",
+        "[step3_part1] **Consent Management Platforms**:"
+      ],
+      "strength": "explicit"
+    },
+    "Live or recorded data can drive model inputs and updates.": {
+      "criterion": "Live or recorded data can drive model inputs and updates.",
+      "keywords": [
+        "live data",
+        "recorded data",
+        "playback",
+        "model input",
+        "model inputs",
+        "updates",
+        "synchronization",
+        "streaming",
+        "batch",
+        "historical data"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "DS.AI",
+        "DS.ST",
+        "IR.IO",
+        "IC.SM"
+      ],
+      "snippets": [
+        "[step0] **Insufficient Historical Data**:",
+        "[step0] Improved customer support but require continuous updates.",
+        "[step0] Frequent updates requiring constant monitoring.",
+        "[step0] | Demand Forecasting | Inaccurate Predictions, Seasonal Fluctuations, Market Volatility | Insufficient Historical Data, Complex Models, External Factors | Stockouts/Excess Inventory, Misallocation of Resources, Financial Instability |"
+      ],
+      "strength": "explicit"
+    },
+    "The model has been tested against real behavior and verified to reproduce outputs with acceptable deviation.": {
+      "criterion": "The model has been tested against real behavior and verified to reproduce outputs with acceptable deviation.",
+      "keywords": [
+        "tested",
+        "validated",
+        "verification",
+        "validation",
+        "deviation",
+        "error threshold",
+        "reproduce",
+        "accuracy",
+        "compare to real",
+        "real behavior"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "IC.SM"
+      ],
+      "snippets": [
+        "[step0] Improved accuracy but requires skilled personnel.",
+        "[step0] To enhance accuracy and responsiveness to market changes.",
+        "[step1] | In-House Data Analysis | Limited accuracy and real-time capabilities.",
+        "[step1] | Tool Wear Prediction Accuracy | Degree of accuracy in predicting tool life."
+      ],
+      "strength": "explicit"
+    }
+  },
+  "R3": {
+    "R2 is already satisfied.": {
+      "criterion": "R2 is already satisfied.",
+      "keywords": [],
+      "feasible_caps": [],
+      "selected_caps": [],
+      "snippets": [],
+      "strength": "none"
+    },
+    "Prediction targets, decision variables, and objective functions are defined.": {
+      "criterion": "Prediction targets, decision variables, and objective functions are defined.",
+      "keywords": [
+        "predict",
+        "prediction",
+        "forecast",
+        "remaining useful life",
+        "rul",
+        "scenario",
+        "objective",
+        "optimization",
+        "decision variable"
+      ],
+      "feasible_caps": [],
+      "selected_caps": [
+        "IC.PR",
+        "IC.AI"
+      ],
+      "snippets": [
+        "[problem_statement] It should continuously monitor degradation of cutting tools, spindles, and coolant, predict remaining useful life, and assess how component wear will impact part quality and throughput.",
+        "[problem_statement] By integrating real-time machine data with predictive simulation, the digital twin will enable proactive maintenance, reduce cycle time, extend asset life, and ensure that every job is run on the right machine, at the right time, with predic
