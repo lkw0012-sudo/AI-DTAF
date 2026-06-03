@@ -1,0 +1,233 @@
+{
+  "framework_name": "Digital Twin V (DTV) Framework",
+  "version": "1.0",
+  "description": "The Digital Twin V (DTV) Framework provides a structured approach for developing trusted Digital Twins through Verification and Validation (V&V) across the DT development lifecycle. It adapts the traditional Vee model to Digital Twin characteristics such as synchronized data collection, physical-virtual integration, data-driven updating, model behavior, intelligence layers, feedback mechanisms, and increasing levels of DT maturity. The framework links concept development, requirements, implementation, integration, testing, verification, validation, uncertainty quantification, and final trust evidence so users can determine whether the DT was built correctly, whether it satisfies intended use, and whether its outputs can be trusted.",
+  "purpose": [
+    "Provide a formal but flexible process for creating trusted Digital Twins",
+    "Link development decisions to verification and validation evidence",
+    "Support iterative and recursive V&V across the DT lifecycle",
+    "Reapply the framework across 4R maturity levels as DT capability increases"
+  ],
+  "stages": [
+    {
+      "stage_name": "Decomposition",
+      "stage_description": "The decomposition stage defines the problem and translates it into DT conceptual design and technical requirements. It establishes DT purpose, context of use, required maturity level, system boundaries, required services, expected functions, and the data elements needed to represent the physical system in the virtual environment.",
+      "steps": [
+        {
+          "step_id": "1",
+          "step_name": "Problem Definition and DT Conceptual Design",
+          "description": "This step defines the DT purpose, scope, conceptual layers, and preliminary validation metrics.",
+          "substeps": [
+            {
+              "substep_id": "1.1",
+              "title": "Purpose and scope",
+              "description": "The purpose and scope define what the DT must accomplish, what physical system is included, what operational capability is desired, and what risks or benefits should be understood by stakeholders.",
+              "how_to_achieve": "Define the system, problem, decision context, users, risks, benefits, and expected operational capability. Scope should also clarify what is outside the DT boundary to avoid overbuilding.",
+              "example": "In the FDM example, the DT purpose included real-time monitoring of printing and providing the operator with information to support decision-making. The operator’s understanding of benefits and risks was also considered important."
+            },
+            {
+              "substep_id": "1.2",
+              "title": "Conceptual DT layers",
+              "description": "The DTV case study organizes the conceptual design into three main layers: the data layer, the service layer, and the model layer. This creates a practical structure for identifying what must be implemented and later verified or validated.",
+              "how_to_achieve": "Define what each layer must contain. The data layer identifies physical variables and data sources. The service layer identifies services such as descriptive, diagnostic, prediction, or feedback services. The model layer identifies how the DT represents or interacts with the physical system.",
+              "example": "The 2025 paper states that the case study focused on the data-driven aspect of the DT, including all elements of the data layer, descriptive, diagnostic, and feedback services, and the data collection, storage, and integration portions of the model layer."
+            },
+            {
+              "substep_id": "1.3",
+              "title": "Preliminary validation metrics",
+              "description": "Validation planning begins during conceptual design. The developer should identify the system responses of interest and preliminary validation metrics that will later determine whether the DT is appropriate for the intended purpose.",
+              "how_to_achieve": "Identify what must be compared between the DT and the physical system. Define early metrics for accuracy, detection ability, response time, prediction quality, decision-support usefulness, or operational fit. Refine these metrics after technical solutions are selected.",
+              "example": "In the FDM case study, validation metrics were created to evaluate anomaly identification accuracy, sensitivity, false alerts, detection time, and response time for pausing the printer. These metrics were refined throughout development."
+            }
+          ]
+        },
+        {
+          "step_id": "2",
+          "step_name": "DT Requirements",
+          "description": "This step converts conceptual services into functional, non-functional, and constrained technical requirements.",
+          "substeps": [
+            {
+              "substep_id": "2.1",
+              "title": "Functional requirements",
+              "description": "Functional requirements define what the DT must do. These may include data collection, data storage, visualization, anomaly detection, synchronization, feedback, or control functions.",
+              "how_to_achieve": "Convert the conceptual services into specific technical features. Each feature should be traceable back to the DT purpose and maturity level.",
+              "example": "For the FDM machine, requirements included accurate bed and nozzle temperature, accurate position information, and real-time temperature information to support the operator’s decision-making in a synchronized virtual model."
+            },
+            {
+              "substep_id": "2.2",
+              "title": "Non-functional and performance requirements",
+              "description": "Non-functional requirements define how well the DT must perform. These include accuracy, latency, reliability, responsiveness, data loss, user access, security, and interface performance.",
+              "how_to_achieve": "Attach design goals or numerical metrics to performance requirements. These metrics will become part of the verification process during testing and evaluation.",
+              "example": "The 2025 paper explains that design goals support model verification by associating metrics with each performance requirement so tests can verify whether implemented solutions achieved the expected performance."
+            },
+            {
+              "substep_id": "2.3",
+              "title": "Design constraints",
+              "description": "Design constraints limit how the DT can be implemented. These may include organization standards, cybersecurity rules, storage requirements, licensing limits, network restrictions, hardware availability, and data access constraints.",
+              "how_to_achieve": "Identify constraints before selecting technical solutions. Make sure the selected architecture can satisfy both DT capability needs and organizational limitations.",
+              "example": "In the FDM case study, data collection and storage were constrained by requirements to store collected data securely on the server in CSV format. Accessing DT data through the interface required an API key and authentication."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stage_name": "Development",
+      "stage_description": "The development stage converts DT requirements into implemented technical solutions. It includes analyzing alternatives, selecting tools and technologies, creating DT components, and integrating those components into a functional DT architecture.",
+      "steps": [
+        {
+          "step_id": "3",
+          "step_name": "Analysis of Alternatives",
+          "description": "This step evaluates data collection, data protocol/storage, and virtual environment/interface options.",
+          "substeps": [
+            {
+              "substep_id": "3.1",
+              "title": "Data collection alternatives",
+              "description": "The developer must select data sources that represent the physical system accurately enough for the intended DT purpose. Sensor selection should consider range, precision, placement, reliability, and whether the data stream can be integrated.",
+              "how_to_achieve": "Identify variables needed for the DT, determine whether they are measurable, select sensors or existing data sources, and evaluate sensor placement and limitations.",
+              "example": "In the FDM case study, low-cost sensors collected temperature, position, vibration, and electric current data. Figure 6 identified temperature sensors mounted at the nozzle and extruder head, position sensors for X, Y, and Z displacement, vibration sensors on the extruder and print bed, and an electric current sensor monitoring main power supply."
+            },
+            {
+              "substep_id": "3.2",
+              "title": "Data protocol and storage alternatives",
+              "description": "Data protocols and storage choices determine whether the DT can support real-time or synchronized operation. These choices also affect later verification of data completeness, latency, and accuracy.",
+              "how_to_achieve": "Select protocols and storage systems that support the required update rate, format, security, reliability, and integration. Consider MQTT, OPC UA, REST APIs, time-series databases, relational databases, and cloud or local storage depending on the use case.",
+              "example": "In the FDM case study, MQTT was selected as the data protocol. Docker, Node-RED, InfluxDB, and Python scripts supported data collection, flow, and storage."
+            },
+            {
+              "substep_id": "3.3",
+              "title": "Virtual environment and interface alternatives",
+              "description": "The DT requires a virtual environment or interface that can represent, visualize, or simulate the physical system at the fidelity needed for the intended use.",
+              "how_to_achieve": "Evaluate tools for 3D visualization, dashboards, simulation, physical modeling, user interface, and operator feedback. Select tools based on fidelity, responsiveness, usability, and integration.",
+              "example": "The FDM case study used Unity for real-time visualization and simulation of printer movement and Grafana for interactive visualization of variables of interest."
+            }
+          ]
+        },
+        {
+          "step_id": "4",
+          "step_name": "DT Component Creation and Development",
+          "description": "This step creates the data, service, model, and intelligence or diagnostic components of the DT.",
+          "substeps": [
+            {
+              "substep_id": "4.1",
+              "title": "Data layer creation",
+              "description": "The data layer collects the physical system data required for DT operation. It should include the variables needed to represent the physical process, support decisions, and feed the model or service layer.",
+              "how_to_achieve": "Install sensors, connect existing machine data sources, define sampling rates, define data formats, and confirm that data can be collected without disrupting the physical system.",
+              "example": "The FDM data layer collected temperature, position, vibration, and current. A type K thermocouple was used for nozzle temperature, with a temperature range appropriate for PLA printing. An IR thermal camera was used for bed temperature."
+            },
+            {
+              "substep_id": "4.2",
+              "title": "Service layer creation",
+              "description": "The service layer processes data into useful DT services. These may include descriptive services, diagnostic services, prediction services, feedback services, or control services.",
+              "how_to_achieve": "Define what services the DT must provide, then implement the data transformation, analytics, alerts, classifications, or feedback logic needed for those services.",
+              "example": "In the FDM case study, the data-driven DT included descriptive, diagnostic, and feedback services. These supported monitoring, anomaly detection, and feedback to pause the printer when clog behavior was detected."
+            },
+            {
+              "substep_id": "4.3",
+              "title": "Model layer creation",
+              "description": "The model layer connects the data and service layers to the virtual representation. It may include 3D visualization, physics representation, simulation, ML models, or logic that relates physical behavior to virtual behavior.",
+              "how_to_achieve": "Create the virtual model, integrate data feeds, implement model logic, and define how the model updates or responds to physical system data.",
+              "example": "In the FDM case, the model layer was enabled by data collection, data storage, and MQTT-based data integration and feedback. Unity was used to visualize and simulate printer movement in real time, and Grafana displayed variables of interest."
+            },
+            {
+              "substep_id": "4.4",
+              "title": "Intelligence or diagnostic model creation",
+              "description": "When the DT includes prediction, classification, anomaly detection, or decision support, the intelligence component must be developed and later verified and validated separately.",
+              "how_to_achieve": "Select a model type, define input variables, create training and testing datasets, evaluate accuracy, check for overfitting, and define how the model output will be used by the DT.",
+              "example": "The FDM case used a machine learning classification model for material extrusion feedback and clog identification. Replication-level V&V included evaluating the model’s performance when predicting physical system behavior."
+            }
+          ]
+        },
+        {
+          "step_id": "5",
+          "step_name": "DT Development Integration",
+          "description": "This step integrates data flows, synchronization, and feedback mechanisms across the DT architecture.",
+          "substeps": [
+            {
+              "substep_id": "5.1",
+              "title": "Data integration and synchronization",
+              "description": "Data integration ensures the DT receives and uses data from the physical system correctly. Synchronization ensures that the virtual environment reflects the physical system at the required update frequency and fidelity.",
+              "how_to_achieve": "Test whether data moves from physical sources to storage, services, and models in the correct format and timing. Check missing data, latency, timestamp alignment, and incorrect mappings.",
+              "example": "In the FDM case study, timely data transmission mattered because anomaly detection and feedback needed to occur quickly enough to pause the printing process."
+            },
+            {
+              "substep_id": "5.2",
+              "title": "Feedback integration",
+              "description": "Feedback integration connects DT outputs back to the operator or physical system. For higher maturity DTs, this may include automated or semi-automated actions.",
+              "how_to_achieve": "Define who or what receives feedback, what triggers feedback, how fast feedback must occur, and what safety limits apply. Verify that feedback is correctly generated and validated in realistic scenarios.",
+              "example": "In the FDM case study, the Unity environment allowed the operator to receive feedback and interact with the virtual system through bidirectional data flow. The DT could notify the operator of extrusion process issues."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stage_name": "Integration and Testing",
+      "stage_description": "The integration and testing stage evaluates the developed DT against verification and validation metrics, examines uncertainty, and compiles final trust evidence for the integrated DT.",
+      "steps": [
+        {
+          "step_id": "6",
+          "step_name": "Test and Evaluation",
+          "description": "This step verifies the DT, validates it for intended use, quantifies uncertainty, and supports continuous V&V.",
+          "substeps": [
+            {
+              "substep_id": "6.1",
+              "title": "Verification",
+              "description": "Verification provides evidence that the DT achieved specified requirements and that requirements were implemented correctly. It asks whether the DT was built correctly according to the conceptual model, requirements, and technical design.",
+              "how_to_achieve": "Verify code, algorithms, data pipelines, data accuracy, model implementation, synchronization logic, requirements traceability, and performance design goals. Make sure implemented features reproduce the conceptual design of the physical system.",
+              "example": "In the FDM case, Representation-level verification focused on identifying errors in code and algorithms, achieving appropriate data quality and accuracy, and satisfying functional and non-functional requirements. Replication-level verification also focused on model performance for the clog identification ML model."
+            },
+            {
+              "substep_id": "6.2",
+              "title": "Validation",
+              "description": "Validation provides evidence that the DT is accurate and useful for its intended context of use. It asks whether the DT is the right solution for the problem and whether it supports the desired operational capability in a realistic environment.",
+              "how_to_achieve": "Define validation metrics, conduct comparison experiments, compare DT outputs to physical system behavior, evaluate system response under selected scenarios, and assess whether the DT can support the intended decision.",
+              "example": "In the FDM case, validation metrics included sensitivity, false alerts, anomaly detection time, and response time for pausing printer operation. These metrics tested whether the DT could support its intended monitoring and feedback purpose."
+            },
+            {
+              "substep_id": "6.3",
+              "title": "Uncertainty quantification",
+              "description": "Uncertainty quantification supports validation by measuring how uncertainties affect DT output and whether the DT can still be trusted for decision-making. DT uncertainty may come from sensors, data quality, assumptions, simplifications, ML models, or integration behavior.",
+              "how_to_achieve": "Identify uncertainty sources, classify uncertainty as aleatory or epistemic where applicable, select appropriate UQ metrics, and evaluate whether uncertainty compromises the DT’s intended use.",
+              "example": "The 2025 paper identifies two uncertainty sources in the FDM case: sensor-collected physical data and the ML algorithm used for clog identification. It also notes metrics such as standard deviation, interquartile range, label stability, and area validation metrics as possible UQ approaches."
+            },
+            {
+              "substep_id": "6.4",
+              "title": "Continuous V&V",
+              "description": "DTV treats V&V as iterative rather than a final one-time activity. Testing, evaluation, verification, and validation should occur throughout development to avoid integrating incorrect solutions into the final DT.",
+              "how_to_achieve": "Perform V&V during requirements, component development, integration, and final demonstration. Revisit metrics and requirements when the design changes. Retest after modifications.",
+              "example": "The 2025 paper notes that although development, testing, and V&V are presented sequentially, testing and V&V occurred throughout the entire DT development to prevent incorrect solutions from being integrated."
+            }
+          ]
+        },
+        {
+          "step_id": "7",
+          "step_name": "Realization and Demonstration of Integrated DT",
+          "description": "This step compiles the final trust evidence and demonstrates the integrated DT.",
+          "substeps": [
+            {
+              "substep_id": "7.1",
+              "title": "Final trust evidence",
+              "description": "The final DT should be accompanied by evidence that the system works as specified and satisfies its intended use. Documentation is important because users must be able to understand why the DT can be trusted.",
+              "how_to_achieve": "Compile verification evidence, validation evidence, test results, uncertainty discussion, requirement traceability, component test results, and integrated system demonstration results.",
+              "example": "The 2025 paper explains that DTV builds trust through a structured, evidence-based approach showing that the DT works as it should through verification and fulfills its intended use through validation. Documentation is also identified as fundamental for convincing users of DT correctness and validity."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "overall_database_check": {
+    "description": "The DTV is complete only when the DT has a documented chain from purpose to requirements, technical implementation, testing, verification, validation, and final demonstration.",
+    "assessment_questions": [
+      "Is the DT purpose clear?",
+      "Are requirements traceable?",
+      "Are components tested?",
+      "Is data accurate enough?",
+      "Is the model implemented correctly?",
+      "Does the DT represent the physical system in context?",
+      "Are uncertainty and limitations documented?",
+      "Can users see why the DT should be trusted?"
+    ]
+  }
+}
