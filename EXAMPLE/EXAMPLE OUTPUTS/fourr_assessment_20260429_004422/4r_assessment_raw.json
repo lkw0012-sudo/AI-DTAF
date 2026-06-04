@@ -1,0 +1,83 @@
+{
+  "planning_summary": "The planned digital twin for CNC machining systems is focused on providing real-time data-driven insights and automated decision-making processes to optimize scheduling, maintenance, and quality control. The feasible capabilities identified support the R2 level of the 4R Framework, which involves replicating the physical system in a virtual environment.",
+  "risks_or_notes": [
+    "The current planning does not include detailed modeling or validation steps required for R3 (Reality) phase, such as scenario exploration and independent execution capability. There is also no explicit mention of predictive models or what-if analysis, which are critical for R3 level."
+  ],
+  "levels": {
+    "R1": {
+      "summary": "The planning does not explicitly define the digital twin's purpose, scope, or supported decisions.",
+      "supporting_capabilities": [],
+      "gate_scores": [
+        {
+          "score": 0,
+          "evidence": "",
+          "rationale": "No explicit definition of DT purpose, scope, and supported decisions."
+        }
+      ],
+      "action_items_tailored": [
+        "Define the digital twin's purpose, target decisions, and expected outcomes."
+      ]
+    },
+    "R2": {
+      "summary": "The planning supports R2 by defining system boundaries, critical variables, data collection pipelines, and live data-driven model inputs.",
+      "supporting_capabilities": [
+        "DS.AI",
+        "UX.BV"
+      ],
+      "gate_scores": [
+        {
+          "score": 1,
+          "evidence": "Documented system boundaries, static properties, dynamic states, and sensor or data source map.",
+          "rationale": "Partial evidence of critical variables selection without over-instrumentation."
+        },
+        {
+          "score": 2,
+          "evidence": "Defined repeatable data collection and storage pipeline with edge devices for real-time monitoring.",
+          "rationale": "Clear explicit evidence of a repeatable data collection and storage pipeline."
+        },
+        {
+          "score": 1,
+          "evidence": "Live or recorded data can drive model inputs and updates through IoT integration.",
+          "rationale": "Partial evidence of live data-driven model inputs."
+        },
+        {
+          "score": 2,
+          "evidence": "The digital twin is mapped into a virtual environment with real-time monitoring capabilities.",
+          "rationale": "Clear explicit evidence of the DT being mapped into a virtual environment."
+        }
+      ],
+      "action_items_tailored": [
+        "Define which system outputs must be reproduced and set allowable error thresholds.",
+        "Select the modeling environment and justify why it fits the system behavior."
+      ]
+    },
+    "R3": {
+      "summary": "The planning does not explicitly define prediction targets, decision variables, or objective functions for R3 level.",
+      "supporting_capabilities": [],
+      "gate_scores": [
+        {
+          "score": 0,
+          "evidence": "",
+          "rationale": "No explicit definition of prediction targets, decision variables, or objective functions."
+        }
+      ],
+      "action_items_tailored": [
+        "Define what the DT must predict, the time horizon, and the decisions it should support."
+      ]
+    },
+    "R4": {
+      "summary": "The planning does not include autonomy scope, human-in-the-loop boundaries, or real-time anomaly detection for R4 level.",
+      "supporting_capabilities": [],
+      "gate_scores": [
+        {
+          "score": 0,
+          "evidence": "",
+          "rationale": "No explicit definition of autonomy scope, human-in-the-loop boundaries, or real-time anomaly detection."
+        }
+      ],
+      "action_items_tailored": [
+        "Define whether the DT is advisory, semi-autonomous, or fully autonomous."
+      ]
+    }
+  }
+}

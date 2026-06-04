@@ -1,0 +1,505 @@
+{
+  "framework_name": "4R Framework",
+  "source_file": "Database for Building a DT - NEW VERSION 4R.csv",
+  "purpose": "Machine-readable knowledge base for assessing current 4R maturity and generating action items to reach a target R level.",
+  "why_json": "JSON is strict, hierarchical, easy to validate, and reliable for both LLM prompting and programmatic pipelines.",
+  "framework_summary": "The 4R Framework categorizes DTs into four increasing levels of capability that allow organizations to plan DT development according to their desired maturity and functional scope, aligning technical effort with business objectives. This framework was designed to create a conceptual model that defines and guides the development of the DTs through distinct phases.\nThe 4R framework categorizes DTs into four phases: Representation (R1), Replication (R2), Reality (R3), and Relational (R4), each representing increasing levels of maturity and capability. The R1 phase involves understanding the physical system's behavior and setting up a data architecture and storage system. The goal is to define the features, behaviors, components, and relationships relevant for the use case, and identify what to include in the model and what not to. In the R2 phase, the system is replicated in a virtual environment using the data architecture established in the representation phase, reproducing the same outputs given the same inputs from the physical system. It is necessary that this phase provides accurate mapping of inputs as it is fed the data from R1 to ultimately become the replica used to model the physical system. The R3 phase involves using the DT to explore what-if scenarios, with the aim of implementing the results obtained from virtual runs into the physical system. This creates a virtual modeling tool that can now run independently of the physical system with the ability to make predictions, provide alternative scenarios, and optimizations. The R4 phase involves incorporating decision-making technologies such as AI or ML and enabling bi-directional data exchange. This allows the model to translate updates, corrections, and decisions back into the physical system, making the twin self-aware.\nEach level of the 4R Framework builds upon the previous one, progressively increasing the model’s analytical depth and decision-making capability. As the capability advances from R1 to R4, the DT goes from the ground level of data gathering and identifying useful components to full autonomy. This hierarchical structure demonstrates the progression from analyzing and applying data to build a digital replica, training that replica to optimize the physical system, and ultimately enabling the DT to make independent updates and corrections to the physical system, which form the foundation requirements of DT implementation. By clearly defining these stages, the 4R Framework enables researchers and practitioners to assess their desired DT capabilities, identify existing gaps, and determine the necessary level of support needed for their engineering objectives. Ultimately, the 4R framework establishes a systematic approach for transitioning from data architecture development to the creation of an intelligent, data-driven DT capable of continuous feedback, optimization, and real-time decision support.",
+  "assessment_rules": {
+    "current_level_rule": "The current 4R level is the highest consecutive level whose minimum gate criteria are sufficiently supported by explicit evidence.",
+    "recommended_scoring": {
+      "per_gate_scale": {
+        "0": "No evidence",
+        "1": "Partial or implied evidence",
+        "2": "Clear explicit evidence"
+      },
+      "pass_rule": "A level passes when every minimum gate criterion scores at least 1 and at least 80% of the criteria score 2.",
+      "fallback_rule": "If a higher level has some evidence but a lower level is not fully satisfied, assign the lower unmet level as current."
+    },
+    "action_item_rule": "Recommend action items by taking the unmet minimum gate criteria of the next desired level and converting them into concrete tasks, starting with foundational gaps first.",
+    "sequence_rule": "Do not recommend R3 or R4 actions as primary next steps when major R1 or R2 gaps remain."
+  },
+  "levels": [
+    {
+      "id": "R1",
+      "name": "Representation",
+      "order": 1,
+      "description": "In the Representation (R1) phase is, it is necessary to understand the physical system, decide on the significant features of the system for the use case, and create a system architecture for data collection and data storage from the physical component. In this first level of the framework, the foundational digital representation of the physical system is developed. An understanding of the inner working of the system is required to appropriately represent a system. This phase primarily considers the identification of key properties, characteristics and states that comprise the physical entity. Once the qualities and characteristics have been identified and categorized, the design of the processes to collect data that are both directly and indirectly associated with each property commences. This is the phase where decisions regarding the purpose of DT should be made since the purpose of the DT is critical to the development of the terminal DT phase and the implementation of the Representation is a critical component. A high-level DT implementation would likely not require high resolution data whereas a more complex DT will. Some characteristics of the representation phase include the physical system represented as data, the data flows from the physical device to the virtual device, and the data to be collected, stored, and verified. The data collected at this phase allows for understanding of the system and is used for analysis, visualization, and model creation. Considerations in this phase are: (i) Data collection pipeline (ii) Data persistence/storage, (iii) Data polling rate (iv) Data structures and format (v) Metadata (vi) information design modeling (vii) Data preprocessing pipelines (viii) Data analysis and representation. It is important to highlight that the representation process is dynamic and evolves with the implementation of the next phases of the framework. As requirements for the DT change over time, so does the data needed to support these capabilities. Representation should be designed in a modular and scalable way, so that new requirements are served in a plug and play manner, with minimal effect to the rest of the system.",
+      "workflow_steps": [
+        {
+          "step_id": "1",
+          "step_title": "1. Define the purpose, scope, and goal of the digital twin",
+          "tasks": [
+            {
+              "task_id": "1.1",
+              "task_text": "1.1 Explanation of why the digital twin is being created and what the expected outcomes are. Identify decision(s) the DT will support",
+              "example": "The goal of the digital twin was to create a generic, reuseable, and customizable system for reseach and experimentation. The expected outcomes included monitoring, evaluation, analysis, and visualization of the 3D"
+            },
+            {
+              "task_id": "1.2",
+              "task_text": "1.2 Set the system boundaries: Define where the system starts and ends including machines, processes, and interactions are included in the model.",
+              "example": "The system boundary was limited ot the componetns that directly impact the additive manufacturing process, inluding the printer, printing process, and environmental conditions. One example of a non-cirtical componets that was excluded was internal motor details"
+            }
+          ]
+        },
+        {
+          "step_id": "2",
+          "step_title": "2. Decompose and Understand the Physical System",
+          "tasks": [
+            {
+              "task_id": "2.2",
+              "task_text": "2.2 Identify the key properties, characteristics and states that comprise the physical entity. Break down the system into: Components/subsystems, Inputs/outputs, and States and behaviors. Identify critical variables (temperature, throughput, position, etc.) and interactions between components",
+              "example": "The system was broken down into key components such as printing bed, orentation (x, y, z axis), G-code, and environmental conditions"
+            },
+            {
+              "task_id": "2.3",
+              "task_text": "2.3 Capture the static properties and dynamic states. Static varibles are the ones that remain constant and dynamic are variables that change over time. Static properties (geometry, configuration) and\nDynamic states (real-time behavior)",
+              "example": "The dynamic components were identified as bed (Y-axis), the printer head (X-axis), the spools, pillars, and the printer head together (Z-axis). The static compoents were identified as frame of the 3D printer and the G-code"
+            }
+          ]
+        },
+        {
+          "step_id": "3",
+          "step_title": "3. Identify Key features and Representation Requirements",
+          "tasks": [
+            {
+              "task_id": "3.1",
+              "task_text": "3.1 Identify which properties actually matter for the use case\n(avoid over-instrumentation).",
+              "example": "The temperature (bed and extruder), postion (extruder and bed), and environmenta factors (humidity and temperature) were identified as the most important dynamic components"
+            },
+            {
+              "task_id": "3.2",
+              "task_text": "3.2. Define Required accuracy and update frequency"
+            }
+          ]
+        },
+        {
+          "step_id": "4",
+          "step_title": "4. Design the Data Collection Strategy",
+          "tasks": [
+            {
+              "task_id": "4.1",
+              "task_text": "4.1 Determine the sensors/data sources that are needed and where they should be placed",
+              "example": "The data was collected using thermocouple sensors for temperature, distance sensors for position, environmental sensors for humiditiy and temperature, and Octoprint to monitor the printer."
+            },
+            {
+              "task_id": "4.2",
+              "task_text": "4.2 Define data aquisition methods (IoT devices, PLCs, APIs) and communication protocols (MQTT, OPC UA, etc.)",
+              "example": "The data was collected using sensors attached to the Raspberry Pi and the data was transmited using APIs"
+            },
+            {
+              "task_id": "4.3",
+              "task_text": "4.3. Specify synchronization requirements and data storage. Choose storage solutions for Time-series databases (e.g., sensor data), Relational databases (structured data), and Data lakes (raw/unstructured data)",
+              "example": "The data types collected from using external sesnros and Octoprint were JSON, CSV, and text files. The databases used were MongoDB and MySQL for storage"
+            },
+            {
+              "task_id": "4.4",
+              "task_text": "4.4 Define Data Structures, Formats, Data schemas (tables, time-series, JSON, etc.) and\nNaming conventions"
+            }
+          ]
+        },
+        {
+          "step_id": "5",
+          "step_title": "5. Develop Initial Data Representation Layer",
+          "tasks": [
+            {
+              "task_id": "5.1",
+              "task_text": "5.1. Collect the data from the physical system",
+              "example": "The data was collected from sensors, cameras, and software applications during the printers operation"
+            },
+            {
+              "task_id": "5.2",
+              "task_text": "5.2. Structure the data, emove the erros, and organize into a usable format",
+              "example": "The collcted dat was organized into cateogires of temperature, position, state, setting, and job data"
+            },
+            {
+              "task_id": "5.3",
+              "task_text": "5.3 Verify and Validate the data, by comparing collected data to known system outputs",
+              "example": "Sensor data was compared to the data on the OctoPrint itself."
+            },
+            {
+              "task_id": "5.4",
+              "task_text": "5.4 Key Representation check:\nCan you explain how the system works using only the data you collect?\n(If not, you’re missing critical variables or context.)\nIs every data stream clearly tied to a system component, state, or decision?\n(If something has no purpose, it shouldn’t be there.)\nIs your data clean, structured, and immediately usable for analysis or modeling?\n(If you have to “figure it out later,” R1 isn’t done.)\nDoes your data pipeline run reliably without manual intervention?\n(If it’s fragile, it’s not a real representation.)\nDoes the level of detail match your intended use (not overbuilt, not underbuilt)?\n(Too much or too little both mean R1 failed.)"
+            }
+          ]
+        }
+      ],
+      "core_outcome": "The physical system is clearly bounded, instrumented, and represented as reliable, structured data that is directly usable for analysis, visualization, and later model building.",
+      "minimum_gate_criteria": [
+        "The digital twin purpose, scope, and supported decisions are explicitly defined.",
+        "System boundaries, major components, inputs/outputs, and important states are identified.",
+        "Critical variables are selected without major over-instrumentation or missing context.",
+        "A repeatable data collection and storage pipeline exists.",
+        "Collected data is structured, usable, and verified against known system behavior."
+      ],
+      "diagnostic_checks": [
+        "Can the system be explained using only the data being collected?",
+        "Is each data stream tied to a system component, state, or decision?",
+        "Is the data clean, structured, and ready for analysis or modeling?",
+        "Does the data pipeline run reliably without manual intervention?",
+        "Does the level of detail match the intended use case?"
+      ],
+      "action_items_to_reach_this_level": [
+        "Write a one-paragraph statement defining the DT purpose, target decisions, and expected outcomes.",
+        "Document system boundaries, included/excluded components, and key interactions.",
+        "List static properties and dynamic states, then identify the minimum critical variables required.",
+        "Select sensors, APIs, or software sources and define the acquisition method for each.",
+        "Choose storage and data formats, then create naming conventions and metadata fields.",
+        "Implement preprocessing and data quality checks so the data is analysis-ready.",
+        "Validate collected data against known outputs or trusted reference readings."
+      ],
+      "evidence_expected": [
+        "Use case statement",
+        "Boundary definition",
+        "Component/state list",
+        "Sensor or data source map",
+        "Data schema or storage design",
+        "Data validation results"
+      ],
+      "target_if_not_met": "Reach R1 before attempting R2 work."
+    },
+    {
+      "id": "R2",
+      "name": "Replication",
+      "order": 2,
+      "description": "In the Replication (R2) phase, will utilize the architecture and data collected from the initial phase to develop a digital\nsystem in a virtual environment that is a replication of the cyber physical system. At the end of this phase, the DT should have the capability to produce the same results as the cyber physical system given the same inputs.\n\nAfter representing the system to the necessary detail from the requirements and scope generated in the Representation phase, an accurate Replication of the system can be undertaken. The data and relationships determined from Representation are used to create a digital system in a virtual environment. The digital system replicates the components of the system selected in the Representation phase. One key difference between the Replication and Representation phase is that the virtual device cannot function without the physical device and data does not need to be stored. Some of the important considerations while replicating a system or process are synchronization between the physical\ndevice and the virtual device, developing models, how data flows affect different parts of the model, and validating the models. The first step of the Replication phase is the transition from data to a functional digital entity. This is where CAD software is employed to build a realistic 3D model of the physical system. Data and relationships developed during the Representation stage are utilized to drive the virtual model and provide insight to its operation. There are several challenges to overcome when transitioning from Representation to Replication. While latency is not critical to Representation, it is of high significance to the Replication phase. Real-time decision making must be supported by real-time data acquisition and optimized pre-processing workflows. Yet, real-time is hard to achieve, therefore such systems typically function in a soft-real-time setting. The accurate performance of the Replication DT in the virtual environment achieves verification of the DT.",
+      "workflow_steps": [
+        {
+          "step_id": "1",
+          "step_title": "1. Define Replication Targets",
+          "tasks": [
+            {
+              "task_id": "1.1",
+              "task_text": "1.1 Specify the inputs the DT will receive and the outputs it must reproduce. Define acceptable error thresholds and identify which subsystems must be replicated vs simplified"
+            }
+          ]
+        },
+        {
+          "step_id": "2",
+          "step_title": "2. Choose modeling platform to replicate the system's behavior",
+          "tasks": [
+            {
+              "task_id": "2.1",
+              "task_text": "2.1 Such as Simulation software (e.g., discrete-event, physics-based), Game engine (if visualization-heavy), and Custom environment (Python, MATLAB, etc.)",
+              "example": "The modeling tool that was selected was a discrete event simulation (DES) model that could represent the pallet elevator system, including conveyors, machine, and the pallet elevator were mapped directly to digital elemtns within the simulation model"
+            }
+          ]
+        },
+        {
+          "step_id": "3",
+          "step_title": "3. Map Physical System to Digital Architecture",
+          "tasks": [
+            {
+              "task_id": "3.1",
+              "task_text": "3.1. Create the digital model and match both the physical components and digital model together. Create the one to one relationships between real system components and the digital components while defining the interfaces between components",
+              "example": "Each physical componet such as conveyors, processing machine , and the pallet elevator wer ampped directly to digital elemetns within the simulation model"
+            },
+            {
+              "task_id": "3.2",
+              "task_text": "3.2 Create the system logic and behavior. Implement the rules that the system operates within",
+              "example": "The system logic was defined using processing times, routing decisions, and system constraints that determine how pallets move and are processed throughout the system"
+            }
+          ]
+        },
+        {
+          "step_id": "4",
+          "step_title": "4. Integrate Real Data Streams",
+          "tasks": [
+            {
+              "task_id": "4.1",
+              "task_text": "4.1 Connect live or recorded data to model inputs and parameter updates.Use the real world data that has been collected.",
+              "example": "Real system data such as pallet interarrival times and interactions obecserved in the actual manufacturing system"
+            },
+            {
+              "task_id": "4.2",
+              "task_text": "4.2 Align the model with the real world system. Adjust the model as necessary to reflect how the real world system actually operates",
+              "example": "The model was adjusted to match the timing, sequencing, and interactions obeserved in the real world manufacturing system"
+            }
+          ]
+        },
+        {
+          "step_id": "5",
+          "step_title": "5. Run Controlled Test Scenarios",
+          "tasks": [
+            {
+              "task_id": "5.1",
+              "task_text": "5.1. Run the model and compare the model outputs to the real world system",
+              "example": "The simulation was run using known system inputs and outputs such as processing times and system behavior to be compared direclty to the real world system"
+            },
+            {
+              "task_id": "5.2",
+              "task_text": "5.2. Adjust the model to fix any errors. After testing, fix any gaps or erros found compared to the real system behavior",
+              "example": "The differences between teh simulation and real world system were identified and corrected by adjusting things such as model parameters and logic"
+            },
+            {
+              "task_id": "5.3",
+              "task_text": "5.3 Verify and validate the model is behaving like the real world system. Confirm the model is built correctly and it accurately represents the real system",
+              "example": "Verify and Validate the model by showing little to zero deviations between simulation resutls and actual system performacne"
+            },
+            {
+              "task_id": "5.4",
+              "task_text": "5.4. Key Replication Check:\n\nCan your DT take real inputs and reproduce real outputs?\n(If not, it’s not a replication, it’s just a model.)\nCan you explain why it deviates when it does?\nCan it run continuously with synchronized data?"
+            }
+          ]
+        }
+      ],
+      "core_outcome": "A virtual model replicates the real system with synchronized inputs and can reproduce real outputs within acceptable error bounds.",
+      "minimum_gate_criteria": [
+        "R1 is already satisfied.",
+        "Replication targets, required outputs, and acceptable error thresholds are defined.",
+        "A modeling platform has been selected and the system has been mapped into a digital architecture.",
+        "Live or recorded data can drive model inputs and updates.",
+        "The model has been tested against real behavior and verified to reproduce outputs with acceptable deviation."
+      ],
+      "diagnostic_checks": [
+        "Can the DT take real inputs and reproduce real outputs?",
+        "Can deviations between model and reality be explained?",
+        "Can the DT run continuously with synchronized data?"
+      ],
+      "action_items_to_reach_this_level": [
+        "Define which system outputs must be reproduced and set allowable error thresholds.",
+        "Select the modeling environment and justify why it fits the system behavior.",
+        "Map each physical component or subsystem to a digital counterpart.",
+        "Implement system logic, interfaces, and state behavior in the virtual model.",
+        "Connect live or recorded real-world data to the model.",
+        "Run controlled comparison scenarios against the physical system.",
+        "Calibrate the model until the observed deviation is acceptably low."
+      ],
+      "evidence_expected": [
+        "Model architecture",
+        "Input-output mapping",
+        "Synchronization method",
+        "Test scenarios",
+        "Calibration results",
+        "Verification/validation comparison results"
+      ],
+      "target_if_not_met": "Close R2 replication gaps before claiming predictive capability."
+    },
+    {
+      "id": "R3",
+      "name": "Reality",
+      "order": 3,
+      "description": "The third phase, Reality (R3), will allow the DT to work independently of the physical system, and can provide accurate predictions given the same set of inputs into the cyber physical system. The DT can be used to investiage alternative scenarios and the results of the virtual runs can be used tooptimize use of the physical system.\n\nAt this phase the DT has the capability of independently providing outcomes given a set of inputs. Given a set of inputs or scenarios, the DT does not simply replicate the physical system, but it can predict the outcome of how the physical system will perform. Machine learning models are continuously trained to improve the prediction. The main characteristics of the Reality phase are the ability to run the virtual device independent of the physical device, run different configurations or use cases and come out with a different version by changing inputs. The eality phase considers the augmentation of the DT with non-essential, but value-added capabilities, such as remote-control options, Extended eality (XR), and optimization methods. Upon successful development of this phase the DT can be used to control the physical system, experiment with parameter variation, and perform optimization study of the process. XR can provide the capability of high-level monitoring and understanding of the physical system’s operation, as well a visual validation. Machine control, in combination with XR allow for the design of plethora of training scenarios and situations. This enables both synchronous and asynchronous remote training for new workers and operators, omething that could dramatically reduce training time and increase efficiency.",
+      "workflow_steps": [
+        {
+          "step_id": "1",
+          "step_title": "1. Define Prediction & Decision Objectives",
+          "tasks": [
+            {
+              "task_id": "1.1",
+              "task_text": "1.1 Identify: What needs to be predicted (performance, failures, throughput, etc.), and Time horizon (short-term vs long-term). Define: Decision variables (what can be changed), and Objective functions (cost, efficiency, quality, etc.)"
+            }
+          ]
+        },
+        {
+          "step_id": "2",
+          "step_title": "2. Enable Independent DT Execution",
+          "tasks": [
+            {
+              "task_id": "2.1",
+              "task_text": "2.1 Decouple DT from real-time data dependency. Allow: Simulation with hypothetical inputs and Scenario-based runs without live system\nEnsure: Model stability without continuous physical updates"
+            }
+          ]
+        },
+        {
+          "step_id": "3",
+          "step_title": "3. Develop Predictive Models",
+          "tasks": [
+            {
+              "task_id": "3.1",
+              "task_text": "3.1 Choose a tool that can perform prediction or analysis. Implement machine learning models, physics informed models, discrete event models, etc."
+            },
+            {
+              "task_id": "3.2",
+              "task_text": "3.2 Integrate Scenario Simulation Capability. Perform a what-if analysis (Testing different inputs, conditions, or scenarios to evaluate how the system would change)"
+            }
+          ]
+        },
+        {
+          "step_id": "4",
+          "step_title": "4. Execute predictions",
+          "tasks": [
+            {
+              "task_id": "4.1",
+              "task_text": "4.1 Create predictions about the overall system performance. Use the model to estimate outcomes"
+            },
+            {
+              "task_id": "4.2",
+              "task_text": "4.2 Compare the predictions to the results. Compare the model predictions to known outcomes or system behavior"
+            },
+            {
+              "task_id": "4.3",
+              "task_text": "4.3 Repeat until there are no better system results. Adjust the parameters until an optimized solution is found"
+            },
+            {
+              "task_id": "4.4",
+              "task_text": "4.4 Verify and validate the model has no better system results. Ensure the model produces accurate predictions that are also the optimal solution"
+            },
+            {
+              "task_id": "4.5",
+              "task_text": "4.5. Key Reality Check:\nCan your DT run independently and produce outcomes without live system data?\n(If not, you’re still in R2.)\nCan it accurately predict system behavior for scenarios it has not directly observed?\n(If it only matches known data, it’s not predictive.)\nCan you change inputs and reliably explore “what-if” scenarios?\n(If it can’t explore alternatives, it’s not R3.)\nDoes it provide actionable insights or optimal decisions, not just outputs?\n(If users still have to interpret everything manually, it’s incomplete.)\nCan the DT be used to improve or control the physical system with confidence?\n(If you wouldn’t trust it to guide decisions, it’s not truly R3.)"
+            }
+          ]
+        }
+      ],
+      "core_outcome": "The digital twin runs independently of the physical asset, explores alternative scenarios, predicts outcomes, and supports decisions or optimization.",
+      "minimum_gate_criteria": [
+        "R2 is already satisfied.",
+        "Prediction targets, decision variables, and objective functions are defined.",
+        "The DT can run without continuous live dependency on the physical system.",
+        "Predictive or scenario-exploration models are implemented.",
+        "The DT can evaluate what-if conditions and provide actionable recommendations or optimized results."
+      ],
+      "diagnostic_checks": [
+        "Can the DT run independently and still produce credible outcomes?",
+        "Can it predict behavior for scenarios not directly observed?",
+        "Can it explore what-if alternatives by changing inputs?",
+        "Does it produce actionable insights or optimal decisions, not just raw outputs?",
+        "Would the team trust it to guide improvement or control decisions?"
+      ],
+      "action_items_to_reach_this_level": [
+        "Define what the DT must predict, the time horizon, and the decisions it should support.",
+        "Decouple the DT from continuous live data so it can run hypothetical cases.",
+        "Add predictive, physics-based, machine learning, or analytical models as appropriate.",
+        "Implement scenario simulation and what-if analysis workflows.",
+        "Compare predictions to known outcomes and quantify predictive performance.",
+        "Use iterative tuning or optimization to improve system recommendations.",
+        "Create a decision-support output that translates predictions into operational guidance."
+      ],
+      "evidence_expected": [
+        "Prediction targets",
+        "Independent execution capability",
+        "Scenario analysis outputs",
+        "Prediction accuracy metrics",
+        "Optimization or recommendation results"
+      ],
+      "target_if_not_met": "Complete R3 before pursuing autonomy or closed-loop action."
+    },
+    {
+      "id": "R4",
+      "name": "Relational",
+      "order": 4,
+      "description": "In the final phase, Relational (R4) , that DT would utilize technologies such as machine learning and artificial intelligence to aid in decision making and can interact bidirectionally with the cyber physical machine to make real time decisions and implement actions. The DT would also have a level of autonomy that is not available in the previous phases.\n\nIn the Relational phase, the DT becomes self-aware and is enhanced with the power and problem-solving capabilities of Artificial Intelligence (AI). The DT learns and evolves absorbing experience about the behaviour of the physical asset making the DT operations completely autonomous with the ability to react to anomalies and take necessary corrective action with little or no human interaction. Data flows are utilized to build data sets, aiming to improve certain aspects of the physical entity’s operation. These datasets can subsequently be utilized to train Machine Learning algorithms that would provide the DT with some level of autonomy. Example use cases of such solutions are pre-\ndictive maintenance, quality control, and energy consumption forecasting.",
+      "workflow_steps": [
+        {
+          "step_id": "1",
+          "step_title": "1. Define autonomy scope",
+          "tasks": [
+            {
+              "task_id": "1.1",
+              "task_text": "1.1 Specify what the DT is allowed to: Recommend (advisory), Decide (semi-autonomous) and/or Execute (fully autonomous)\nDefine:Human-in-the-loop boundaries, and Safety and override conditions"
+            },
+            {
+              "task_id": "1.2",
+              "task_text": "1.2 Define how the recommendations turn into actionable items. Translate the model outputs into specific actionable tasks"
+            }
+          ]
+        },
+        {
+          "step_id": "2",
+          "step_title": "2. Develop Anomaly Detection & Response",
+          "tasks": [
+            {
+              "task_id": "2.1",
+              "task_text": "2.1 Connect to the control systems and detect problems. Integrate to track system behavior and use real time data to identify unsual conditions or issues. Build systems to: Detect deviations in real time, Classify anomaly severity. Define: Response strategies (alert, adjust, shut down, reroute)"
+            }
+          ]
+        },
+        {
+          "step_id": "3",
+          "step_title": "3. Implement Autonomous Decision-Making",
+          "tasks": [
+            {
+              "task_id": "3.1",
+              "task_text": "3.1 Enable DT to: Select optimal actions based on learned policies and Compare multiple options in real time. Implement the necessary adjustments and observe how the system changes"
+            }
+          ]
+        },
+        {
+          "step_id": "4",
+          "step_title": "4. Build Relational Intelligence (System Memory)",
+          "tasks": [
+            {
+              "task_id": "4.1",
+              "task_text": "4.1 Store: Past decisions and outcomes, Context of system behavior over time. Enable DT to: Learn relationships between actions and outcomes. Create Long-term system “memory”"
+            },
+            {
+              "task_id": "4.2",
+              "task_text": "4.2 Improve decisions as new information or data is available"
+            },
+            {
+              "task_id": "4.3",
+              "task_text": "4.3 Key Relational Check:\nCan your DT improve its decisions over time without being explicitly reprogrammed?\n(If not, it is not learning, just executing models.)\nCan it detect anomalies and decide what to do about them automatically?\n(If it only alerts humans, autonomy is incomplete.)\nCan it optimize system performance while balancing multiple objectives (cost, quality, efficiency)?\n(If it only optimizes one metric, it’s still R3.)\nDoes the DT change its behavior based on past outcomes and experience?\n(If it behaves the same every time, it’s not relational.)\nWould you trust it to make or execute decisions with minimal human intervention?\n(If no, it’s not R4 yet.)"
+            }
+          ]
+        }
+      ],
+      "core_outcome": "The digital twin learns from experience, detects anomalies, and can recommend, decide, or execute actions with limited human intervention through bidirectional interaction with the physical system.",
+      "minimum_gate_criteria": [
+        "R3 is already satisfied.",
+        "Autonomy scope, human-in-the-loop boundaries, and override conditions are defined.",
+        "The DT can detect anomalies or changing conditions in real time.",
+        "The DT can choose among actions based on learned or adaptive logic.",
+        "Past outcomes are stored and used to improve future decisions.",
+        "The DT can make or execute decisions with acceptable trust and safety controls."
+      ],
+      "diagnostic_checks": [
+        "Can the DT improve its decisions over time without explicit reprogramming?",
+        "Can it detect anomalies and decide what to do automatically?",
+        "Can it balance multiple objectives such as cost, quality, and efficiency?",
+        "Does it adapt based on past outcomes and experience?",
+        "Would stakeholders trust it to make or execute decisions with minimal human intervention?"
+      ],
+      "action_items_to_reach_this_level": [
+        "Define whether the DT is advisory, semi-autonomous, or fully autonomous.",
+        "Specify safety boundaries, override rules, and operator approval requirements.",
+        "Integrate control-system connections and real-time anomaly detection.",
+        "Implement response strategies such as alerting, adjustment, shutdown, or rerouting.",
+        "Add decision logic that compares and selects actions in real time.",
+        "Store historical context, decisions, and outcomes to create system memory.",
+        "Continuously retrain or update decision logic using new evidence while monitoring trust, safety, and performance."
+      ],
+      "evidence_expected": [
+        "Autonomy policy",
+        "Safety/override logic",
+        "Anomaly detection outputs",
+        "Decision policy or controller behavior",
+        "Historical memory store",
+        "Evidence of performance improvement over time"
+      ],
+      "target_if_not_met": "Do not claim R4 unless adaptive decision-making and controlled autonomy are both demonstrated."
+    }
+  ],
+  "assessment_input_template": {
+    "system_name": "",
+    "domain": "",
+    "use_case": "",
+    "evidence": {
+      "purpose_and_scope": "",
+      "system_boundaries": "",
+      "components_and_states": "",
+      "data_pipeline": "",
+      "data_storage_and_schema": "",
+      "modeling_platform": "",
+      "replication_results": "",
+      "predictive_capability": "",
+      "what_if_analysis": "",
+      "decision_support": "",
+      "autonomy_scope": "",
+      "anomaly_detection": "",
+      "closed_loop_actions": "",
+      "learning_or_memory": "",
+      "safety_and_override_controls": ""
+    },
+    "target_level": "R1"
+  },
+  "assessment_output_template": {
+    "current_level": "R1",
+    "level_confidence": "medium",
+    "evidence_summary": [],
+    "passed_criteria": [],
+    "missing_criteria": [],
+    "next_level": "R2",
+    "recommended_action_items": [],
+    "risks_or_notes": []
+  }
+}

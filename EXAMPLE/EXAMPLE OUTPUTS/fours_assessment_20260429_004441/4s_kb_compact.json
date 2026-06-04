@@ -1,0 +1,124 @@
+{
+  "framework_name": "4S Framework",
+  "framework_description": "The 4S Framework categorizes simulation models into four increasing levels of capability that allow organizations and researchers to understand how far a simulation model has progressed in its ability to represent, analyze, predict, and support decisions about a system. The framework was developed as an analogous structure to the 4R Digital Twin Framework so that simulation and digital twin capabilities can be compared more clearly. Its purpose is to provide a capability-based classification for simulation models and reduce confusion between simulations and digital twins, especially in cases where advanced simulation models are incorrectly labeled as digital twins.",
+  "distinction_from_digital_twin": "The 4S Framework is especially important because a high-capability simulation is still distinct from a digital twin unless it includes digital twin capabilities such as real-time data integration, synchronization with the physical system, bidirectional data flow, and autonomous or semi-autonomous feedback. A simulation can reach S4 by prescribing an optimal solution while still relying on historical data, offline experimentation, or one-way data flow.",
+  "levels": [
+    {
+      "level_id": "S1",
+      "level_name": "Modeling",
+      "level_summary": "Modeling is the first level of simulation capability. At this level, the simulation model creates an abstracted representation of a real-world or conceptual system. The goal is to understand the system, map its processes, identify its components, and convert the system\u2019s behavior into a conceptual and computer model.",
+      "key_check": "Can the model explain the basic structure and behavior of the system? Can someone look at the model and understand what components exist, how entities flow, and what logic governs the process? If not, the simulation has not reached a useful Modeling level.",
+      "how_to_achieve_level": [
+        {
+          "step_number": "1",
+          "step_title": "Define the purpose and scope of the simulation model",
+          "sub_steps": []
+        },
+        {
+          "step_number": "2",
+          "step_title": "Understand the system being modeled",
+          "sub_steps": []
+        },
+        {
+          "step_number": "3",
+          "step_title": "Develop the conceptual model",
+          "sub_steps": []
+        },
+        {
+          "step_number": "4",
+          "step_title": "Build the computer model",
+          "sub_steps": []
+        }
+      ]
+    },
+    {
+      "level_id": "S2",
+      "level_name": "Analyzing",
+      "level_summary": "Analyzing is the second level of simulation capability. At this level, the simulation model is used to examine the system and draw conclusions about its behavior. The model incorporates data, uses input analysis, and is verified and validated against the system being modeled.",
+      "key_check": "Can the model be used to explain why the system behaves a certain way? Are the inputs reasonable, the model verified, the behavior validated, and the results interpretable? If the model only exists visually but cannot support analysis, it is still closer to S1 than S2.",
+      "how_to_achieve_level": [
+        {
+          "step_number": "1",
+          "step_title": "Collect and prepare system data",
+          "sub_steps": []
+        },
+        {
+          "step_number": "2",
+          "step_title": "Perform input analysis",
+          "sub_steps": []
+        },
+        {
+          "step_number": "3",
+          "step_title": "Verify the simulation model",
+          "sub_steps": []
+        },
+        {
+          "step_number": "4",
+          "step_title": "Validate the simulation model",
+          "sub_steps": []
+        },
+        {
+          "step_number": "5",
+          "step_title": "Analyze system behavior",
+          "sub_steps": []
+        }
+      ]
+    },
+    {
+      "level_id": "S3",
+      "level_name": "Predicting",
+      "level_summary": "Predicting is the third level of simulation capability. At this level, the simulation model can predict how the physical system may operate under new or different conditions. It supports what-if scenarios, alternative configurations, and performance comparison.",
+      "key_check": "Can the simulation test a realistic alternative condition and forecast how the system would behave? Can it compare that predicted behavior against the baseline? If it only explains current behavior, it is S2. If it tests future or alternative behavior, it reaches S3.",
+      "how_to_achieve_level": [
+        {
+          "step_number": "1",
+          "step_title": "Define the prediction objective",
+          "sub_steps": []
+        },
+        {
+          "step_number": "2",
+          "step_title": "Develop what-if scenarios",
+          "sub_steps": []
+        },
+        {
+          "step_number": "3",
+          "step_title": "Run the scenario and compare it to baseline",
+          "sub_steps": []
+        },
+        {
+          "step_number": "4",
+          "step_title": "Interpret prediction results",
+          "sub_steps": []
+        }
+      ]
+    },
+    {
+      "level_id": "S4",
+      "level_name": "Prescribing",
+      "level_summary": "Prescribing is the fourth level of simulation capability. At this level, the simulation model is used for decision support and optimization. The model evaluates possible alternatives and provides insight into the best course of action, optimal operation, or preferred configuration.",
+      "key_check": "Can the simulation recommend the best course of action based on defined objectives, constraints, and alternatives? If it only compares scenarios, it is S3. If it identifies or recommends an optimal configuration, it reaches S4.",
+      "how_to_achieve_level": [
+        {
+          "step_number": "1",
+          "step_title": "Define the decision or optimization problem",
+          "sub_steps": []
+        },
+        {
+          "step_number": "2",
+          "step_title": "Select the prescribing method",
+          "sub_steps": []
+        },
+        {
+          "step_number": "3",
+          "step_title": "Run optimization experiments",
+          "sub_steps": []
+        },
+        {
+          "step_number": "4",
+          "step_title": "Prescribe the preferred configuration or action",
+          "sub_steps": []
+        }
+      ]
+    }
+  ]
+}
