@@ -16,7 +16,7 @@ These documents explain the Digital Twin Analytical Framework, the supporting fr
 4. **[Document 3: CNC Case Study](03-cnc-case-study.pdf)**  
    Demonstrates how the DTAF AI Pipeline can be applied to a manufacturing use case.
 
-5. **[Document 4: DEMA CNC CASE STUDY](docs/guidelines/04-dema-cnc-case-study)**
+5. **[Document 4: DEMA CNC CASE STUDY](docs/guidelines/04-dema-cnc-case-study.pdf)**
    Demonstrates how DEMA can be applied to a manufacturing use case.
 
 6. **[Document 5: DTAF AI Pipeline Quick Demo](05-quick-demo.pdf)**  
