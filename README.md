@@ -53,6 +53,16 @@ Users who are ready to install and run the program should proceed to **Document 
 
 Users interested in a complete manufacturing example should review **Document 3**.
 
+## Citation
+
+If you use the DTAF AI Pipeline in your research, publications, or projects, please consider citing the following publication, which introduces the Digital Twin Analytical Framework (DTAF) underlying this software.
+
+**Reference:**
+
+Womack, L., Wooley, A., Ledford, A., & Bitencourt, J. (2026). DTAF: A path toward an integrated approach for digital twin adoption. *Manufacturing Letters, 49*, 1249–1262. https://doi.org/10.1016/j.mfglet.2026.08.032
+
+**DOI:** [10.1016/j.mfglet.2026.08.032](https://doi.org/10.1016/j.mfglet.2026.08.032)
+
 ## Funding Acknowledgment
 
 This material is based on research sponsored by Office of the Under Secretary of Defense for Research and Engineering, Strategic Technology Protection and Exploitation, Defense Manufacturing Science and Technology Program under agreement number W911NF-24-3-0006. The U.S. Government is authorized to reproduce and distribute reprints for Governmental purposes notwithstanding any copyright notation thereon.
